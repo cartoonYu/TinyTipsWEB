@@ -9,4 +9,11 @@ public class JudgeEmpty {
 		return false;
 	}
 	
+	public static boolean isNotEmpty(Object obj) {
+		if(obj!=null) {
+			return true;
+		}
+		return false;
+	}
+	
 }

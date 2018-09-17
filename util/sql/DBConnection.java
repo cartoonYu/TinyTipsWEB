@@ -11,6 +11,8 @@ public class DBConnection {
 	private String user;
 	private String password;
 	
+	private Connection conn;
+	
 	public void setDriverClass(String driverClass) {
 		this.driverClsss=driverClass;
 	}
@@ -28,15 +30,14 @@ public class DBConnection {
 	}
 	
 	public Connection getConnect() {
-		Connection connect=null;
 		try {
 			Class.forName(this.driverClsss);
-			connect=(Connection)DriverManager.getConnection(url, user, password);
+			conn=(Connection)DriverManager.getConnection(url, user, password);
 		}catch(ClassNotFoundException e) {
 			e.printStackTrace();
 		}catch(SQLException e) {
 			e.printStackTrace();
 		}
-		return connect;
+		return conn;
 	}
 }

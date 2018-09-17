@@ -9,7 +9,15 @@
         http://www.springframework.org/schema/context                           
         http://www.springframework.org/schema/context/spring-context-3.0.xsd">
         
+        <!-- util.operateBean -->
+        <bean id="operateComment" class="operateBean.OperateComment"/>
+        
+        <!-- util.spring -->
+        <bean id="getContext" class="spring.GetContext"/>
+        
+        <!-- util.sql -->
         <context:property-override location="classpath:sql/dbconn.properties"/>
         <bean id="dbConnection" class="sql.DBConnection"/>
+        <bean id="operateDB" class="sql.OperateDB"/>
         
 </beans>
