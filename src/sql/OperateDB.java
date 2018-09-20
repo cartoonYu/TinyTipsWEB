@@ -43,6 +43,7 @@ public class OperateDB {
      * 注意:
      * 1.每次只能插入一个对象
      * 2.data的key为数据的属性，value为数据本身
+     * 3.data里的所有value都转换成String类型再传入
      * @param tableName
      * @param data
      * @return

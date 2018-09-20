@@ -9,6 +9,21 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
+    <bean id="comment" class="bean.Comment"/>
+    <bean id="commentDetails" class="bean.CommentDetails"/>
+    <bean id="information" class="bean.Information"/>
+    <bean id="note" class="bean.Note"/>
+
+    <bean id="operateComment" class="bean.operate.OperateComment"
+        p:operateDB-ref="operateDB"/>
+    <bean id="operateCommentDetails" class="bean.operate.OperateCommentDetails"
+          p:operateDB-ref="operateDB"/>
+    <bean id="operateInformation" class="bean.operate.OperateInformation"
+          p:operateDB-ref="operateDB"/>
+    <bean id="operateNote" class="bean.operate.OperateNote"
+          p:operateDB-ref="operateDB"/>
+
+
     <bean id="test" class="servlet.Text"/>
 
     <bean id="getContext" class="spring.GetContext"/>
