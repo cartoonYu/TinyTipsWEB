@@ -6,7 +6,8 @@ import java.util.List;
 import java.util.Random;
 
 public class Note {
-	private long id;       //主键，笔记编号，用于关联用户
+
+    private long id;       //主键，笔记编号，用于关联用户
 
     private long userId;     //外键
 
