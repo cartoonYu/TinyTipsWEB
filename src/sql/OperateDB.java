@@ -11,7 +11,11 @@ import java.util.Map;
  * @author cartoon
  * @version 1.5
  * compare to last version
- * remove some suggestive statements
+ * 1.remove some suggestive statements
+ *
+ * still to prefect
+ * 1.use prepareStatement replace statement
+ * 2.according to point one,still have some place to prefect
  */
 public class OperateDB {
 

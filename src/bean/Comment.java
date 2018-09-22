@@ -4,17 +4,17 @@ import java.util.List;
 
 public class Comment {
 
-    private int like;    //点赞数
+    private long noteId;    //笔记ID，外键
+
+    private List<String> tag;   //公开标签
+
+    private int love;    //点赞数
 
     private int comment;   //评论数
 
     private int collect;    //收藏数
 
     private int forward;     //转发数
-
-    private long noteId;    //笔记ID，外键
-
-    private List<String> tag;   //公开标签
 
     public int getCollect() {
         return collect;
@@ -29,7 +29,7 @@ public class Comment {
     }
 
     public int getLike() {
-        return like;
+        return love;
     }
 
     public long getNoteId() {
@@ -56,8 +56,8 @@ public class Comment {
         this.forward = forward;
     }
 
-    public void setLike(int like) {
-        this.like = like;
+    public void setLike(int love) {
+        this.love=love;
     }
 
     public void setNoteId(long noteId) {

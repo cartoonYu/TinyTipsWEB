@@ -13,15 +13,15 @@ public class Note {
 
     private String title;     //标题
 
-    private String wordDetails;    //文字性内容
-
-    private String photoDetails;   //图片性内容
-
     private String author;     //作者
 
     private String date;       //时间
 
     private List<String> tag;     //标签
+
+    private String wordDetails;    //文字性内容
+
+    private String photoDetails;   //图片性内容
 
     public Note(){
         Random rId=new Random(50);

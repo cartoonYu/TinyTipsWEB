@@ -5,19 +5,19 @@ import java.util.Random;
 
 public class Information {
 
+    private long id;      //主键，个人信息的唯一标识，自增长
+
+    private String account;   //主键，账号
+
+    private String password;  //密码
+
     private String headPortrait;  //头像
 
     private String nickName;  //昵称
 
-    private String account;   //账号
-
-    private long id;      //主键
-
-    private List<String> interesting;   //兴趣
-
-    private String password;  //密码
-
     private boolean sex;     //性别
+
+    private List<String> interest;   //兴趣
 
     private String school;    //高校
 
@@ -45,7 +45,7 @@ public class Information {
     }
 
     public List<String> getInteresting() {
-        return interesting;
+        return interest;
     }
 
     public String getAccount() {
@@ -92,8 +92,8 @@ public class Information {
         this.major = major;
     }
 
-    public void setInteresting(List<String> interesting) {
-        this.interesting = interesting;
+    public void setInteresting(List<String> interest) {
+        this.interest = interest;
     }
 
     public void setNickName(String nickName) {

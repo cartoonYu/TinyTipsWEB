@@ -4,15 +4,15 @@ import java.util.Date;
 
 public class CommentDetails {
 
-    private String nickName;    //昵称，主键，个人信息外键
+    private long noteId;       //笔记编号，用于关联笔记
 
     private Date date;        //时间，主键
 
     private String headPro;     //头像，个人信息外键
 
-    private String details;     //评论详情
+    private String nickName;    //昵称，主键，个人信息外键
 
-    private long noteId;       //笔记编号，用于关联用户
+    private String details;     //评论详情
 
     public CommentDetails(){
         //时间的赋值
