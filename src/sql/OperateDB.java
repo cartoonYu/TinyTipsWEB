@@ -1,5 +1,7 @@
 package sql;
 
+import util.JudgeEmpty;
+
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -7,15 +9,16 @@ import java.sql.Statement;
 import java.util.Map;
 
 /**
- * 对数据库进行增删查改操作
+ * pack sql statement and operate database
  * @author cartoon
- * @version 1.5
+ * @version 1.5 in 2018.9.26
  * compare to last version
  * 1.remove some suggestive statements
  *
  * still to prefect
  * 1.use prepareStatement replace statement
  * 2.according to point one,still have some place to prefect
+ * 3.all function except add need to use data type map to replace string in condition
  */
 public class OperateDB {
 
@@ -53,9 +56,9 @@ public class OperateDB {
      * @return
      */
     public boolean add(String tableName,Map<String,String> data) {
-        StringBuffer sql=new StringBuffer();  //拼接的sql语句
-        StringBuffer columns=new StringBuffer();
-        StringBuffer values=new StringBuffer();
+        StringBuilder sql=new StringBuilder();  //拼接的sql语句
+        StringBuilder columns=new StringBuilder();
+        StringBuilder values=new StringBuilder();
         data.forEach((key,value)->{
             columns.append(key).append(",");
             values.append("\"").append(value).append("\"").append(",");
@@ -90,10 +93,17 @@ public class OperateDB {
      * @param condition
      * @return
      */
-    public boolean delete(String tableName,String condition) {
-        StringBuffer sql=new StringBuffer();  //拼接的sql语句
-        sql.append("delete from ").append(tableName);
-        sql.append(" where ").append(condition).append(";");
+    public boolean delete(String tableName,Map<String,String> condition) {
+        StringBuilder sql=new StringBuilder();  //拼接的sql语句
+        StringBuilder tCondition=new StringBuilder();
+        sql.append("delete from ").append(tableName).append(" where ");
+        condition.forEach((key,value)->{
+            if(JudgeEmpty.isNotEmpty(value)){
+                tCondition.append(key).append("=").append("\"").append(value).append("\"");
+                tCondition.append(" and ");
+            }
+        });
+        sql.append(tCondition.substring(0,tCondition.length()-5)).append(";");
         int result=-1;
         try {
             result=s.executeUpdate(sql.toString());
@@ -122,10 +132,17 @@ public class OperateDB {
      * @param condition
      * @return
      */
-    public ResultSet query(String tableName,String condition) {
-        StringBuffer sql=new StringBuffer();  //拼接的sql语句
-        sql.append("select * from ").append(tableName);
-        sql.append(" where ").append(condition);
+    public ResultSet query(String tableName,Map<String,String> condition) {
+        StringBuilder sql=new StringBuilder();  //拼接的sql语句
+        StringBuilder tCondition=new StringBuilder();
+        sql.append("select * from ").append(tableName).append(" where ");
+        condition.forEach((key,value)->{
+            if(JudgeEmpty.isNotEmpty(value)){
+                tCondition.append(key).append("=").append("\"").append(value).append("\"");
+                tCondition.append(" and ");
+            }
+        });
+        sql.append(tCondition.substring(0,tCondition.length()-5)).append(";");
         ResultSet result=null;
         try {
             result=s.executeQuery(sql.toString());
@@ -144,22 +161,27 @@ public class OperateDB {
      * 	 data(数据以及对应的属性)
      *   condition(筛选条件)
      * 2.根据返回值判断修改是否成功
-     * 注意:
-     * 1.形参中columnName与values的长度必须相等
      * @param tableName
      * @param data
      * @param condition
      * @return
      */
-    public boolean update(String tableName,Map<String,String> data,String condition) {
-        StringBuffer sql=new StringBuffer(); //拼接的sql语句
-        StringBuffer rData=new StringBuffer();  //修改后的数据
+    public boolean update(String tableName,Map<String,String> data,Map<String,String> condition) {
+        StringBuilder sql=new StringBuilder(); //拼接的sql语句
+        StringBuilder rData=new StringBuilder();  //修改后的数据
         data.forEach((key,value)->{
             rData.append(key).append("=").append("\"").append(value).append("\"").append(",");
         });
-        sql.append("update ").append(tableName);
+        sql.append("update ").append(tableName).append(" where ");
         sql.append(" set ").append(rData.substring(0, rData.length()-1));
-        sql.append(" where ").append(condition).append(";");
+        StringBuilder tCondition=new StringBuilder();
+        condition.forEach((key,value)->{
+            if(JudgeEmpty.isNotEmpty(value)){
+                tCondition.append(key).append("=").append("\"").append(value).append("\"");
+                tCondition.append(" and ");
+            }
+        });
+        sql.append(tCondition.substring(0,tCondition.length()-5)).append(";");
         int result=-1;
         try {
             result=s.executeUpdate(sql.toString());

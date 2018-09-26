@@ -15,7 +15,9 @@ public interface ValueCallBack<T> {
     public void onSuccess(T t);   //成功调用此方法
 
     /**
-     * onFail形参值为300
+     * onFail形参值
+     * 1.对象为空，300
+     * 2.操作失败，400
      * @param code
      */
     public void onFail(String code);  //失败调用此方法

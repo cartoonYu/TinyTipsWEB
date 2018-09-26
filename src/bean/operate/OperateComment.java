@@ -19,7 +19,7 @@ public class OperateComment {
     private OperateDB db;
 
     public OperateComment(){
-        this.tableName=new String("comment");
+
     }
 
     /**
@@ -29,6 +29,15 @@ public class OperateComment {
      */
     public void setOperateDB(OperateDB db){
         this.db=db;
+    }
+
+    /**
+     * 将表名传进本类
+     * 注：已经通过Spring注入对象，不需在后续操作显式传入
+     * @param tableName
+     */
+    public void setTableName(String tableName) {
+        this.tableName = tableName;
     }
 
     /**

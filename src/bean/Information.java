@@ -15,8 +15,10 @@ public class Information {
 
     private String nickName;  //昵称
 
+    //true为男，false为女
     private boolean sex;     //性别
 
+    //以符号$进行分隔
     private List<String> interest;   //兴趣
 
     private String school;    //高校
@@ -44,7 +46,7 @@ public class Information {
         return sex;
     }
 
-    public List<String> getInteresting() {
+    public List<String> getInterest() {
         return interest;
     }
 
@@ -92,7 +94,7 @@ public class Information {
         this.major = major;
     }
 
-    public void setInteresting(List<String> interest) {
+    public void setInterest(List<String> interest) {
         this.interest = interest;
     }
 

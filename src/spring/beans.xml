@@ -12,16 +12,19 @@
     <bean id="comment" class="bean.Comment"/>
     <bean id="commentDetails" class="bean.CommentDetails"/>
     <bean id="information" class="bean.Information"/>
-    <bean id="note" class="bean.Note"/>
+    <bean id="note" class="bean.Note"
+        p:date-ref="currentTime"/>
 
     <bean id="operateComment" class="bean.operate.OperateComment"
-        p:operateDB-ref="operateDB"/>
+        p:operateDB-ref="operateDB"
+        p:tableName="comment"/>
     <bean id="operateCommentDetails" class="bean.operate.OperateCommentDetails"
-          p:operateDB-ref="operateDB"/>
+        p:operateDB-ref="operateDB"/>
     <bean id="operateInformation" class="bean.operate.OperateInformation"
-          p:operateDB-ref="operateDB"/>
+        p:operateDB-ref="operateDB"
+        p:tableName="information"/>
     <bean id="operateNote" class="bean.operate.OperateNote"
-          p:operateDB-ref="operateDB"/>
+        p:operateDB-ref="operateDB"/>
 
 
     <bean id="test" class="servlet.Text"/>
@@ -32,4 +35,7 @@
     <bean id="dbConnection" class="sql.DBConnection"/>
     <bean id="operateDB" class="sql.OperateDB"
           p:connection-ref="dbConnection"/>
+
+    <bean id="currentTime" class="util.CurrentTime"/>
+    <bean id="judgeEmpty" class="util.JudgeEmpty"/>
 </beans>

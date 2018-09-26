@@ -1,5 +1,7 @@
 package bean;
 
+import util.CurrentTime;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -28,9 +30,6 @@ public class Note {
         id=(rId.nextLong()*1000);
         Random rUserId=new Random(60);
         userId=(rUserId.nextLong()*1000);
-        Date date=new Date();
-        SimpleDateFormat df=new SimpleDateFormat("yyyy-MM-dd HH:mm");
-        this.date=df.format(date);
     }
 
     public long getId() {
@@ -75,6 +74,10 @@ public class Note {
 
     public void setAuthor(String author) {
         this.author = author;
+    }
+
+    public void setDate(CurrentTime time) {
+        date=time.getDate();
     }
 
     public void setTag(List<String> tag) {
