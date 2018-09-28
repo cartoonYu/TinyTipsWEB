@@ -4,8 +4,10 @@ import BaseClass.ValueCallBack;
 import bean.Information;
 import sql.OperateDB;
 import util.JudgeEmpty;
+import util.ListAndString;
 
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -24,6 +26,8 @@ public class OperateInformation {
 
     private OperateDB db;
 
+    private ListAndString ls;
+
     /**
      * 将数据库操作类对象传进本类
      * 注：已经通过Spring注入对象，不需在后续操作显式传入
@@ -40,6 +44,15 @@ public class OperateInformation {
      */
     public void setTableName(String tableName) {
         this.tableName = tableName;
+    }
+
+    /**
+     * 将List与String转换的工具类对象传进本类
+     * 注：已经通过Spring注入对象，不需在后续操作显式传入
+     * @param ls
+     */
+    public void setLs(ListAndString ls){
+        this.ls=ls;
     }
 
     /**
@@ -69,6 +82,35 @@ public class OperateInformation {
 
     /**
      * 功能
+     * 根据传入条件删除数据库的information表中符合条件的值
+     *
+     * 使用方法
+     * 1.传入带有条件的个人信息对象
+     * 2.通过回调接口得到查询结果
+     *
+     * 注意
+     * 1.对象内需至少含有一个值
+     * 2.查询结果数据类型为List
+     *
+     * @param information
+     * @param callBack
+     */
+    public void delete(Information information,ValueCallBack<String> callBack){
+        if(JudgeEmpty.isEmpty(information)){
+            callBack.onFail("300");
+            return;
+        }
+        Map<String,String> condition=changeInformationToMap(information);
+        if(db.delete(tableName,condition)){
+            callBack.onSuccess("200");
+        }
+        else{
+            callBack.onFail("400");
+        }
+    }
+
+    /**
+     * 功能
      * 根据传入条件查询数据库的information表
      *
      * 使用方法
@@ -84,7 +126,7 @@ public class OperateInformation {
      */
     public void query(Information information,ValueCallBack<List<Information>> callBack){
         if(JudgeEmpty.isEmpty(information)){
-            callBack.onFail(new String("300"));
+            callBack.onFail("300");
             return;
         }
         Map<String,String> data=changeInformationToMap(information);
@@ -98,7 +140,7 @@ public class OperateInformation {
                 result.setHeadPortrait(set.getString("headPortrait"));
                 result.setNickName(set.getString("nickName"));
                 result.setSex(changeSexToBoolean(set.getString("sex")));
-                result.setInterest(changeInterestToList(set.getString("interest")));
+                result.setInterest(ls.changeStringToList(set.getString("interest"),new String("$")));
                 result.setSchool(set.getString("school"));
                 result.setMajor(set.getString("major"));
                 result.setBackground(set.getString("background"));
@@ -107,7 +149,37 @@ public class OperateInformation {
             }
             callBack.onSuccess(list);
         }catch (SQLException e){
-            callBack.onFail(new String("400"));
+            callBack.onFail("400");
+        }
+    }
+
+    /**
+     * 功能
+     * 更新数据库中符合传入条件的数据
+     *
+     * 使用方法
+     * 1.传入带有查询条件的个人信息对象以及修改后的值
+     * 2.通过回调接口得到查询结果
+     *
+     * 注意
+     * 1.查询对象内需至少含有一个值
+     *
+     * @param oldInformation
+     * @param newInformation
+     * @param callBack
+     */
+    public void update(Information oldInformation,Information newInformation,ValueCallBack<String> callBack){
+        if(JudgeEmpty.isEmpty(oldInformation)||JudgeEmpty.isEmpty(newInformation)){
+            callBack.onFail("300");
+            return;
+        }
+        Map<String,String> condition=changeInformationToMap(oldInformation);
+        Map<String,String> data=changeInformationToMap(newInformation);
+        if(db.update(tableName,data,condition)){
+            callBack.onSuccess("200");
+        }
+        else{
+            callBack.onFail("400");
         }
     }
 
@@ -125,7 +197,7 @@ public class OperateInformation {
         data.put("headPortrait",information.getHeadPortrait());
         data.put("nickName",information.getNickName());
         data.put("sex",changeSexToString(information.isSex()));
-        data.put("interest",changeInterestToString(information.getInterest()));
+        data.put("interest",ls.changeListToString(information.getInterest(),new String("$")));
         data.put("school",information.getSchool());
         data.put("major",information.getMajor());
         data.put("background",information.getBackground());
@@ -166,42 +238,4 @@ public class OperateInformation {
         }
     }
 
-    /**
-     * 将个人信息中的兴趣的数据类型从List转换成String
-     * 该String用于写入数据库
-     * @param list
-     * @return
-     */
-    private String changeInterestToString(List<String> list){
-        if(JudgeEmpty.isEmpty(list)){
-            return null;
-        }
-        StringBuilder interest=new StringBuilder();
-        for(String i:list){
-            interest.append(i).append(new String("$"));
-        }
-        return interest.toString();
-    }
-
-    /**
-     * 将个人信息中的兴趣的数据类型从String转换成List
-     * 该List用于上层再利用
-     * @param interest
-     * @return
-     */
-    private List<String> changeInterestToList(String interest){
-        List<String> list=new ArrayList<>();
-        if(JudgeEmpty.isEmpty(interest)){
-            return list;
-        }
-        int index=interest.indexOf("$");
-        int length;
-        while(index!=-1){
-            list.add(interest.substring(0,index));
-            length=interest.length();
-            interest=interest.substring(index+1,length);
-            index=interest.indexOf("$");
-        }
-        return list;
-    }
 }

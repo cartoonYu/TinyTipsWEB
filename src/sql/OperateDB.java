@@ -2,6 +2,7 @@ package sql;
 
 import util.JudgeEmpty;
 
+import static java.lang.System.out;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -104,6 +105,7 @@ public class OperateDB {
             }
         });
         sql.append(tCondition.substring(0,tCondition.length()-5)).append(";");
+        out.println(sql.toString());
         int result=-1;
         try {
             result=s.executeUpdate(sql.toString());
@@ -111,7 +113,7 @@ public class OperateDB {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-        if(result==-1) {
+        if(result==-1||result==0) {
             return false;
         }else {
             return true;
@@ -172,8 +174,8 @@ public class OperateDB {
         data.forEach((key,value)->{
             rData.append(key).append("=").append("\"").append(value).append("\"").append(",");
         });
-        sql.append("update ").append(tableName).append(" where ");
-        sql.append(" set ").append(rData.substring(0, rData.length()-1));
+        sql.append("update ").append(tableName);
+        sql.append(" set ").append(rData.substring(0, rData.length()-1)).append(" where ");
         StringBuilder tCondition=new StringBuilder();
         condition.forEach((key,value)->{
             if(JudgeEmpty.isNotEmpty(value)){

@@ -22,7 +22,8 @@
         p:operateDB-ref="operateDB"/>
     <bean id="operateInformation" class="bean.operate.OperateInformation"
         p:operateDB-ref="operateDB"
-        p:tableName="information"/>
+        p:tableName="information"
+        p:ls-ref="listAndString"/>
     <bean id="operateNote" class="bean.operate.OperateNote"
         p:operateDB-ref="operateDB"/>
 
@@ -38,4 +39,6 @@
 
     <bean id="currentTime" class="util.CurrentTime"/>
     <bean id="judgeEmpty" class="util.JudgeEmpty"/>
+    <bean id="listAndString" class="util.ListAndString"/>
+
 </beans>
