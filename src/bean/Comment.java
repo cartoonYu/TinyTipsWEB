@@ -2,6 +2,18 @@ package bean;
 
 import java.util.List;
 
+/**
+ * @author cartoon
+ * @version 1.0
+ *
+ * description
+ * 评论bean类
+ *
+ * notice
+ * 1.属性noteId关联笔记bean类的id
+ * 2.属性tag转换成String以符号$进行分隔
+ */
+
 public class Comment {
 
     private long noteId;    //笔记ID，外键

@@ -23,6 +23,77 @@ public class OperateComment {
     }
 
     /**
+     * 功能
+     * 将传入数据写入到数据库的Comment表
+     *
+     * 使用方法
+     * 1.传入评论对象
+     * 2.通过回调接口得到插入结果
+     *
+     * @param comment
+     * @param callBack
+     */
+    public void add(Comment comment, ValueCallBack<String> callBack) {
+
+    }
+
+    /**
+     * 功能
+     * 根据传入条件删除数据库的Comment表中符合条件的值
+     *
+     * 使用方法
+     * 1.传入带有条件的评论对象
+     * 2.通过回调接口得到查询结果
+     *
+     * 注意
+     * 1.对象内需至少含有一个值
+     *
+     * @param comment
+     * @param callBack
+     */
+    public void delete(Comment comment, ValueCallBack<String> callBack) {
+
+    }
+
+    /**
+     * 功能
+     * 根据传入条件查询数据库的Comment表
+     *
+     * 使用方法
+     * 1.传入带有查询条件的评论对象
+     * 2.通过回调接口得到查询结果
+     *
+     * 注意
+     * 1.对象内需至少含有一个值
+     * 2.查询结果数据类型为List
+     *
+     * @param comment
+     * @param callBack
+     */
+    public void query(Comment comment, ValueCallBack<String> callBack){
+
+    }
+
+    /**
+     * 功能
+     * 更新数据库中符合传入条件的数据
+     *
+     * 使用方法
+     * 1.传入带有查询条件的评论对象以及修改后的值
+     * 2.通过回调接口得到查询结果
+     *
+     * 注意
+     * 1.查询对象内需至少含有一个值
+     *
+     * @param oldComment
+     * @param newComment
+     * @param callBack
+     */
+    public void update(Comment oldComment,Comment newComment, ValueCallBack<String> callBack){
+
+    }
+
+    /**
      * 将数据库操作类对象传进本类
      * 注：已经通过Spring注入对象，不需在后续操作显式传入
      * @param db
@@ -40,51 +111,4 @@ public class OperateComment {
         this.tableName = tableName;
     }
 
-    /**
-     * 功能：将Comment分拆并插入数据库
-     * 使用方法
-     * 1.传入Comment对象
-     * 2.使用回调接口获取插入结果
-     * 注意
-     * 1.传入Comment对象数据应严格按照bean包中Comment的要求
-     * @param comment
-     * @param callBack
-     */
-    public void add(Comment comment, ValueCallBack<String> callBack) {
-        Map<String,String> data=new HashMap<>();
-        data.put("like",Integer.toString(comment.getLike()));
-        data.put("comment",Integer.toString(comment.getComment()));
-        data.put("collect",Integer.toString(comment.getCollect()));
-        data.put("forward",Integer.toString(comment.getForward()));
-        StringBuilder tag=new StringBuilder();
-        Iterator tIt=comment.getTag().iterator();
-        while(tIt.hasNext()){
-            tag.append(tIt.next()).append("&");
-        }
-        data.put("tag",tag.substring(0,tag.length()-1));
-        if(db.add(tableName,data)){
-            callBack.onSuccess("200");
-        }
-        else{
-            callBack.onFail("300");
-        }
-    }
-
-    public void delete(Comment comment, ValueCallBack<String> callBack) {
-
-    }
-
-    /**
-     * 根据传入的comment对象进行查询
-     * @param comment
-     * @return
-     */
-    public void query(Comment comment, ValueCallBack<String> callBack){
-
-    }
-
-
-    public void update(Comment comment, ValueCallBack<String> callBack){
-
-    }
 }

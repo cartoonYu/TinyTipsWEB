@@ -10,17 +10,20 @@ import java.sql.Statement;
 import java.util.Map;
 
 /**
- * pack sql statement and operate database
  * @author cartoon
  * @version 1.5 in 2018.9.26
+ *
+ * description
+ * database operation
+ *
  * compare to last version
  * 1.remove some suggestive statements
  *
  * still to prefect
  * 1.use prepareStatement replace statement
  * 2.according to point one,still have some place to prefect
- * 3.all function except add need to use data type map to replace string in condition
  */
+
 public class OperateDB {
 
     private Connection conn;
@@ -105,7 +108,6 @@ public class OperateDB {
             }
         });
         sql.append(tCondition.substring(0,tCondition.length()-5)).append(";");
-        out.println(sql.toString());
         int result=-1;
         try {
             result=s.executeUpdate(sql.toString());
@@ -197,4 +199,5 @@ public class OperateDB {
             return true;
         }
     }
+
 }

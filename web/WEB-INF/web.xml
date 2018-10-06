@@ -4,11 +4,21 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
     <servlet>
-        <servlet-name>TinyTipsWEB</servlet-name>
+        <servlet-name>Text</servlet-name>
         <servlet-class>servlet.Text</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>TinyTipsWEB</servlet-name>
-        <url-pattern>/Test</url-pattern>
+        <servlet-name>Text</servlet-name>
+        <url-pattern>/Text</url-pattern>
     </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>Information</servlet-name>
+        <servlet-class>servlet.ServletInformation</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Information</servlet-name>
+        <url-pattern>/Information</url-pattern>
+    </servlet-mapping>
+
 </web-app>

@@ -1,7 +1,22 @@
 package bean;
 
+import util.CurrentTime;
+
 import java.util.List;
 import java.util.Random;
+
+/**
+ * @author cartoon
+ * @version 1.0
+ *
+ * description
+ * 个人信息bean类
+ *
+ * notice
+ * 1.属性id为数据库自增长，不需另赋值
+ * 2.属性sex，true为男，false为女
+ * 3.属性interest转换成String以符号$进行分隔
+ */
 
 public class Information {
 
@@ -11,14 +26,14 @@ public class Information {
 
     private String password;  //密码
 
+    private String date;     //注册时间
+
     private String headPortrait;  //头像
 
     private String nickName;  //昵称
 
-    //true为男，false为女
     private boolean sex;     //性别
 
-    //以符号$进行分隔
     private List<String> interest;   //兴趣
 
     private String school;    //高校
@@ -30,8 +45,7 @@ public class Information {
     private String resume;    //个人简介
 
     public Information(){
-        Random rId=new Random(60);
-        id=(rId.nextLong()*1000);
+
     }
 
     public long getId() {
@@ -78,6 +92,10 @@ public class Information {
         return resume;
     }
 
+    public void setId(long id) {
+        this.id = id;
+    }
+
     public void setAccount(String account) {
         this.account = account;
     }
@@ -118,4 +136,12 @@ public class Information {
         this.sex = sex;
     }
 
+    public String getDate() {
+        return date;
+    }
+
+
+    public void setDate(String date) {
+        this.date = date;
+    }
 }

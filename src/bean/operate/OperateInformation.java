@@ -7,12 +7,13 @@ import util.JudgeEmpty;
 import util.ListAndString;
 
 import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import static java.lang.System.out;
 
 /**
  * 拆分形参传进的Information，传递给数据库操作层
@@ -29,35 +30,8 @@ public class OperateInformation {
     private ListAndString ls;
 
     /**
-     * 将数据库操作类对象传进本类
-     * 注：已经通过Spring注入对象，不需在后续操作显式传入
-     * @param db
-     */
-    public void setOperateDB(OperateDB db){
-        this.db=db;
-    }
-
-    /**
-     * 将表名传进本类
-     * 注：已经通过Spring注入对象，不需在后续操作显式传入
-     * @param tableName
-     */
-    public void setTableName(String tableName) {
-        this.tableName = tableName;
-    }
-
-    /**
-     * 将List与String转换的工具类对象传进本类
-     * 注：已经通过Spring注入对象，不需在后续操作显式传入
-     * @param ls
-     */
-    public void setLs(ListAndString ls){
-        this.ls=ls;
-    }
-
-    /**
      * 功能
-     * 将传入数据写入到数据库的information表
+     * 将传入数据写入到数据库的Information表
      *
      * 使用方法
      * 1.传入个人信息对象
@@ -76,7 +50,7 @@ public class OperateInformation {
             callBack.onSuccess("200");
         }
         else{
-            callBack.onFail("300");
+            callBack.onFail("400");
         }
     }
 
@@ -86,11 +60,10 @@ public class OperateInformation {
      *
      * 使用方法
      * 1.传入带有条件的个人信息对象
-     * 2.通过回调接口得到查询结果
+     * 2.通过回调接口得到删除结果
      *
      * 注意
      * 1.对象内需至少含有一个值
-     * 2.查询结果数据类型为List
      *
      * @param information
      * @param callBack
@@ -104,6 +77,7 @@ public class OperateInformation {
         if(db.delete(tableName,condition)){
             callBack.onSuccess("200");
         }
+
         else{
             callBack.onFail("400");
         }
@@ -135,8 +109,10 @@ public class OperateInformation {
             List<Information> list=new ArrayList<>();
             while(set.next()){
                 Information result=new Information();
+                result.setId(set.getLong("id"));
                 result.setAccount(set.getString("account"));
                 result.setPassword(set.getString("password"));
+                result.setDate(set.getString("date"));
                 result.setHeadPortrait(set.getString("headPortrait"));
                 result.setNickName(set.getString("nickName"));
                 result.setSex(changeSexToBoolean(set.getString("sex")));
@@ -184,6 +160,33 @@ public class OperateInformation {
     }
 
     /**
+     * 将数据库操作类对象传进本类
+     * 注：已经通过Spring注入对象，不需在后续操作显式传入
+     * @param db
+     */
+    public void setOperateDB(OperateDB db){
+        this.db=db;
+    }
+
+    /**
+     * 将表名传进本类
+     * 注：已经通过Spring注入对象，不需在后续操作显式传入
+     * @param tableName
+     */
+    public void setTableName(String tableName) {
+        this.tableName = tableName;
+    }
+
+    /**
+     * 将List与String转换的工具类对象传进本类
+     * 注：已经通过Spring注入对象，不需在后续操作显式传入
+     * @param ls
+     */
+    public void setLs(ListAndString ls){
+        this.ls=ls;
+    }
+
+    /**
      * 将个人信息的对象转换成Map
      * 该Map用于写入到数据库
      * @param information
@@ -191,17 +194,43 @@ public class OperateInformation {
      */
     private Map<String,String> changeInformationToMap(Information information){
         Map<String,String> data=new HashMap<>();
-        data.put("id",Integer.toString(1));
-        data.put("account",information.getAccount());
-        data.put("password",information.getPassword());
-        data.put("headPortrait",information.getHeadPortrait());
-        data.put("nickName",information.getNickName());
-        data.put("sex",changeSexToString(information.isSex()));
-        data.put("interest",ls.changeListToString(information.getInterest(),new String("$")));
-        data.put("school",information.getSchool());
-        data.put("major",information.getMajor());
-        data.put("background",information.getBackground());
-        data.put("resume",information.getResume());
+        if(JudgeEmpty.isEmpty(information.getId())){
+            information.setId(0);
+        }
+        data.put("id",Long.toString(information.getId()));
+        if(JudgeEmpty.isNotEmpty(information.getAccount())){
+            data.put("account",information.getAccount());
+        }
+        if(JudgeEmpty.isNotEmpty(information.getPassword())){
+            data.put("password",information.getPassword());
+        }
+        if(JudgeEmpty.isNotEmpty(information.getDate())){
+            data.put("date",information.getDate());
+        }
+        if(JudgeEmpty.isNotEmpty(information.getHeadPortrait())){
+            data.put("headPortrait",information.getHeadPortrait());
+        }
+        if(JudgeEmpty.isNotEmpty(information.getNickName())){
+            data.put("nickName",information.getNickName());
+        }
+        if(JudgeEmpty.isNotEmpty(information.isSex())){
+            data.put("sex",changeSexToString(information.isSex()));
+        }
+        if(JudgeEmpty.isNotEmpty(information.getInterest())){
+            data.put("interest",ls.changeListToString(information.getInterest(),new String("$")));
+        }
+        if(JudgeEmpty.isNotEmpty(information.getSchool())){
+            data.put("school",information.getSchool());
+        }
+        if(JudgeEmpty.isNotEmpty(information.getMajor())){
+            data.put("major",information.getMajor());
+        }
+        if(JudgeEmpty.isNotEmpty(information.getBackground())){
+            data.put("background",information.getBackground());
+        }
+        if(JudgeEmpty.isNotEmpty(information.getResume())){
+            data.put("resume",information.getResume());
+        }
         return data;
     }
 

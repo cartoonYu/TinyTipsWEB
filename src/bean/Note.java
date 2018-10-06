@@ -3,7 +3,20 @@ package bean;
 import util.CurrentTime;
 
 import java.util.List;
-import java.util.Random;
+
+/**
+ * @author cartoon
+ * @version 1.0
+ *
+ * description
+ * 笔记bean类
+ *
+ * notice
+ * 1.属性id为数据库自增长，不需另赋值
+ * 2.属性userId关联个人信息bean类的id
+ * 3.属性date已通过spring注入，不需另进行赋值操作
+ * 3.属性tag,wordDetails,photoDetails转换成String以符号$进行分隔
+ */
 
 public class Note {
 
@@ -19,15 +32,11 @@ public class Note {
 
     private List<String> tag;     //标签
 
-    private String wordDetails;    //文字性内容
+    private List<String> wordDetails;    //文字性内容
 
-    private String photoDetails;   //图片性内容
+    private List<String> photoDetails;   //图片性内容
 
     public Note(){
-        Random rId=new Random(50);
-        id=(rId.nextLong()*1000);
-        Random rUserId=new Random(60);
-        userId=(rUserId.nextLong()*1000);
     }
 
     public long getId() {
@@ -42,11 +51,15 @@ public class Note {
         return title;
     }
 
-    public String getWordDetails() {
+    public String getDate() {
+        return date;
+    }
+
+    public List<String> getWordDetails() {
         return wordDetails;
     }
 
-    public String getPhotoDetails() {
+    public List<String> getPhotoDetails() {
         return photoDetails;
     }
 
@@ -58,15 +71,23 @@ public class Note {
         return tag;
     }
 
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public void setUserId(long userId) {
+        this.userId = userId;
+    }
+
     public void setTitle(String title) {
         this.title = title;
     }
 
-    public void setWordDetails(String wordDetails) {
+    public void setWordDetails(List<String> wordDetails) {
         this.wordDetails = wordDetails;
     }
 
-    public void setPhotoDetails(String photoDetails) {
+    public void setPhotoDetails(List<String> photoDetails) {
         this.photoDetails = photoDetails;
     }
 
@@ -81,4 +102,5 @@ public class Note {
     public void setTag(List<String> tag) {
         this.tag = tag;
     }
+
 }
