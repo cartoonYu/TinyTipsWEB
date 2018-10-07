@@ -194,10 +194,9 @@ public class OperateInformation {
      */
     private Map<String,String> changeInformationToMap(Information information){
         Map<String,String> data=new HashMap<>();
-        if(JudgeEmpty.isEmpty(information.getId())){
-            information.setId(0);
+        if(information.getId()!=0){
+            data.put("id",Long.toString(information.getId()));
         }
-        data.put("id",Long.toString(information.getId()));
         if(JudgeEmpty.isNotEmpty(information.getAccount())){
             data.put("account",information.getAccount());
         }

@@ -40,7 +40,7 @@ public class RequestAndResponse {
      * @param request
      * @return
      */
-    public JSONArray transRequest(HttpServletRequest request){
+    public JSONArray transRequestToArray(HttpServletRequest request){
         if(JudgeEmpty.isEmpty(request)){
             return null;
         }
@@ -60,6 +60,38 @@ public class RequestAndResponse {
 
     /**
      * 功能
+     * 获取带有JSONObject的HttpServletRequest里的JSONObject
+     *
+     * 使用方法
+     * 1.传入带有JSONObject的HttpServletRequest
+     * 2.通过方法返回值获取JSONArray
+     *
+     * 注意
+     * 1.传入的HttpServletRequest只能携带JSONObject
+     *
+     * @param request
+     * @return
+     */
+    public JSONObject transRequestToObject(HttpServletRequest request){
+        if(JudgeEmpty.isEmpty(request)){
+            return null;
+        }
+        StringBuilder source=new StringBuilder();
+        try {
+            BufferedReader reader=request.getReader();
+            String temp=null;
+            while((temp=reader.readLine())!=null){
+                source.append(temp);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        JSONObject object=new JSONObject(source.toString());
+        return object;
+    }
+
+    /**
+     * 功能
      * 响应客户端请求
      *
      * 使用方法
@@ -68,11 +100,19 @@ public class RequestAndResponse {
      * @param response
      * @param result
      */
-    public void transResponse(HttpServletResponse response, List<JSONObject> result){
+    public void transArrayToResponse(HttpServletResponse response, List<JSONObject> result){
         JSONArray array=arrayOperation.setObjectToArray(result);
         try {
             response.getWriter().append(array.toString());
         } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void transObjectToResponse(HttpServletResponse response,JSONObject object){
+        try {
+            response.getWriter().append(object.toString());
+        }catch (IOException e){
             e.printStackTrace();
         }
     }

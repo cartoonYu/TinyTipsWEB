@@ -45,7 +45,7 @@ public class Information {
     private String resume;    //个人简介
 
     public Information(){
-
+        setSex(true);
     }
 
     public long getId() {

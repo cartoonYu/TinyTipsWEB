@@ -47,7 +47,7 @@ public class ServletInformation extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request,HttpServletResponse response){
-        JSONArray array=requestAndResponse.transRequest(request);
+        JSONArray array=requestAndResponse.transRequestToArray(request);
         List<JSONObject> data=arrayOperation.getObjectsFromArray(array);
         List<Information> result=new ArrayList<>();
         for(JSONObject object:data){
@@ -87,17 +87,13 @@ public class ServletInformation extends HttpServlet {
             @Override
             public void onSuccess(String s) {
                 JSONObject object= objectOperation.setResultToJSON(s);
-                List<JSONObject> result=new ArrayList<>();
-                result.add(object);
-                requestAndResponse.transResponse(response,result);
+                requestAndResponse.transObjectToResponse(response,object);
             }
 
             @Override
             public void onFail(String code) {
                 JSONObject object= objectOperation.setResultToJSON(code);
-                List<JSONObject> result=new ArrayList<>();
-                result.add(object);
-                requestAndResponse.transResponse(response,result);
+                requestAndResponse.transObjectToResponse(response,object);
             }
         });
     }
@@ -108,17 +104,13 @@ public class ServletInformation extends HttpServlet {
             @Override
             public void onSuccess(String s) {
                 JSONObject object= objectOperation.setResultToJSON(s);
-                List<JSONObject> result=new ArrayList<>();
-                result.add(object);
-                requestAndResponse.transResponse(response,result);
+                requestAndResponse.transObjectToResponse(response,object);
             }
 
             @Override
             public void onFail(String code) {
                 JSONObject object= objectOperation.setResultToJSON(code);
-                List<JSONObject> result=new ArrayList<>();
-                result.add(object);
-                requestAndResponse.transResponse(response,result);
+                requestAndResponse.transObjectToResponse(response,object);
             }
         });
     }
@@ -130,16 +122,14 @@ public class ServletInformation extends HttpServlet {
                 List<JSONObject> result=new ArrayList<>();
                 for(Information temp:information){
                     result.add(objectOperation.setInformationToJSON(temp));
-                    requestAndResponse.transResponse(response,result);
+                    requestAndResponse.transArrayToResponse(response,result);
                 }
             }
 
             @Override
             public void onFail(String code) {
                 JSONObject object= objectOperation.setResultToJSON(code);
-                List<JSONObject> result=new ArrayList<>();
-                result.add(object);
-                requestAndResponse.transResponse(response,result);
+                requestAndResponse.transObjectToResponse(response,object);
             }
         });
     }
@@ -150,17 +140,13 @@ public class ServletInformation extends HttpServlet {
 
             public void onSuccess(String s) {
                 JSONObject object= objectOperation.setResultToJSON(s);
-                List<JSONObject> result=new ArrayList<>();
-                result.add(object);
-                requestAndResponse.transResponse(response,result);
+                requestAndResponse.transObjectToResponse(response,object);
             }
 
             @Override
             public void onFail(String code) {
                 JSONObject object= objectOperation.setResultToJSON(code);
-                List<JSONObject> result=new ArrayList<>();
-                result.add(object);
-                requestAndResponse.transResponse(response,result);
+                requestAndResponse.transObjectToResponse(response,object);
             }
         });
     }

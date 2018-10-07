@@ -147,6 +147,7 @@ public class OperateDB {
             }
         });
         sql.append(tCondition.substring(0,tCondition.length()-5)).append(";");
+        out.println(sql.toString());
         ResultSet result=null;
         try {
             result=s.executeQuery(sql.toString());
@@ -193,7 +194,7 @@ public class OperateDB {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-        if(result==-1) {
+        if(result==-1||result==0) {
             return false;
         }else {
             return true;

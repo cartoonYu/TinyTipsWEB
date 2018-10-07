@@ -2,9 +2,7 @@ package util.JSON;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
-import util.network.RequestAndResponse;
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.List;
 

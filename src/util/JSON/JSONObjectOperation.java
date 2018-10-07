@@ -199,6 +199,9 @@ public class JSONObjectOperation {
         else{
             Information information=new Information();
             try{
+                if(object.has("id")){
+                    information.setId(object.getLong("id"));
+                }
                 if(object.has("account")){
                     information.setAccount(object.getString("account"));
                 }
@@ -261,4 +264,5 @@ public class JSONObjectOperation {
         }
         return method;
     }
+
 }
