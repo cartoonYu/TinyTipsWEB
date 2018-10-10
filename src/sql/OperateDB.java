@@ -147,7 +147,6 @@ public class OperateDB {
             }
         });
         sql.append(tCondition.substring(0,tCondition.length()-5)).append(";");
-        out.println(sql.toString());
         ResultSet result=null;
         try {
             result=s.executeQuery(sql.toString());

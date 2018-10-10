@@ -9,14 +9,8 @@
   <component name="ChangeListManager">
     <list default="true" id="f14d344f-3a68-48fd-aeb4-6daa30523c0f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bean/Information.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bean/Information.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bean/operate/OperateInformation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bean/operate/OperateInformation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/servlet/ServletInformation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/servlet/ServletInformation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sql/OperateDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sql/OperateDB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/util/JSON/JSONArrayOperation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/JSON/JSONArrayOperation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/util/JSON/JSONObjectOperation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/JSON/JSONObjectOperation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/util/network/RequestAndResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/network/RequestAndResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/class/bean/Information.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/class/bean/Information.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/WEB-INF/class/sql/OperateDB.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/class/sql/OperateDB.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -79,69 +73,71 @@
     <session id="-1081118986">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="37" />
+          <entry key="project.closed" value="43" />
           <entry key="project.open.time.10" value="1" />
           <entry key="project.open.time.11" value="1" />
           <entry key="project.open.time.13" value="3" />
-          <entry key="project.open.time.16" value="2" />
+          <entry key="project.open.time.16" value="3" />
           <entry key="project.open.time.18" value="3" />
           <entry key="project.open.time.19" value="1" />
           <entry key="project.open.time.20" value="2" />
           <entry key="project.open.time.21" value="2" />
           <entry key="project.open.time.22" value="2" />
           <entry key="project.open.time.23" value="1" />
-          <entry key="project.open.time.24" value="1" />
+          <entry key="project.open.time.24" value="2" />
           <entry key="project.open.time.25" value="1" />
           <entry key="project.open.time.26" value="2" />
           <entry key="project.open.time.27" value="4" />
           <entry key="project.open.time.28" value="1" />
           <entry key="project.open.time.30" value="1" />
-          <entry key="project.open.time.31" value="2" />
-          <entry key="project.open.time.32" value="1" />
+          <entry key="project.open.time.31" value="3" />
+          <entry key="project.open.time.32" value="2" />
+          <entry key="project.open.time.34" value="1" />
           <entry key="project.open.time.35" value="1" />
           <entry key="project.open.time.36" value="1" />
           <entry key="project.open.time.37" value="1" />
           <entry key="project.open.time.40" value="2" />
+          <entry key="project.open.time.45" value="1" />
           <entry key="project.open.time.65" value="1" />
           <entry key="project.open.time.8" value="1" />
-          <entry key="project.opened" value="38" />
+          <entry key="project.opened" value="44" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="MF" value="3" />
           <entry key="class" value="13" />
-          <entry key="java" value="189" />
+          <entry key="java" value="199" />
           <entry key="jsp" value="2" />
-          <entry key="properties" value="2" />
-          <entry key="xml" value="35" />
+          <entry key="properties" value="3" />
+          <entry key="xml" value="36" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CLASS" value="13" />
-          <entry key="JAVA" value="189" />
+          <entry key="JAVA" value="199" />
           <entry key="JSP" value="2" />
           <entry key="Manifest" value="3" />
-          <entry key="Properties" value="2" />
-          <entry key="XML" value="35" />
+          <entry key="Properties" value="3" />
+          <entry key="XML" value="36" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="MF" value="36" />
           <entry key="dummy" value="28" />
-          <entry key="java" value="15292" />
+          <entry key="java" value="15429" />
           <entry key="properties" value="10" />
-          <entry key="txt" value="450" />
+          <entry key="txt" value="564" />
           <entry key="xml" value="655" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="15292" />
+          <entry key="JAVA" value="15429" />
           <entry key="Manifest" value="36" />
-          <entry key="PLAIN_TEXT" value="478" />
+          <entry key="PLAIN_TEXT" value="592" />
           <entry key="Properties" value="10" />
           <entry key="XML" value="655" />
         </counts>
@@ -150,51 +146,25 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/util/JSON/JSONObjectOperation.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="446">
-              <caret line="205" column="68" lean-forward="true" selection-start-line="205" selection-start-column="68" selection-end-line="205" selection-end-column="68" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/bean/operate/OperateInformation.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="350">
-              <caret line="198" column="9" selection-start-line="198" selection-start-column="9" selection-end-line="198" selection-end-column="9" />
-              <folding>
-                <element signature="method#query#0;class#OperateInformation#0" />
-                <element signature="method#update#0;class#OperateInformation#0" />
-                <element signature="method#changeSexToString#0;class#OperateInformation#0" />
-                <element signature="method#changeSexToBoolean#0;class#OperateInformation#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/util/network/RequestAndResponse.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="344">
-              <caret line="107" column="32" lean-forward="true" selection-start-line="107" selection-start-column="32" selection-end-line="107" selection-end-column="32" />
+            <state relative-caret-position="104">
+              <caret line="103" column="64" selection-start-line="103" selection-start-column="64" selection-end-line="103" selection-end-column="64" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#transRequestToObject#0;class#RequestAndResponse#0" />
+                <element signature="method#transRequestToArray#0;class#RequestAndResponse#0" />
+                <element signature="method#transObjectToResponse#0;class#RequestAndResponse#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/sql/OperateDB.java">
+        <entry file="file://$PROJECT_DIR$/src/util/JSON/JSONArrayOperation.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="499">
-              <caret line="157" column="5" lean-forward="true" selection-start-line="157" selection-start-column="5" selection-end-line="157" selection-end-column="5" />
-              <folding>
-                <element signature="method#update#0;class#OperateDB#0" />
-              </folding>
+            <state relative-caret-position="179">
+              <caret line="48" column="14" lean-forward="true" selection-start-line="48" selection-start-column="14" selection-end-line="48" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -202,12 +172,13 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/servlet/ServletInformation.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="213">
-              <caret line="49" column="72" selection-start-line="49" selection-start-column="72" selection-end-line="49" selection-end-column="72" />
+            <state relative-caret-position="254">
+              <caret line="125" column="73" lean-forward="true" selection-start-line="125" selection-start-column="73" selection-end-line="125" selection-end-column="73" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#handleAddInformation#0;class#ServletInformation#0" />
                 <element signature="method#handleDeleteInformation#0;class#ServletInformation#0" />
+                <element signature="method#handleUpdateInformation#0;class#ServletInformation#0" />
                 <element signature="method#ServletInformation#0;class#ServletInformation#0" />
                 <element signature="method#setRequestAndResponse#0;class#ServletInformation#0" />
                 <element signature="method#setOperateInformation#0;class#ServletInformation#0" />
@@ -217,13 +188,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/util/JSON/JSONArrayOperation.java">
+        <entry file="file://$PROJECT_DIR$/src/bean/operate/OperateInformation.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="325">
-              <caret line="17" column="3" selection-start-line="17" selection-start-column="3" selection-end-line="17" selection-end-column="3" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="354">
+              <caret line="124" column="13" selection-start-line="124" selection-start-column="13" selection-end-line="124" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -246,6 +214,7 @@
       <find>OUT</find>
       <find>changeInformation</find>
       <find>out</find>
+      <find>out.print</find>
     </findStrings>
     <dirStrings>
       <dir>E:\TinyTips\TinyTipsWEB\web\WEB-INF</dir>
@@ -296,10 +265,10 @@
         <option value="$PROJECT_DIR$/src/spring/beans.xml" />
         <option value="$PROJECT_DIR$/src/bean/Information.java" />
         <option value="$PROJECT_DIR$/src/util/JSON/JSONArrayOperation.java" />
-        <option value="$PROJECT_DIR$/src/servlet/ServletInformation.java" />
         <option value="$PROJECT_DIR$/src/util/JSON/JSONObjectOperation.java" />
-        <option value="$PROJECT_DIR$/src/bean/operate/OperateInformation.java" />
         <option value="$PROJECT_DIR$/src/sql/OperateDB.java" />
+        <option value="$PROJECT_DIR$/src/bean/operate/OperateInformation.java" />
+        <option value="$PROJECT_DIR$/src/servlet/ServletInformation.java" />
         <option value="$PROJECT_DIR$/src/util/network/RequestAndResponse.java" />
       </list>
     </option>
@@ -318,10 +287,10 @@
     <option name="CUSTOM_FILTER" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-14" />
-    <option name="y" value="168" />
-    <option name="width" value="1936" />
-    <option name="height" value="879" />
+    <option name="x" value="118" />
+    <option name="y" value="134" />
+    <option name="width" value="1605" />
+    <option name="height" value="810" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -348,6 +317,44 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope">
+        <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
+          <expand>
+            <path>
+              <item name="TinyTipsWEB" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="TinyTipsWEB" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+            </path>
+            <path>
+              <item name="TinyTipsWEB" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="TinyTipsWEB" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="TinyTipsWEB" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="TinyTipsWEB" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="web" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="TinyTipsWEB" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="TinyTipsWEB" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="web" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="WEB-INF" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="TinyTipsWEB" type="58d84e3e:PackageViewProjectNode" />
+              <item name="TinyTipsWEB" type="616d4139:PackageViewModuleNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -359,12 +366,6 @@
               <item name="TinyTipsWEB" type="b2602c69:ProjectViewProjectNode" />
               <item name="TinyTipsWEB" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TinyTipsWEB" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TinyTipsWEB" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="BaseClass" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="TinyTipsWEB" type="b2602c69:ProjectViewProjectNode" />
@@ -438,50 +439,12 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope">
-        <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
-          <expand>
-            <path>
-              <item name="TinyTipsWEB" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="TinyTipsWEB" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-            </path>
-            <path>
-              <item name="TinyTipsWEB" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="TinyTipsWEB" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="TinyTipsWEB" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="TinyTipsWEB" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="web" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="TinyTipsWEB" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="TinyTipsWEB" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="web" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="WEB-INF" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="PackagesPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="TinyTipsWEB" type="58d84e3e:PackageViewProjectNode" />
-              <item name="TinyTipsWEB" type="616d4139:PackageViewModuleNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1538755360543" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1539186625147" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/web/WEB-INF/lib" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
@@ -628,7 +591,13 @@
       <workItem from="1538786160222" duration="9473000" />
       <workItem from="1538808372994" duration="6953000" />
       <workItem from="1538832298552" duration="7309000" />
-      <workItem from="1538871706421" duration="2469000" />
+      <workItem from="1538871706421" duration="2739000" />
+      <workItem from="1538899873574" duration="92000" />
+      <workItem from="1538992019108" duration="1323000" />
+      <workItem from="1539073153351" duration="33000" />
+      <workItem from="1539078968978" duration="991000" />
+      <workItem from="1539181559449" duration="199000" />
+      <workItem from="1539182486435" duration="4055000" />
     </task>
     <task id="LOCAL-00001" summary="add some function and descriptive file">
       <created>1537460224141</created>
@@ -665,11 +634,18 @@
       <option name="project" value="LOCAL" />
       <updated>1538811127572</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Information operation initially complete，but function update information still have bug to fix,need to see http servlet response's data">
+      <created>1538874312311</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1538874312312</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="165718000" />
+    <option name="totallyTimeSpent" value="172681000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -681,10 +657,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-14" y="168" width="1936" height="879" extended-state="0" />
+    <frame x="118" y="134" width="1605" height="810" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22441365" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2932039" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -694,7 +670,7 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3290735" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.2728532" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.43950996" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -769,7 +745,8 @@
     <MESSAGE value="add two functions:insert information into database and query information from database,besides revamp some logical error in class operateDB" />
     <MESSAGE value="prefect PersonalInformation operation and divide some code into a dependent function" />
     <MESSAGE value="Information operation initially complete，but still have some logically error to fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="Information operation initially complete，but still have some logically error to fix" />
+    <MESSAGE value="Information operation initially complete，but function update information still have bug to fix,need to see http servlet response's data" />
+    <option name="LAST_COMMIT_MESSAGE" value="Information operation initially complete，but function update information still have bug to fix,need to see http servlet response's data" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/util/Text.java" />
@@ -847,20 +824,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="50">
           <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sql/DBConnection.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="15" column="36" selection-start-line="15" selection-start-column="36" selection-end-line="15" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sql/dbconn.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="3" column="30" lean-forward="true" selection-start-line="3" selection-start-column="30" selection-end-line="3" selection-end-column="30" />
         </state>
       </provider>
     </entry>
@@ -970,42 +933,71 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/bean/Information.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="533">
+          <caret line="54" column="21" selection-start-line="54" selection-start-column="21" selection-end-line="54" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sql/dbconn.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="3" column="30" lean-forward="true" selection-start-line="3" selection-start-column="30" selection-end-line="3" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sql/DBConnection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="625">
+          <caret line="35" column="42" lean-forward="true" selection-start-line="35" selection-start-column="42" selection-end-line="35" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/spring/beans.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="24" column="32" selection-start-line="24" selection-start-column="14" selection-end-line="24" selection-end-column="32" />
+        <state relative-caret-position="316">
+          <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/util/JSON/JSONObjectOperation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2450">
+          <caret line="116" column="14" lean-forward="true" selection-start-line="116" selection-start-column="14" selection-end-line="116" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sql/OperateDB.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="517">
+          <caret line="154" column="9" lean-forward="true" selection-start-line="154" selection-start-column="9" selection-end-line="154" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/bean/operate/OperateInformation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="354">
+          <caret line="124" column="13" selection-start-line="124" selection-start-column="13" selection-end-line="124" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/util/JSON/JSONArrayOperation.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="17" column="3" selection-start-line="17" selection-start-column="3" selection-end-line="17" selection-end-column="3" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/bean/Information.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="533">
-          <caret line="54" column="21" selection-start-line="54" selection-start-column="21" selection-end-line="54" selection-end-column="21" />
-          <folding>
-            <element signature="e#773#774#0" expanded="true" />
-            <element signature="e#801#802#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="179">
+          <caret line="48" column="14" lean-forward="true" selection-start-line="48" selection-start-column="14" selection-end-line="48" selection-end-column="14" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/servlet/ServletInformation.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="213">
-          <caret line="49" column="72" selection-start-line="49" selection-start-column="72" selection-end-line="49" selection-end-column="72" />
+        <state relative-caret-position="254">
+          <caret line="125" column="73" lean-forward="true" selection-start-line="125" selection-start-column="73" selection-end-line="125" selection-end-column="73" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#handleAddInformation#0;class#ServletInformation#0" />
             <element signature="method#handleDeleteInformation#0;class#ServletInformation#0" />
+            <element signature="method#handleUpdateInformation#0;class#ServletInformation#0" />
             <element signature="method#ServletInformation#0;class#ServletInformation#0" />
             <element signature="method#setRequestAndResponse#0;class#ServletInformation#0" />
             <element signature="method#setOperateInformation#0;class#ServletInformation#0" />
@@ -1013,43 +1005,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/bean/operate/OperateInformation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="198" column="9" selection-start-line="198" selection-start-column="9" selection-end-line="198" selection-end-column="9" />
-          <folding>
-            <element signature="method#query#0;class#OperateInformation#0" />
-            <element signature="method#update#0;class#OperateInformation#0" />
-            <element signature="method#changeSexToString#0;class#OperateInformation#0" />
-            <element signature="method#changeSexToBoolean#0;class#OperateInformation#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/util/JSON/JSONObjectOperation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="446">
-          <caret line="205" column="68" lean-forward="true" selection-start-line="205" selection-start-column="68" selection-end-line="205" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sql/OperateDB.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="499">
-          <caret line="157" column="5" lean-forward="true" selection-start-line="157" selection-start-column="5" selection-end-line="157" selection-end-column="5" />
-          <folding>
-            <element signature="method#update#0;class#OperateDB#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/util/network/RequestAndResponse.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="344">
-          <caret line="107" column="32" lean-forward="true" selection-start-line="107" selection-start-column="32" selection-end-line="107" selection-end-column="32" />
+        <state relative-caret-position="104">
+          <caret line="103" column="64" selection-start-line="103" selection-start-column="64" selection-end-line="103" selection-end-column="64" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#transRequestToObject#0;class#RequestAndResponse#0" />
+            <element signature="method#transRequestToArray#0;class#RequestAndResponse#0" />
+            <element signature="method#transObjectToResponse#0;class#RequestAndResponse#0" />
           </folding>
         </state>
       </provider>
