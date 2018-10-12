@@ -1,6 +1,8 @@
 package util.network;
 
 import static java.lang.System.out;
+
+import bean.Information;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import util.JSON.JSONArrayOperation;

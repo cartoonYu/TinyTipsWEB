@@ -21,14 +21,14 @@ import java.util.List;
 
 /**
  * @author cartoon
- * @version 1.0
+ * @version 1.1
  *
  * description
  * 接收响应客户端对于Information的操作
  *
  * notice
- * 1.传入的HttpServletRequest携带的数据必须是JSONArray形式
- * 2.响应的HttpServletResponse携带的数据形式为JSONArray
+ * 1.根据传入的HttpServletRequest携带的数据进行不同的处理
+ * 2.根据实际情况以及客户端需要对HttpServletResponse返回的数据进行处理
  */
 
 public class ServletInformation extends HttpServlet {
@@ -43,11 +43,13 @@ public class ServletInformation extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        response.getWriter().append("sasasa");
     }
 
     @Override
     protected void doPost(HttpServletRequest request,HttpServletResponse response){
         JSONArray array=requestAndResponse.transRequestToArray(request);
+        out.println(array.toString());
         List<JSONObject> data=arrayOperation.getObjectsFromArray(array);
         List<Information> result=new ArrayList<>();
         for(JSONObject object:data){

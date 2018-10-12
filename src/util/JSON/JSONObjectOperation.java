@@ -9,6 +9,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import util.JudgeEmpty;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -174,7 +176,7 @@ public class JSONObjectOperation {
                 result.put("headPortraitPath",information.getHeadPortrait());
                 result.put("nickName",information.getNickName());
                 result.put("sex",information.isSex());
-                result.put("interest",information.getInterest());
+                result.put("interest",information.getInterest().toString());
                 result.put("school",information.getSchool());
                 result.put("major",information.getMajor());
                 result.put("background",information.getBackground());
@@ -221,7 +223,8 @@ public class JSONObjectOperation {
                     information.setSex(object.getBoolean("sex"));
                 }
                 if(object.has("interest")){
-                    information.setInterest((List<String>) object.get("interest"));
+                    String interests=object.getString("interest");
+                    information.setInterest(changeStringToList(interests));
                 }
                 if(object.has("school")){
                     information.setSchool(object.getString("school"));
@@ -263,6 +266,27 @@ public class JSONObjectOperation {
             method=object.getString("method");
         }
         return method;
+    }
+
+    /**
+     * 功能
+     * 将json文件中的List字符串转换回List
+     *
+     * 使用方法
+     * 1.传入形如[data1, data2, data3...]的字符串
+     * 2.
+     * @param data
+     * @return
+     */
+    private List<String> changeStringToList(String data){
+        List<String> result=new ArrayList<>();
+        data=data.substring(1);  //去除开头的"["
+        data=data.substring(0,data.length()-1);   //去除结尾的"]"
+        String[] strs=data.split(",");
+        for(int i=0;i<strs.length;i++){
+            result.add(strs[i].trim());
+        }
+        return result;
     }
 
 }
