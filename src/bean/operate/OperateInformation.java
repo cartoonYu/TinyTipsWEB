@@ -113,7 +113,7 @@ public class OperateInformation {
                 result.setAccount(set.getString("account"));
                 result.setPassword(set.getString("password"));
                 result.setDate(set.getString("date"));
-                result.setHeadPortrait(set.getString("headPortrait"));
+                result.setHeadPortraitName(set.getString("headPortrait"));
                 result.setNickName(set.getString("nickName"));
                 result.setSex(changeSexToBoolean(set.getString("sex")));
                 result.setInterest(ls.changeStringToList(set.getString("interest"),new String("$")));
@@ -206,8 +206,8 @@ public class OperateInformation {
         if(JudgeEmpty.isNotEmpty(information.getDate())){
             data.put("date",information.getDate());
         }
-        if(JudgeEmpty.isNotEmpty(information.getHeadPortrait())){
-            data.put("headPortrait",information.getHeadPortrait());
+        if(JudgeEmpty.isNotEmpty(information.getHeadPortraitName())){
+            data.put("headPortrait",information.getHeadPortraitName());
         }
         if(JudgeEmpty.isNotEmpty(information.getNickName())){
             data.put("nickName",information.getNickName());

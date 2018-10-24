@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 public class DBConnection {
 
-    private String driverClsss;
+    private String driverClass;
     private String url;
     private String user;
     private String password;
@@ -14,7 +14,7 @@ public class DBConnection {
     private Connection conn;
 
     public void setDriverClass(String driverClass) {
-        this.driverClsss=driverClass;
+        this.driverClass=driverClass;
     }
 
     public void setUrl(String url) {
@@ -31,8 +31,8 @@ public class DBConnection {
 
     public Connection getConnect() {
         try {
-            Class.forName(this.driverClsss);
-            conn=(Connection) DriverManager.getConnection(url, user, password);
+            Class.forName(this.driverClass);
+            conn=DriverManager.getConnection(url, user, password);
         }catch(ClassNotFoundException e) {
             e.printStackTrace();
         }catch(SQLException e) {

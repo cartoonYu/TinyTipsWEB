@@ -30,6 +30,8 @@ public class Information {
 
     private String headPortrait;  //头像
 
+    private String headPortraitName; //头像文件名
+
     private String nickName;  //昵称
 
     private boolean sex;     //性别
@@ -72,6 +74,10 @@ public class Information {
         return headPortrait;
     }
 
+    public String getHeadPortraitName() {
+        return headPortraitName;
+    }
+
     public String getPassword() {
         return password;
     }
@@ -102,6 +108,10 @@ public class Information {
 
     public void setHeadPortrait(String headPortrait) {
         this.headPortrait = headPortrait;
+    }
+
+    public void setHeadPortraitName(String headPortraitName) {
+        this.headPortraitName = headPortraitName;
     }
 
     public void setBackground(String background) {

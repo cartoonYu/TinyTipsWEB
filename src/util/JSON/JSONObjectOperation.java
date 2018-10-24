@@ -8,6 +8,8 @@ import bean.Note;
 import org.json.JSONException;
 import org.json.JSONObject;
 import util.JudgeEmpty;
+import util.file.FileOperation;
+import util.file.ImageConstant;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -24,6 +26,10 @@ import java.util.List;
  * none
  */
 public class JSONObjectOperation {
+
+    private FileOperation fileOperation;
+
+    private ImageConstant imageConstant;
 
     /**
      * 将传入的comment转换成json文件
@@ -173,10 +179,18 @@ public class JSONObjectOperation {
                 result.put("account",information.getAccount());
                 result.put("password",information.getPassword());
                 result.put("date",information.getDate());
-                result.put("headPortraitPath",information.getHeadPortrait());
+                result.put("headPortraitName",information.getHeadPortraitName());
+                if(JudgeEmpty.isNotEmpty(information.getHeadPortraitName())){
+                    String headPortrait=fileOperation.transFileToString
+                            (imageConstant.getInformation(),information.getHeadPortraitName());
+                    information.setHeadPortrait(headPortrait);
+                }
+                result.put("headPortrait",information.getHeadPortrait());
                 result.put("nickName",information.getNickName());
                 result.put("sex",information.isSex());
-                result.put("interest",information.getInterest().toString());
+                if(JudgeEmpty.isNotEmpty(information.getInterest())){
+                    result.put("interest",information.getInterest().toString());
+                }
                 result.put("school",information.getSchool());
                 result.put("major",information.getMajor());
                 result.put("background",information.getBackground());
@@ -213,8 +227,10 @@ public class JSONObjectOperation {
                 if(object.has("date")){
                     information.setDate(object.getString("date"));
                 }
-                if(object.has("headPortraitPath")){
-                    information.setHeadPortrait(object.getString("headPortraitPath"));
+                if(object.has("headPortrait")){
+                    information.setHeadPortrait(object.getString("headPortrait"));
+                    information.setHeadPortraitName
+                            (fileOperation.transStringToFile(imageConstant.getInformation(),information.getHeadPortrait()));
                 }
                 if(object.has("nickName")){
                     information.setNickName(object.getString("nickName"));
@@ -287,6 +303,14 @@ public class JSONObjectOperation {
             result.add(strs[i].trim());
         }
         return result;
+    }
+
+    public void setFileOperation(FileOperation fileOperation) {
+        this.fileOperation = fileOperation;
+    }
+
+    public void setImageConstant(ImageConstant imageConstant) {
+        this.imageConstant = imageConstant;
     }
 
 }

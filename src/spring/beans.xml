@@ -39,12 +39,22 @@
     <bean id="operateDB" class="sql.OperateDB"
           p:connection-ref="dbConnection"/>
 
+    <bean id="fileOperation" class="util.file.FileOperation"
+        p:coder-ref="coder"
+        p:getUUID-ref="getUUID"/>
+    <bean id="imageConstant" class="util.file.ImageConstant"/>
+
     <bean id="jsonArrayOperation" class="util.JSON.JSONArrayOperation"/>
-    <bean id="jsonObjectOperation" class="util.JSON.JSONObjectOperation"/>
+    <bean id="jsonObjectOperation" class="util.JSON.JSONObjectOperation"
+        p:fileOperation-ref="fileOperation"
+        p:imageConstant-ref="imageConstant"/>
+
     <bean id="requestAndResponse" class="util.network.RequestAndResponse"
         p:arrayOperation-ref="jsonArrayOperation"/>
 
+    <bean id="coder" class="util.Coder"/>
     <bean id="currentTime" class="util.CurrentTime"/>
+    <bean id="getUUID" class="util.GetUUID"/>
     <bean id="judgeEmpty" class="util.JudgeEmpty"/>
     <bean id="listAndString" class="util.ListAndString"/>
 
