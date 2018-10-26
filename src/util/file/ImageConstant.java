@@ -26,7 +26,23 @@ public class ImageConstant {
         return comment;
     }
 
-    public ImageConstant(){
-        information=new String("E:\\\\TinyTips\\\\TinyTipsWEB\\\\out\\\\upload\\\\information\\\\");
+    public void setInformation(String information) {
+        this.information = information;
     }
+
+    public void setNote(String note) {
+        this.note = note;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
+
+    public void setCommentDetails(String commentDetails) {
+        this.commentDetails = commentDetails;
+    }
+
+    public ImageConstant(){
+    }
+
 }

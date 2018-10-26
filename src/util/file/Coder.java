@@ -1,4 +1,4 @@
-package util;
+package util.file;
 
 import java.io.UnsupportedEncodingException;
 import java.util.Base64;
@@ -33,7 +33,6 @@ public class Coder {
      * @return
      */
     public String encode(byte[] bytes){
-        out.println(encoder.encodeToString(bytes));
         return encoder.encodeToString(bytes);
     }
 
@@ -45,8 +44,6 @@ public class Coder {
      * @return
      */
     public byte[] decode(String source){
-        source=source.replace("\n","");
-        out.println(source);
         byte[] decoded=null;
         try{
             byte[] bytes=source.getBytes("UTF-8");

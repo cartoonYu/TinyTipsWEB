@@ -5,6 +5,8 @@ import bean.Information;
 import sql.OperateDB;
 import util.JudgeEmpty;
 import util.ListAndString;
+import util.file.FileOperation;
+import util.file.ImageConstant;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -22,6 +24,10 @@ import static java.lang.System.out;
  */
 
 public class OperateInformation {
+
+    private FileOperation fileOperation;
+
+    private ImageConstant imageConstant;
 
     private String tableName;
 
@@ -44,6 +50,11 @@ public class OperateInformation {
         if(JudgeEmpty.isEmpty(information)){
             callBack.onFail(new String("300"));
             return;
+        }
+        if(JudgeEmpty.isNotEmpty(information.getHeadPortrait())){
+            String headPortrait=information.getHeadPortrait();
+            String headPortraitName=fileOperation.addFile(headPortrait,imageConstant.getInformation(),".jpg");
+            information.setHeadPortraitName(headPortraitName);
         }
         Map<String,String> data=changeInformationToMap(information);
         if(db.add(tableName,data)){
@@ -73,11 +84,13 @@ public class OperateInformation {
             callBack.onFail("300");
             return;
         }
+        if(JudgeEmpty.isNotEmpty(information.getHeadPortraitName())){
+            fileOperation.deleteFile(imageConstant.getInformation(),information.getHeadPortraitName(),".jpg");
+        }
         Map<String,String> condition=changeInformationToMap(information);
         if(db.delete(tableName,condition)){
             callBack.onSuccess("200");
         }
-
         else{
             callBack.onFail("400");
         }
@@ -121,6 +134,11 @@ public class OperateInformation {
                 result.setMajor(set.getString("major"));
                 result.setBackground(set.getString("background"));
                 result.setResume(set.getString("resume"));
+                if(JudgeEmpty.isNotEmpty(result.getHeadPortraitName())){
+                    String headPortraitName=result.getHeadPortraitName();
+                    String file=fileOperation.queryFile(imageConstant.getInformation(),headPortraitName,".jpg");
+                    result.setHeadPortrait(file);
+                }
                 list.add(result);
             }
             callBack.onSuccess(list);
@@ -148,6 +166,15 @@ public class OperateInformation {
         if(JudgeEmpty.isEmpty(oldInformation)||JudgeEmpty.isEmpty(newInformation)){
             callBack.onFail("300");
             return;
+        }
+        if(JudgeEmpty.isNotEmpty(oldInformation.getHeadPortraitName())){
+            String headPortraitName=oldInformation.getHeadPortraitName();
+            fileOperation.deleteFile(imageConstant.getInformation(),headPortraitName,".jpg");
+        }
+        if(JudgeEmpty.isNotEmpty(newInformation.getHeadPortrait())){
+            String headPortrait=newInformation.getHeadPortrait();
+            String headPortraitName=fileOperation.addFile(headPortrait,imageConstant.getInformation(),".jpg");
+            newInformation.setHeadPortraitName(headPortraitName);
         }
         Map<String,String> condition=changeInformationToMap(oldInformation);
         Map<String,String> data=changeInformationToMap(newInformation);
@@ -266,4 +293,11 @@ public class OperateInformation {
         }
     }
 
+    public void setFileOperation(FileOperation fileOperation) {
+        this.fileOperation = fileOperation;
+    }
+
+    public void setImageConstant(ImageConstant imageConstant) {
+        this.imageConstant = imageConstant;
+    }
 }

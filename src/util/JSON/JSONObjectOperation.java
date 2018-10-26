@@ -12,7 +12,6 @@ import util.file.FileOperation;
 import util.file.ImageConstant;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -180,11 +179,6 @@ public class JSONObjectOperation {
                 result.put("password",information.getPassword());
                 result.put("date",information.getDate());
                 result.put("headPortraitName",information.getHeadPortraitName());
-                if(JudgeEmpty.isNotEmpty(information.getHeadPortraitName())){
-                    String headPortrait=fileOperation.transFileToString
-                            (imageConstant.getInformation(),information.getHeadPortraitName());
-                    information.setHeadPortrait(headPortrait);
-                }
                 result.put("headPortrait",information.getHeadPortrait());
                 result.put("nickName",information.getNickName());
                 result.put("sex",information.isSex());
@@ -229,8 +223,6 @@ public class JSONObjectOperation {
                 }
                 if(object.has("headPortrait")){
                     information.setHeadPortrait(object.getString("headPortrait"));
-                    information.setHeadPortraitName
-                            (fileOperation.transStringToFile(imageConstant.getInformation(),information.getHeadPortrait()));
                 }
                 if(object.has("nickName")){
                     information.setNickName(object.getString("nickName"));

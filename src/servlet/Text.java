@@ -69,7 +69,6 @@ public class Text extends HttpServlet {
         out.println(array);
         List<JSONObject> objects=arrayOperation.getObjectsFromArray(array);
         Information information=objectOperation.getInformationFromJSON(objects.get(0));
-        out.println(information.getHeadPortraitName());
         JSONObject result=objectOperation.setResultToJSON(information.getHeadPortraitName());
         requestAndResponse.transObjectToResponse(response,result);
     }
@@ -79,7 +78,7 @@ public class Text extends HttpServlet {
         requestAndResponse=context.getBean("requestAndResponse", RequestAndResponse.class);
         arrayOperation=context.getBean("jsonArrayOperation", JSONArrayOperation.class);
         objectOperation=context.getBean("jsonObjectOperation", JSONObjectOperation.class);
-        fileOperation=context.getBean("fileOperation",FileOperation.class);
+        fileOperation =context.getBean("fileOperation", FileOperation.class);
     }
 
 }
