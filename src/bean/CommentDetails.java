@@ -56,7 +56,7 @@ public class CommentDetails {
     }
 
     public void setDate(CurrentTime date) {
-        this.date = date.getDate();
+        this.date = date.getDate("time");
 }
 
     public void setNickName(String nickName) {

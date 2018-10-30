@@ -62,7 +62,6 @@ public class RequestAndResponse {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        out.println(source.toString());
         JSONArray array=new JSONArray(source.toString());
         return array;
     }

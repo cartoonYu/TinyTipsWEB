@@ -13,10 +13,9 @@ import util.MapAndString;
 import util.file.FileOperation;
 import util.file.ImageConstant;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.*;
 
 /**
  * 拆分形参传进的Note，传递给数据库操作层
@@ -55,7 +54,7 @@ public class OperateNote {
             return;
         }
         note=addPhoto(note);
-        note.setDate(currentTime.getDate());
+        note.setDate(currentTime.getDate("time"));
         Map<String,String> data=changeNoteToMap(note);
         if(db.add(tableName,data)){
             callBack.onSuccess("200");
@@ -64,7 +63,6 @@ public class OperateNote {
             callBack.onFail("400");
         }
     }
-
 
     /**
      * 功能
@@ -77,14 +75,21 @@ public class OperateNote {
      * 注意
      * 1.对象内需至少含有一个值
      *
-     * @param note
+     * @param condition
      * @param callBack
      */
-    public void delete(Note note,ValueCallBack<String> callBack){
-        if(JudgeEmpty.isEmpty(note)){
+    public void delete(Note condition,ValueCallBack<String> callBack){
+        if(JudgeEmpty.isEmpty(condition)){
             callBack.onFail("300");
+            return;
         }
-
+        condition=deletePhoto(condition);
+        if(db.delete(tableName,changeNoteToMap(condition))){
+            callBack.onSuccess("200");
+        }
+        else {
+            callBack.onFail("400");
+        }
     }
 
     /**
@@ -99,11 +104,44 @@ public class OperateNote {
      * 1.对象内需至少含有一个值
      * 2.查询结果数据类型为List
      *
-     * @param note
+     * @param condition
      * @param callBack
      */
-    public void query(Note note, ValueCallBack<List<String>> callBack){
-
+    public void query(Note condition, ValueCallBack<List<Note>> callBack){
+        if(JudgeEmpty.isEmpty(condition)){
+            callBack.onFail("300");
+            return;
+        }
+        try{
+            ResultSet set=db.query(tableName,changeNoteToMap(condition));
+            List<Note> result=new ArrayList<>();
+            while(set.next()){
+                out.println("1");
+                Note note=new Note();
+                note.setId(set.getLong("id"));
+                note.setUserId(set.getLong("userId"));
+                note.setTitle(set.getString("title"));
+                note.setAuthor(set.getString("author"));
+                note.setDate(set.getString("date"));
+                note.setTag(ls.changeStringToList(set.getString("tag"),"$"));
+                note.setWordDetails(ls.changeStringToList(set.getString("wordDetails"),"$"));
+                if(JudgeEmpty.isNotEmpty(set.getString("photoDetails"))){
+                    List<String> photoName=ls.changeStringToList(set.getString("photoDetails"),"$");
+                    Map<String,String> photo=new LinkedHashMap<>();
+                    for(String s:photoName){
+                        photo.put(s,s);
+                    }
+                    note.setPhoto(photo);
+                    note=queryPhoto(note);
+                }
+                out.println(note.getAuthor());
+                result.add(note);
+            }
+            callBack.onSuccess(result);
+        }catch (SQLException e){
+            e.printStackTrace();
+            callBack.onFail("400");
+        }
     }
 
     /**
@@ -122,11 +160,22 @@ public class OperateNote {
      * @param callBack
      */
     public void update(Note oldNote,Note newNote,ValueCallBack<String> callBack){
-
+        if(JudgeEmpty.isEmpty(oldNote)||JudgeEmpty.isEmpty(newNote)){
+            callBack.onFail("300");
+        }
+        if(db.update(tableName,changeNoteToMap(newNote),changeNoteToMap(oldNote))){
+            callBack.onSuccess("200");
+        }
+        else {
+            callBack.onFail("400");
+        }
     }
 
     private Note addPhoto(Note note){
         if(JudgeEmpty.isEmpty(note.getPhoto())){
+            return note;
+        }
+        if(note.getPhoto().isEmpty()){
             return note;
         }
         List<String> photo=new ArrayList<>();   //图片列表
@@ -134,11 +183,40 @@ public class OperateNote {
             //由于图片名不确定，所以先把图片获取出来
             photo.add(value);
         });
-        Map<String,String> map=new HashMap<>();
+        Map<String,String> map=new LinkedHashMap<>();
         for(String temp:photo){
             map.put(fileOperation.addFile(temp,imageConstant.getNote(),".jpg"),temp);
         }
         note.setPhoto(map);
+        return note;
+    }
+
+    private Note deletePhoto(Note note){
+        if(JudgeEmpty.isEmpty(note.getPhoto())){
+            return note;
+        }
+        if(note.getPhoto().isEmpty()){
+            return note;
+        }
+        List<String> photo=new ArrayList<>();
+        for(String name:photo){
+            fileOperation.deleteFile(imageConstant.getNote(),name,".jpg");
+        }
+        note.setPhoto(null);
+        return note;
+    }
+
+    private Note queryPhoto(Note note){
+        if(JudgeEmpty.isEmpty(note)){
+            return note;
+        }
+        if(note.getPhoto().isEmpty()){
+            return note;
+        }
+        note.getPhoto().forEach((key,value)->{
+            String photo=fileOperation.queryFile(imageConstant.getNote(),key,".jpg");
+            note.getPhoto().put(key,photo);
+        });
         return note;
     }
 

@@ -108,6 +108,7 @@ public class OperateDB {
             }
         });
         sql.append(tCondition.substring(0,tCondition.length()-5)).append(";");
+        out.println(sql.toString());
         int result=-1;
         try {
             result=s.executeUpdate(sql.toString());

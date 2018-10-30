@@ -59,7 +59,7 @@ public class OperateInformation {
             String headPortraitName=fileOperation.addFile(headPortrait,imageConstant.getInformation(),".jpg");
             information.setHeadPortraitName(headPortraitName);
         }
-        information.setDate(currentTime.getDate());
+        information.setDate(currentTime.getDate("day"));
         Map<String,String> data=changeInformationToMap(information);
         if(db.add(tableName,data)){
             callBack.onSuccess("200");

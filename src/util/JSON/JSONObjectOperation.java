@@ -11,10 +11,7 @@ import util.JudgeEmpty;
 import util.file.FileOperation;
 import util.file.ImageConstant;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * @author cartoon
@@ -202,7 +199,7 @@ public class JSONObjectOperation {
     }
 
     /**
-     * 将传入的personalInformation转换成json文件
+     * 将传入的Information转换成json文件
      * @param information
      * @return
      */
@@ -237,7 +234,7 @@ public class JSONObjectOperation {
     }
 
     /**
-     * 获取传入json文件中的personalInformation值
+     * 获取传入json文件中的Information值
      * @param object
      * @return
      */
@@ -347,7 +344,13 @@ public class JSONObjectOperation {
      * @return
      */
     private Map<String,String> changeStringToMap(String data){
-        Map<String,String> result=new HashMap<>();
+        data=data.substring(1,data.length()-1);
+        String[] strs=data.split(",");
+        Map<String,String> result=new LinkedHashMap<>();
+        for(int i=0,length=strs.length;i<length;i++){
+            int flag=strs[i].indexOf("=");
+            result.put(strs[i].substring(0,flag).trim(),strs[i].substring(flag+1).trim());
+        }
         return result;
     }
 

@@ -2,8 +2,10 @@ package servlet;
 
 import static java.lang.System.out;
 
+import BaseClass.ValueCallBack;
 import bean.Note;
 import bean.operate.OperateInformation;
+import bean.operate.OperateNote;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.context.ApplicationContext;
@@ -29,7 +31,7 @@ public class ServletNote extends HttpServlet {
 
     private JSONObjectOperation objectOperation;
 
-    private OperateInformation operateInformation;
+    private OperateNote operateNote;
 
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -40,29 +42,97 @@ public class ServletNote extends HttpServlet {
     public void doPost(HttpServletRequest request,HttpServletResponse response){
         JSONArray array=requestAndResponse.transRequestToArray(request);
         out.println(array.toString());
-        Note note=new Note();
-        note.setId(12);
-        note.setUserId(23);
-        note.setTitle("java学习指南");
-        List<String> word=new ArrayList<>();
-        word.add("asd");
-        word.add("qwe");
-        word.add("zxc");
-        note.setWordDetails(word);
-        Map<String,String> map=new LinkedHashMap<>();
-        map.put("asd","asd");
-        map.put("qwe","qwe");
-        map.put("zxc","zxc");
-        note.setPhoto(map);
-        note.setAuthor("cartoon");
-        note.setDate("2018-05-06");
-        List<String> tag=new ArrayList<>();
-        tag.add("asd");
-        tag.add("zxc");
-        tag.add("qwe");
-        note.setTag(tag);
-        JSONObject object=objectOperation.setNoteToJSON(note);
-        requestAndResponse.transObjectToResponse(response,object);
+        List<JSONObject> data=arrayOperation.getObjectsFromArray(array);
+        List<Note> result=new ArrayList<>();
+        for(JSONObject object:data){
+            result.add(objectOperation.getNoteFromJSON(object));
+        }
+        String method=objectOperation.getMethodFromJSON(data.get(0));
+        switch (method){
+            case "add":{
+                handleAddNote(result.get(0),response);
+                break;
+            }
+            case "delete":{
+                handleDeleteNote(result.get(0),response);
+                break;
+            }
+            case "query":{
+                handleQueryNote(result.get(0),response);
+                break;
+            }
+            case "update":{
+                handleUpdateNote(result.get(0),result.get(1),response);
+                break;
+            }
+        }
+    }
+
+    private void handleAddNote(Note data,HttpServletResponse response) {
+        operateNote.add(data, new ValueCallBack<String>() {
+            @Override
+            public void onSuccess(String s) {
+                JSONObject object=objectOperation.setResultToJSON(s);
+                requestAndResponse.transObjectToResponse(response,object);
+            }
+
+            @Override
+            public void onFail(String code) {
+                JSONObject object=objectOperation.setResultToJSON(code);
+                requestAndResponse.transObjectToResponse(response,object);
+            }
+        });
+    }
+
+    private void handleDeleteNote(Note condition, HttpServletResponse response) {
+        operateNote.delete(condition, new ValueCallBack<String>() {
+            @Override
+            public void onSuccess(String s) {
+                JSONObject object=objectOperation.setResultToJSON(s);
+                requestAndResponse.transObjectToResponse(response,object);
+            }
+
+            @Override
+            public void onFail(String code) {
+                JSONObject object=objectOperation.setResultToJSON(code);
+                requestAndResponse.transObjectToResponse(response,object);
+            }
+        });
+    }
+
+    private void handleQueryNote(Note condition, HttpServletResponse response) {
+        operateNote.query(condition, new ValueCallBack<List<Note>>() {
+            @Override
+            public void onSuccess(List<Note> notes) {
+                List<JSONObject> result=new ArrayList<>();
+                for(Note note:notes){
+                    result.add(objectOperation.setNoteToJSON(note));
+                }
+                requestAndResponse.transArrayToResponse(response,result);
+            }
+
+            @Override
+            public void onFail(String code) {
+                JSONObject result=objectOperation.setResultToJSON(code);
+                requestAndResponse.transObjectToResponse(response,result);
+            }
+        });
+    }
+
+    private void handleUpdateNote(Note oldNote,Note newNote, HttpServletResponse response) {
+        operateNote.update(oldNote, newNote, new ValueCallBack<String>() {
+            @Override
+            public void onSuccess(String s) {
+                JSONObject result=objectOperation.setResultToJSON(s);
+                requestAndResponse.transObjectToResponse(response,result);
+            }
+
+            @Override
+            public void onFail(String code) {
+                JSONObject result=objectOperation.setResultToJSON(code);
+                requestAndResponse.transObjectToResponse(response,result);
+            }
+        });
     }
 
     public ServletNote(){
@@ -70,7 +140,7 @@ public class ServletNote extends HttpServlet {
         setRequestAndResponse(context.getBean("requestAndResponse",RequestAndResponse.class));
         setArrayOperation(context.getBean("jsonArrayOperation",JSONArrayOperation.class));
         setObjectOperation(context.getBean("jsonObjectOperation",JSONObjectOperation.class));
-        setOperateInformation(context.getBean("operateInformation",OperateInformation.class));
+        setOperateNote(context.getBean("operateNote",OperateNote.class));
     }
 
     public void setRequestAndResponse(RequestAndResponse requestAndResponse) {
@@ -85,8 +155,7 @@ public class ServletNote extends HttpServlet {
         this.objectOperation = objectOperation;
     }
 
-    public void setOperateInformation(OperateInformation operateInformation) {
-        this.operateInformation = operateInformation;
+    private void setOperateNote(OperateNote operateNote) {
+        this.operateNote=operateNote;
     }
-
 }
