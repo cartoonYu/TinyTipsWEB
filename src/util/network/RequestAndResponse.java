@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 /**
@@ -46,6 +47,11 @@ public class RequestAndResponse {
         if(JudgeEmpty.isEmpty(request)){
             return null;
         }
+        try {
+            request.setCharacterEncoding("utf-8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
         StringBuilder source=new StringBuilder();
         try {
             BufferedReader reader=request.getReader();
@@ -56,6 +62,7 @@ public class RequestAndResponse {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        out.println(source.toString());
         JSONArray array=new JSONArray(source.toString());
         return array;
     }
@@ -77,6 +84,11 @@ public class RequestAndResponse {
     public JSONObject transRequestToObject(HttpServletRequest request){
         if(JudgeEmpty.isEmpty(request)){
             return null;
+        }
+        try {
+            request.setCharacterEncoding("utf-8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
         }
         StringBuilder source=new StringBuilder();
         try {
@@ -104,6 +116,7 @@ public class RequestAndResponse {
      */
     public void transArrayToResponse(HttpServletResponse response, List<JSONObject> result){
         JSONArray array=arrayOperation.setObjectToArray(result);
+        response.setCharacterEncoding("UTF-8");
         try {
             response.getWriter().append(array.toString());
         } catch (IOException e) {
@@ -112,6 +125,7 @@ public class RequestAndResponse {
     }
 
     public void transObjectToResponse(HttpServletResponse response,JSONObject object){
+        response.setCharacterEncoding("UTF-8");
         try {
             response.getWriter().append(object.toString());
         }catch (IOException e){

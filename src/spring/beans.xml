@@ -13,8 +13,7 @@
     <bean id="commentDetails" class="bean.CommentDetails"
         p:date-ref="currentTime"/>
     <bean id="information" class="bean.Information"/>
-    <bean id="note" class="bean.Note"
-        p:date-ref="currentTime"/>
+    <bean id="note" class="bean.Note"/>
 
     <bean id="operateComment" class="bean.operate.OperateComment"
         p:operateDB-ref="operateDB"
@@ -27,12 +26,15 @@
         p:tableName="Information"
         p:ls-ref="listAndString"
         p:fileOperation-ref="fileOperation"
-        p:imageConstant-ref="imageConstant"/>
+        p:imageConstant-ref="imageConstant"
+        p:currentTime-ref="currentTime"/>
     <bean id="operateNote" class="bean.operate.OperateNote"
           p:operateDB-ref="operateDB"
           p:tableName="Note"
           p:ls-ref="listAndString"
-          p:operateInformation-ref="operateInformation"/>
+          p:fileOperation-ref="fileOperation"
+          p:imageConstant-ref="imageConstant"
+          p:currentTime-ref="currentTime"/>
 
     <bean id="getContext" class="spring.GetContext"/>
 
@@ -47,9 +49,7 @@
     <bean id="coder" class="util.file.Coder"/>
 
     <bean id="jsonArrayOperation" class="util.JSON.JSONArrayOperation"/>
-    <bean id="jsonObjectOperation" class="util.JSON.JSONObjectOperation"
-          p:fileOperation-ref="fileOperation"
-          p:imageConstant-ref="imageConstant"/>
+    <bean id="jsonObjectOperation" class="util.JSON.JSONObjectOperation"/>
 
     <bean id="requestAndResponse" class="util.network.RequestAndResponse"
         p:arrayOperation-ref="jsonArrayOperation"/>
@@ -58,6 +58,7 @@
     <bean id="getUUID" class="util.GetUUID"/>
     <bean id="judgeEmpty" class="util.JudgeEmpty"/>
     <bean id="listAndString" class="util.ListAndString"/>
+    <bean id="mapAndString" class="util.MapAndString"/>
 
     <context:property-override location="sql/dbconn_server.properties"/>
     <context:property-override location="util/file/imagePath_server.properties"/>

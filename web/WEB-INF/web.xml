@@ -20,5 +20,14 @@
         <servlet-name>Information</servlet-name>
         <url-pattern>/Information</url-pattern>
     </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>Note</servlet-name>
+        <servlet-class>servlet.ServletNote</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Note</servlet-name>
+        <url-pattern>/Note</url-pattern>
+    </servlet-mapping>
 
 </web-app>

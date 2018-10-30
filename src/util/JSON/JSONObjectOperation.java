@@ -12,7 +12,9 @@ import util.file.FileOperation;
 import util.file.ImageConstant;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author cartoon
@@ -25,10 +27,6 @@ import java.util.List;
  * none
  */
 public class JSONObjectOperation {
-
-    private FileOperation fileOperation;
-
-    private ImageConstant imageConstant;
 
     /**
      * 将传入的comment转换成json文件
@@ -128,14 +126,31 @@ public class JSONObjectOperation {
             return null;
         }
         else{
-            JSONObject jsonObject=new JSONObject();
+            JSONObject result=new JSONObject();
             try{
-                jsonObject.put("note",note);
+                if(note.getUserId()!=0){
+                    result.put("userId",note.getUserId());
+                }
+                if(note.getId()!=0){
+                    result.put("id",note.getId());
+                }
+                result.put("title",note.getTitle());
+                if(JudgeEmpty.isNotEmpty(note.getWordDetails())){
+                    result.put("word",note.getWordDetails().toString());
+                }
+                if(JudgeEmpty.isNotEmpty(note.getPhoto())){
+                    result.put("photo",note.getPhoto().toString());
+                }
+                result.put("author",note.getAuthor());
+                result.put("date",note.getDate());
+                if(JudgeEmpty.isNotEmpty(note.getTag())){
+                    result.put("tag",note.getTag().toString());
+                }
             }catch(JSONException e){
                 out.println("jsonObjectException:将note转换json文件出现错误");
                 e.printStackTrace();
             }
-            return jsonObject;
+            return result;
         }
     }
 
@@ -151,8 +166,32 @@ public class JSONObjectOperation {
         else{
             Note note=new Note();
             try{
-                if(object.get("note") instanceof Note){
-                    note=(Note) object.get("note");
+                if(object.has("userId")){
+                    note.setUserId(object.getLong("userId"));
+                }
+                if(object.has("id")){
+                    note.setId(object.getLong("id"));
+                }
+                if(object.has("title")){
+                    note.setTitle(object.getString("title"));
+                }
+                if(object.has("word")) {
+                    String word = object.getString("word");
+                    note.setWordDetails(changeStringToList(word));
+                }
+                if(object.has("photo")){
+                    String photo=object.getString("photo");
+                    note.setPhoto(changeStringToMap(photo));
+                }
+                if(object.has("author")){
+                    note.setAuthor(object.getString("author"));
+                }
+                if(object.has("date")){
+                    note.setDate(object.getString("date"));
+                }
+                if (object.has("tag")){
+                    String tag=object.getString("tag");
+                    note.setTag(changeStringToList(tag));
                 }
             }catch(JSONException e){
                 out.println("jsonObjectException:将json文件转换note出现错误");
@@ -297,12 +336,19 @@ public class JSONObjectOperation {
         return result;
     }
 
-    public void setFileOperation(FileOperation fileOperation) {
-        this.fileOperation = fileOperation;
-    }
-
-    public void setImageConstant(ImageConstant imageConstant) {
-        this.imageConstant = imageConstant;
+    /**
+     * 功能
+     * 将json文件中的Map字符串转换回Map
+     *
+     * 使用方法
+     * 1.传入形如[data1, data2, data3...]的字符串
+     * 2.
+     * @param data
+     * @return
+     */
+    private Map<String,String> changeStringToMap(String data){
+        Map<String,String> result=new HashMap<>();
+        return result;
     }
 
 }

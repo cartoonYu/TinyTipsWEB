@@ -9,7 +9,7 @@ public class CurrentTime {
 
     private void getTime(){
         Date date=new Date();
-        SimpleDateFormat df=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        SimpleDateFormat df=new SimpleDateFormat("yyyy-MM-dd");
         this.date=df.format(date);
     }
 

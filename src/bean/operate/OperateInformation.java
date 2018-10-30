@@ -3,6 +3,7 @@ package bean.operate;
 import BaseClass.ValueCallBack;
 import bean.Information;
 import sql.OperateDB;
+import util.CurrentTime;
 import util.JudgeEmpty;
 import util.ListAndString;
 import util.file.FileOperation;
@@ -28,6 +29,8 @@ public class OperateInformation {
     private FileOperation fileOperation;
 
     private ImageConstant imageConstant;
+
+    private CurrentTime currentTime;
 
     private String tableName;
 
@@ -56,6 +59,7 @@ public class OperateInformation {
             String headPortraitName=fileOperation.addFile(headPortrait,imageConstant.getInformation(),".jpg");
             information.setHeadPortraitName(headPortraitName);
         }
+        information.setDate(currentTime.getDate());
         Map<String,String> data=changeInformationToMap(information);
         if(db.add(tableName,data)){
             callBack.onSuccess("200");
@@ -291,6 +295,10 @@ public class OperateInformation {
         else{
             return false;
         }
+    }
+
+    public void setCurrentTime(CurrentTime currentTime) {
+        this.currentTime = currentTime;
     }
 
     public void setFileOperation(FileOperation fileOperation) {

@@ -3,6 +3,7 @@ package bean;
 import util.CurrentTime;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author cartoon
@@ -34,7 +35,7 @@ public class Note {
 
     private List<String> wordDetails;    //文字性内容
 
-    private List<String> photoDetails;   //图片性内容
+    private Map<String,String> photo;   //图片性内容
 
     public Note(){
     }
@@ -59,8 +60,8 @@ public class Note {
         return wordDetails;
     }
 
-    public List<String> getPhotoDetails() {
-        return photoDetails;
+    public Map<String, String> getPhoto() {
+        return photo;
     }
 
     public String getAuthor() {
@@ -87,16 +88,16 @@ public class Note {
         this.wordDetails = wordDetails;
     }
 
-    public void setPhotoDetails(List<String> photoDetails) {
-        this.photoDetails = photoDetails;
+    public void setPhoto(Map<String, String> photo) {
+        this.photo = photo;
     }
 
     public void setAuthor(String author) {
         this.author = author;
     }
 
-    public void setDate(CurrentTime time) {
-        date=time.getDate();
+    public void setDate(String date) {
+        this.date = date;
     }
 
     public void setTag(List<String> tag) {
