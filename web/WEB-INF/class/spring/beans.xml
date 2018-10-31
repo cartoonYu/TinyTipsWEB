@@ -60,7 +60,7 @@
     <bean id="listAndString" class="util.ListAndString"/>
     <bean id="mapAndString" class="util.MapAndString"/>
 
-    <context:property-override location="sql/dbconn.properties"/>
-    <context:property-override location="util/file/imagePath.properties"/>
+    <context:property-override location="sql/dbconn_server.properties"/>
+    <context:property-override location="util/file/imagePath_server.properties"/>
 
 </beans>

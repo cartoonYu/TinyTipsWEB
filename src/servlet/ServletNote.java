@@ -4,7 +4,6 @@ import static java.lang.System.out;
 
 import BaseClass.ValueCallBack;
 import bean.Note;
-import bean.operate.OperateInformation;
 import bean.operate.OperateNote;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -19,9 +18,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Map;
 
 public class ServletNote extends HttpServlet {
 

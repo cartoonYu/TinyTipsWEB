@@ -133,15 +133,22 @@ public class JSONObjectOperation {
                 }
                 result.put("title",note.getTitle());
                 if(JudgeEmpty.isNotEmpty(note.getWordDetails())){
-                    result.put("word",note.getWordDetails().toString());
+                    if(!note.getWordDetails().isEmpty()){{
+                        result.put("word",note.getWordDetails().toString());
+                    }}
                 }
                 if(JudgeEmpty.isNotEmpty(note.getPhoto())){
-                    result.put("photo",note.getPhoto().toString());
+                    if(!note.getPhoto().isEmpty()){
+                        result.put("photo",note.getPhoto().toString());
+                    }
                 }
                 result.put("author",note.getAuthor());
                 result.put("date",note.getDate());
                 if(JudgeEmpty.isNotEmpty(note.getTag())){
-                    result.put("tag",note.getTag().toString());
+                    if(!note.getTag().isEmpty()){
+                        result.put("tag",note.getTag().toString());
+                    }
+
                 }
             }catch(JSONException e){
                 out.println("jsonObjectException:将note转换json文件出现错误");
