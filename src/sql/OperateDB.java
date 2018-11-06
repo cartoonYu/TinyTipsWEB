@@ -140,14 +140,18 @@ public class OperateDB {
     public ResultSet query(String tableName,Map<String,String> condition) {
         StringBuilder sql=new StringBuilder();  //拼接的sql语句
         StringBuilder tCondition=new StringBuilder();
-        sql.append("select * from ").append(tableName).append(" where ");
-        condition.forEach((key,value)->{
-            if(JudgeEmpty.isNotEmpty(value)){
-                tCondition.append(key).append("=").append("\"").append(value).append("\"");
-                tCondition.append(" and ");
-            }
-        });
-        sql.append(tCondition.substring(0,tCondition.length()-5)).append(";");
+        sql.append("select * from ").append(tableName);
+        if(!condition.isEmpty()){
+            sql.append(" where ");
+            condition.forEach((key,value)->{
+                if(JudgeEmpty.isNotEmpty(value)){
+                    tCondition.append(key).append("=").append("\"").append(value).append("\"");
+                    tCondition.append(" and ");
+                }
+            });
+            sql.append(tCondition.substring(0,tCondition.length()-5));
+        }
+        sql.append(";");
         ResultSet result=null;
         try {
             result=s.executeQuery(sql.toString());

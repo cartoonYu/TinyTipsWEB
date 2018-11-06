@@ -116,7 +116,6 @@ public class OperateNote {
             ResultSet set=db.query(tableName,changeNoteToMap(condition));
             List<Note> result=new ArrayList<>();
             while(set.next()){
-                out.println("1");
                 Note note=new Note();
                 note.setId(set.getLong("id"));
                 note.setUserId(set.getLong("userId"));
@@ -134,7 +133,6 @@ public class OperateNote {
                     note.setPhoto(photo);
                     note=queryPhoto(note);
                 }
-                out.println(note.getAuthor());
                 result.add(note);
             }
             callBack.onSuccess(result);

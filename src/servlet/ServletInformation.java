@@ -123,6 +123,7 @@ public class ServletInformation extends HttpServlet {
             public void onSuccess(List<Information> information) {
                 List<JSONObject> result=new ArrayList<>();
                 for(Information temp:information){
+
                     result.add(objectOperation.setInformationToJSON(temp));
                 }
                 requestAndResponse.transArrayToResponse(response,result);

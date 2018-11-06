@@ -2,4 +2,5 @@
 /src/sql/dbconn_server.properties
 /src/util/file/imagePath.properties
 /src/util/file/imagePath_server.properties
-/out
+/out/upload
+/out/artifacts/TinyTipsWEB_war_exploded
