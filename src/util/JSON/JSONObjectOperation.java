@@ -35,14 +35,31 @@ public class JSONObjectOperation {
             return null;
         }
         else{
-            JSONObject jsonObject=new JSONObject();
+            JSONObject result=new JSONObject();
             try{
-                jsonObject.put("comment",comment);
+                if(comment.getNoteId()!=0){
+                    result.put("noteId",comment.getNoteId());
+                }
+                if(JudgeEmpty.isNotEmpty(comment.getTag())){
+                    result.put("tag",comment.getTag().toString());
+                }
+                if(comment.getLike()!=0){
+                    result.put("like",comment.getLike());
+                }
+                if(comment.getComment()!=0){
+                    result.put("comment",comment.getComment());
+                }
+                if(comment.getCollect()!=0){
+                    result.put("collect",comment.getCollect());
+                }
+                if(comment.getForward()!=0){
+                    result.put("forward",comment.getForward());
+                }
             }catch(JSONException e){
                 out.println("jsonObjectException:将comment转换json文件出现错误");
                 e.printStackTrace();
             }
-            return jsonObject;
+            return result;
         }
     }
 
@@ -58,8 +75,25 @@ public class JSONObjectOperation {
         else{
             Comment comment=new Comment();
             try{
-                if(object.get("comment") instanceof Comment){
-                    comment=(Comment)object.get("comment");
+                if(object.has("noteId")){
+                    comment.setNoteId(object.getLong("noteId"));
+                }
+                if(object.has("tag")){
+                    String temp=object.getString("tag");
+                    comment.setTag(changeStringToList(temp));
+                }
+                if(object.has("like")){
+                    comment.setLike(object.getInt("like"));
+                }
+
+                if(object.has("comment")){
+                    comment.setComment(object.getInt("comment"));
+                }
+                if(object.has("collect")){
+                    comment.setCollect(object.getInt("collect"));
+                }
+                if(object.has("forward")){
+                    comment.setForward(object.getInt("forward"));
                 }
             }catch(JSONException e){
                 out.println("jsonObjectException:将json文件转换commentDetails出现错误");
@@ -95,7 +129,7 @@ public class JSONObjectOperation {
      * @param object
      * @return
      */
-    public CommentDetails getcommentDetailsFromJSON(JSONObject object){
+    public CommentDetails getCommentDetailsFromJSON(JSONObject object){
         if(JudgeEmpty.isEmpty(object)){
             return null;
         }

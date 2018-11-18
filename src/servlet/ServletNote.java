@@ -38,6 +38,7 @@ public class ServletNote extends HttpServlet {
     @Override
     public void doPost(HttpServletRequest request,HttpServletResponse response){
         JSONArray array=requestAndResponse.transRequestToArray(request);
+        out.println("Note");
         out.println(array.toString());
         List<JSONObject> data=arrayOperation.getObjectsFromArray(array);
         List<Note> result=new ArrayList<>();
@@ -105,6 +106,7 @@ public class ServletNote extends HttpServlet {
                 for(Note note:notes){
                     result.add(objectOperation.setNoteToJSON(note));
                 }
+                out.println("result:"+result.toString());
                 requestAndResponse.transArrayToResponse(response,result);
             }
 

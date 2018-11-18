@@ -17,7 +17,8 @@
 
     <bean id="operateComment" class="bean.operate.OperateComment"
         p:operateDB-ref="operateDB"
-        p:tableName="comment"/>
+        p:tableName="comment"
+        p:listAndString-ref="listAndString"/>
     <bean id="operateCommentDetails" class="bean.operate.OperateCommentDetails"
         p:operateDB-ref="operateDB"
         p:tableName="CommentDetails"/>

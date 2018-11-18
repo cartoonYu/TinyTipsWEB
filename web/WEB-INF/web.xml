@@ -30,4 +30,13 @@
         <url-pattern>/Note</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>Comment</servlet-name>
+        <servlet-class>servlet.ServletComment</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Comment</servlet-name>
+        <url-pattern>/Comment</url-pattern>
+    </servlet-mapping>
+
 </web-app>

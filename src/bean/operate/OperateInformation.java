@@ -143,6 +143,7 @@ public class OperateInformation {
                     String file=fileOperation.queryFile(imageConstant.getInformation(),headPortraitName,".jpg");
                     result.setHeadPortrait(file);
                 }
+
                 list.add(result);
             }
             callBack.onSuccess(list);

@@ -71,6 +71,7 @@ public class OperateDB {
         sql.append(columns.substring(0, columns.length()-1)).append(")");
         sql.append(" values(");
         sql.append(values.substring(0, values.length()-1)).append(");");
+        out.println(sql.toString());
         int result=-1;
         try {
             result=s.executeUpdate(sql.toString());
@@ -152,6 +153,7 @@ public class OperateDB {
             sql.append(tCondition.substring(0,tCondition.length()-5));
         }
         sql.append(";");
+        out.println(sql.toString());
         ResultSet result=null;
         try {
             result=s.executeQuery(sql.toString());
@@ -191,6 +193,7 @@ public class OperateDB {
             }
         });
         sql.append(tCondition.substring(0,tCondition.length()-5)).append(";");
+        out.println(sql.toString());
         int result=-1;
         try {
             result=s.executeUpdate(sql.toString());
