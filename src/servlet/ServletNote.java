@@ -64,6 +64,7 @@ public class ServletNote extends HttpServlet {
                 break;
             }
         }
+        out.println();
     }
 
     private void handleAddNote(Note data,HttpServletResponse response) {

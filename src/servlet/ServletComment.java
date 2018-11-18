@@ -48,14 +48,6 @@ public class ServletComment extends HttpServlet {
         }
         String method=objectOperation.getMethodFromJSON(data.get(0));
         switch (method){
-            case "add":{
-                handleAddComment(result.get(0),response);
-                break;
-            }
-            case "delete":{
-                handleDeleteComment(result.get(0),response);
-                break;
-            }
             case "query":{
                 handleQueryComment(result.get(0),response);
                 break;
@@ -75,38 +67,6 @@ public class ServletComment extends HttpServlet {
             }
         }
         out.println();
-    }
-
-    private void handleAddComment(Comment comment,HttpServletResponse response){
-        operateComment.add(comment, new ValueCallBack<String>() {
-            @Override
-            public void onSuccess(String s) {
-                JSONObject object=objectOperation.setResultToJSON(s);
-                requestAndResponse.transObjectToResponse(response,object);
-            }
-
-            @Override
-            public void onFail(String code) {
-                JSONObject object=objectOperation.setResultToJSON(code);
-                requestAndResponse.transObjectToResponse(response,object);
-            }
-        });
-    }
-
-    private void handleDeleteComment(Comment comment,HttpServletResponse response){
-        operateComment.delete(comment, new ValueCallBack<String>() {
-            @Override
-            public void onSuccess(String s) {
-                JSONObject object=objectOperation.setResultToJSON(s);
-                requestAndResponse.transObjectToResponse(response,object);
-            }
-
-            @Override
-            public void onFail(String code) {
-                JSONObject object=objectOperation.setResultToJSON(code);
-                requestAndResponse.transObjectToResponse(response,object);
-            }
-        });
     }
 
     private void handleQueryComment(Comment comment,HttpServletResponse response){

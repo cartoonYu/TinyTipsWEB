@@ -46,6 +46,7 @@ public class OperateComment {
         }
         Map<String,String> data=changeCommentToMap(comment);
         if(db.add(tableName,data)){
+
             callBack.onSuccess("200");
         }
         else {
@@ -194,5 +195,4 @@ public class OperateComment {
     public void setListAndString(ListAndString listAndString) {
         this.listAndString = listAndString;
     }
-
 }

@@ -35,7 +35,8 @@
           p:ls-ref="listAndString"
           p:fileOperation-ref="fileOperation"
           p:imageConstant-ref="imageConstant"
-          p:currentTime-ref="currentTime"/>
+          p:currentTime-ref="currentTime"
+          p:operateComment-ref="operateComment"/>
 
     <bean id="getContext" class="spring.GetContext"/>
 
