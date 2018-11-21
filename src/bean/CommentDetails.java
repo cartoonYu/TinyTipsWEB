@@ -20,15 +20,25 @@ public class CommentDetails {
 
     private long noteId;       //笔记编号
 
-    private String date;        //时间，主键
+    private long userId;        //用户id
+
+    private String date;        //时间
 
     private String headPro;     //头像
 
-    private String nickName;    //昵称，主键
+    private String nickName;    //昵称
 
     private String details;     //评论详情
 
     public CommentDetails(){
+    }
+
+    public void setUserId(long userId) {
+        this.userId = userId;
+    }
+
+    public long getUserId() {
+        return userId;
     }
 
     public String getNickName() {
@@ -53,6 +63,10 @@ public class CommentDetails {
 
     public void setNoteId(long noteId) {
         this.noteId = noteId;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
     }
 
     public void setDate(CurrentTime date) {

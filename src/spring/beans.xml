@@ -17,11 +17,15 @@
 
     <bean id="operateComment" class="bean.operate.OperateComment"
         p:operateDB-ref="operateDB"
-        p:tableName="comment"
+        p:tableName="Comment"
         p:listAndString-ref="listAndString"/>
     <bean id="operateCommentDetails" class="bean.operate.OperateCommentDetails"
         p:operateDB-ref="operateDB"
-        p:tableName="CommentDetails"/>
+        p:tableName="CommentDetails"
+        p:operateComment-ref="operateComment"
+        p:operateInformation-ref="operateInformation"
+        p:fileOperation-ref="fileOperation"
+        p:imageConstant-ref="imageConstant"/>
     <bean id="operateInformation" class="bean.operate.OperateInformation"
         p:operateDB-ref="operateDB"
         p:tableName="Information"
@@ -62,7 +66,7 @@
     <bean id="listAndString" class="util.ListAndString"/>
     <bean id="mapAndString" class="util.MapAndString"/>
 
-    <context:property-override location="sql/dbconn.properties"/>
-    <context:property-override location="util/file/imagePath.properties"/>
+    <context:property-override location="sql/dbconn_server.properties"/>
+    <context:property-override location="util/file/imagePath_server.properties"/>
 
 </beans>

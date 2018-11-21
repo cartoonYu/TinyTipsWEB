@@ -113,14 +113,23 @@ public class JSONObjectOperation {
             return null;
         }
         else{
-            JSONObject jsonObject=new JSONObject();
+            JSONObject result=new JSONObject();
             try{
-                jsonObject.put("commentDetails",commentDetails);
+                if(commentDetails.getNoteId()!=0){
+                    result.put("noteId",commentDetails.getNoteId());
+                }
+                if(commentDetails.getUserId()!=0){
+                    result.put("userId",commentDetails.getUserId());
+                }
+                result.put("date",commentDetails.getDate());
+                result.put("headPro",commentDetails.getHeadPro());
+                result.put("nickName",commentDetails.getNickName());
+                result.put("details",commentDetails.getDetails());
             }catch(JSONException e){
                 out.println("jsonObjectException:将commentDetails转换json文件出现错误");
                 e.printStackTrace();
             }
-            return jsonObject;
+            return result;
         }
     }
 
@@ -136,8 +145,24 @@ public class JSONObjectOperation {
         else{
             CommentDetails commentDetails=new CommentDetails();
             try{
-                if(object.get("commentDetails") instanceof CommentDetails){
-                    commentDetails=(CommentDetails)object.get("commentDetails");
+                if(object.has("noteId")){
+                    if(object.getLong("noteId")!=0){
+                        commentDetails.setNoteId(object.getLong("noteId"));
+                    }
+                }
+                if(object.has("userId")){
+                    if(object.getLong("userId")!=0){
+                        commentDetails.setUserId(object.getLong("userId"));
+                    }
+                }
+                if(object.has("details")){
+                    commentDetails.setDetails(object.getString("details"));
+                }
+                if(object.has("headPro")){
+                    commentDetails.setHeadPro(object.getString("headPro"));
+                }
+                if(object.has("nickName")){
+                    commentDetails.setNickName(object.getString("nickName"));
                 }
             }catch(JSONException e){
                 out.println("jsonObjectException:将json文件转换comment出现错误");

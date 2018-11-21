@@ -1,11 +1,21 @@
 package bean.operate;
 
 import BaseClass.ValueCallBack;
+import bean.Comment;
 import bean.CommentDetails;
+import bean.Information;
 import sql.OperateDB;
+import util.JudgeEmpty;
 import util.ListAndString;
+import util.file.FileOperation;
+import util.file.ImageConstant;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * 拆分形参传进的InformationDetails，传递给数据库操作层
@@ -19,6 +29,15 @@ public class OperateCommentDetails {
 
     private OperateDB db;
 
+    private OperateInformation operateInformation;
+
+    private OperateComment operateComment;
+
+
+    private FileOperation fileOperation;
+
+    private ImageConstant imageConstant;
+
     /**
      * 功能
      * 将传入数据写入到数据库的CommentDetails表
@@ -31,7 +50,40 @@ public class OperateCommentDetails {
      * @param callBack
      */
     public void add(CommentDetails details, ValueCallBack<String> callBack){
+        if(JudgeEmpty.isEmpty(details)||JudgeEmpty.isEmpty(details.getDetails())){
+            callBack.onFail("300");
+            return;
+        }
+        Map<String,String> data=changeDetailsToMap(details);
+        if(db.add(tableName,data)){
+            Comment source=new Comment();
+            source.setNoteId(details.getNoteId());
+            operateComment.query(source, new ValueCallBack<Comment>() {
+                @Override
+                public void onSuccess(Comment comment) {
+                    source.setComment(comment.getComment()+1);
+                    operateComment.update(comment, source, new ValueCallBack<String>() {
+                        @Override
+                        public void onSuccess(String s) {
+                            callBack.onSuccess(s);
+                        }
 
+                        @Override
+                        public void onFail(String code) {
+                            callBack.onFail(code);
+                        }
+                    });
+                }
+
+                @Override
+                public void onFail(String code) {
+                    callBack.onFail(code);
+                }
+            });
+        }
+        else {
+            callBack.onFail("400");
+        }
     }
 
     /**
@@ -49,7 +101,40 @@ public class OperateCommentDetails {
      * @param callBack
      */
     public void delete(CommentDetails details,ValueCallBack<String> callBack){
+        if(JudgeEmpty.isEmpty(details)||JudgeEmpty.isEmpty(details.getDetails())){
+            callBack.onFail("300");
+            return;
+        }
+        Map<String,String> data=changeDetailsToMap(details);
+        if(db.delete(tableName,data)){
+            Comment source=new Comment();
+            source.setNoteId(details.getNoteId());
+            operateComment.query(source, new ValueCallBack<Comment>() {
+                @Override
+                public void onSuccess(Comment comment) {
+                    source.setComment(comment.getComment()-1);
+                    operateComment.update(comment, source, new ValueCallBack<String>() {
+                        @Override
+                        public void onSuccess(String s) {
+                            callBack.onSuccess(s);
+                        }
 
+                        @Override
+                        public void onFail(String code) {
+                            callBack.onFail(code);
+                        }
+                    });
+                }
+
+                @Override
+                public void onFail(String code) {
+                    callBack.onFail(code);
+                }
+            });
+        }
+        else {
+            callBack.onFail("400");
+        }
     }
 
     /**
@@ -57,17 +142,52 @@ public class OperateCommentDetails {
      * 根据传入条件查询数据库的CommentDetails表
      *
      * 使用方法
-     * 1.传入带有查询条件的个人信息对象
+     * 1.传入带有查询条件的笔记评论对象
      * 2.通过回调接口得到查询结果
      *
      * 注意
-     * 1.对象内需至少含有一个值
      * 2.查询结果数据类型为List
      *
      * @param details
      * @param callBack
      */
     public void query(CommentDetails details, ValueCallBack<List<CommentDetails>> callBack){
+        if(JudgeEmpty.isEmpty(details)){
+            callBack.onFail("300");
+            return;
+        }
+        Map<String,String> data=changeDetailsToMap(details);
+        ResultSet set=db.query(tableName,data);
+        try {
+            List<CommentDetails> list=new ArrayList<>();
+            while(set.next()){
+                CommentDetails commentDetails=new CommentDetails();
+                commentDetails.setNoteId(set.getLong("noteId"));
+                commentDetails.setUserId(set.getLong("userId"));
+                commentDetails.setDetails(set.getString("details"));
+                commentDetails.setDate(set.getString("date"));
+                Information information=new Information();
+                information.setId(commentDetails.getUserId());
+                operateInformation.query(information, new ValueCallBack<List<Information>>() {
+                    @Override
+                    public void onSuccess(List<Information> information) {
+                        String headProName=information.get(0).getHeadPortraitName();
+                        commentDetails.setHeadPro(fileOperation.queryFile(imageConstant.getInformation(),headProName,".jpg"));
+                        commentDetails.setNickName(information.get(0).getNickName());
+                    }
+
+                    @Override
+                    public void onFail(String code) {
+                        callBack.onFail("400");
+                    }
+                });
+                list.add(commentDetails);
+            }
+            callBack.onSuccess(list);
+        }catch (SQLException e){
+            e.printStackTrace();
+            callBack.onFail("400");
+        }
 
     }
 
@@ -87,7 +207,26 @@ public class OperateCommentDetails {
      * @param callBack
      */
     public void update(CommentDetails oldDetails,CommentDetails newDetails,ValueCallBack<String> callBack){
+        if(JudgeEmpty.isEmpty(newDetails)||JudgeEmpty.isEmpty(oldDetails)){
+            callBack.onFail("300");
+            return;
+        }
+        Map<String,String> source=changeDetailsToMap(oldDetails);
+        Map<String,String> result=changeDetailsToMap(newDetails);
+        if(db.update(tableName,source,result)){
+            callBack.onSuccess("200");
+        }
+        else {
+            callBack.onFail("400");
+        }
+    }
 
+    private Map<String,String> changeDetailsToMap(CommentDetails details){
+        Map<String,String> data=new HashMap<>();
+        data.put("noteId",Long.toString(details.getNoteId()));
+        data.put("userId",Long.toString(details.getUserId()));
+        data.put("details",details.getDetails());
+        return data;
     }
 
     /**
@@ -106,5 +245,21 @@ public class OperateCommentDetails {
      */
     public void setTableName(String tableName) {
         this.tableName = tableName;
+    }
+
+    public void setOperateInformation(OperateInformation operateInformation) {
+        this.operateInformation = operateInformation;
+    }
+
+    public void setOperateComment(OperateComment operateComment) {
+        this.operateComment = operateComment;
+    }
+
+    public void setFileOperation(FileOperation fileOperation) {
+        this.fileOperation = fileOperation;
+    }
+
+    public void setImageConstant(ImageConstant imageConstant) {
+        this.imageConstant = imageConstant;
     }
 }
