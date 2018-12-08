@@ -26,9 +26,6 @@ public class ListAndString {
      * @return
      */
     public List<String> changeStringToList(String source,String separator){
-        if(JudgeEmpty.isEmpty(source)){
-            return null;
-        }
         List<String> result=new ArrayList<>();
         if(JudgeEmpty.isEmpty(source)){
             return result;

@@ -1,7 +1,6 @@
 package bean.operate;
 
 import BaseClass.ValueCallBack;
-import bean.Comment;
 import bean.CommentDetails;
 import bean.Information;
 import sql.OperateDB;
@@ -31,9 +30,6 @@ public class OperateCommentDetails {
 
     private OperateInformation operateInformation;
 
-    private OperateComment operateComment;
-
-
     private FileOperation fileOperation;
 
     private ImageConstant imageConstant;
@@ -56,30 +52,7 @@ public class OperateCommentDetails {
         }
         Map<String,String> data=changeDetailsToMap(details);
         if(db.add(tableName,data)){
-            Comment source=new Comment();
-            source.setNoteId(details.getNoteId());
-            operateComment.query(source, new ValueCallBack<Comment>() {
-                @Override
-                public void onSuccess(Comment comment) {
-                    source.setComment(comment.getComment()+1);
-                    operateComment.update(comment, source, new ValueCallBack<String>() {
-                        @Override
-                        public void onSuccess(String s) {
-                            callBack.onSuccess(s);
-                        }
-
-                        @Override
-                        public void onFail(String code) {
-                            callBack.onFail(code);
-                        }
-                    });
-                }
-
-                @Override
-                public void onFail(String code) {
-                    callBack.onFail(code);
-                }
-            });
+            callBack.onSuccess("200");
         }
         else {
             callBack.onFail("400");
@@ -107,30 +80,7 @@ public class OperateCommentDetails {
         }
         Map<String,String> data=changeDetailsToMap(details);
         if(db.delete(tableName,data)){
-            Comment source=new Comment();
-            source.setNoteId(details.getNoteId());
-            operateComment.query(source, new ValueCallBack<Comment>() {
-                @Override
-                public void onSuccess(Comment comment) {
-                    source.setComment(comment.getComment()-1);
-                    operateComment.update(comment, source, new ValueCallBack<String>() {
-                        @Override
-                        public void onSuccess(String s) {
-                            callBack.onSuccess(s);
-                        }
-
-                        @Override
-                        public void onFail(String code) {
-                            callBack.onFail(code);
-                        }
-                    });
-                }
-
-                @Override
-                public void onFail(String code) {
-                    callBack.onFail(code);
-                }
-            });
+            callBack.onSuccess("200");
         }
         else {
             callBack.onFail("400");
@@ -166,21 +116,6 @@ public class OperateCommentDetails {
                 commentDetails.setUserId(set.getLong("userId"));
                 commentDetails.setDetails(set.getString("details"));
                 commentDetails.setDate(set.getString("date"));
-                Information information=new Information();
-                information.setId(commentDetails.getUserId());
-                operateInformation.query(information, new ValueCallBack<List<Information>>() {
-                    @Override
-                    public void onSuccess(List<Information> information) {
-                        String headProName=information.get(0).getHeadPortraitName();
-                        commentDetails.setHeadPro(fileOperation.queryFile(imageConstant.getInformation(),headProName,".jpg"));
-                        commentDetails.setNickName(information.get(0).getNickName());
-                    }
-
-                    @Override
-                    public void onFail(String code) {
-                        callBack.onFail("400");
-                    }
-                });
                 list.add(commentDetails);
             }
             callBack.onSuccess(list);
@@ -223,9 +158,18 @@ public class OperateCommentDetails {
 
     private Map<String,String> changeDetailsToMap(CommentDetails details){
         Map<String,String> data=new HashMap<>();
-        data.put("noteId",Long.toString(details.getNoteId()));
-        data.put("userId",Long.toString(details.getUserId()));
-        data.put("details",details.getDetails());
+        if(details.getNoteId()!=0){
+            data.put("noteId",Long.toString(details.getNoteId()));
+        }
+        if(details.getUserId()!=0){
+            data.put("userId",Long.toString(details.getUserId()));
+        }
+        if(JudgeEmpty.isNotEmpty(details.getDetails())){
+            data.put("details",details.getDetails());
+        }
+        if(JudgeEmpty.isNotEmpty(details.getDate())){
+            data.put("date",details.getDate());
+        }
         return data;
     }
 
@@ -249,10 +193,6 @@ public class OperateCommentDetails {
 
     public void setOperateInformation(OperateInformation operateInformation) {
         this.operateInformation = operateInformation;
-    }
-
-    public void setOperateComment(OperateComment operateComment) {
-        this.operateComment = operateComment;
     }
 
     public void setFileOperation(FileOperation fileOperation) {

@@ -2,7 +2,6 @@ package bean.operate;
 
 import static java.lang.System.out;
 import BaseClass.ValueCallBack;
-import bean.Comment;
 import bean.Information;
 import bean.Note;
 import spring.GetContext;
@@ -38,8 +37,6 @@ public class OperateNote {
 
     private CurrentTime currentTime;
 
-    private OperateComment operateComment;
-
     /**
      * 功能
      * 将传入数据写入到数据库的Note表
@@ -60,30 +57,7 @@ public class OperateNote {
         note.setDate(currentTime.getDate("time"));
         Map<String,String> data=changeNoteToMap(note);
         if(db.add(tableName,data)){
-            query(note, new ValueCallBack<List<Note>>() {
-                @Override
-                public void onSuccess(List<Note> notes) {
-                    Comment comment=new Comment();
-                    comment.setNoteId(notes.get(0).getId());
-                    operateComment.add(comment, new ValueCallBack<String>() {
-                        @Override
-                        public void onSuccess(String s) {
-                            callBack.onSuccess(s);
-                        }
-
-                        @Override
-                        public void onFail(String code) {
-                            callBack.onFail(code);
-                        }
-                    });
-                }
-
-                @Override
-                public void onFail(String code) {
-                    callBack.onFail(code);
-                }
-            });
-
+            callBack.onSuccess("200");
         }
         else{
             callBack.onFail("400");
@@ -316,10 +290,6 @@ public class OperateNote {
 
     public void setCurrentTime(CurrentTime currentTime) {
         this.currentTime = currentTime;
-    }
-
-    public void setOperateComment(OperateComment operateComment) {
-        this.operateComment = operateComment;
     }
 
 }

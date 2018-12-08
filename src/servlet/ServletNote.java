@@ -45,7 +45,7 @@ public class ServletNote extends HttpServlet {
         for(JSONObject object:data){
             result.add(objectOperation.getNoteFromJSON(object));
         }
-        String method=objectOperation.getMethodFromJSON(data.get(0));
+        String method=objectOperation.getStringFromJSON(data.get(0),"method");
         switch (method){
             case "add":{
                 handleAddNote(result.get(0),response);

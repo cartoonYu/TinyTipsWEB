@@ -9,20 +9,14 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
-    <bean id="comment" class="bean.Comment"/>
-    <bean id="commentDetails" class="bean.CommentDetails"
-        p:date-ref="currentTime"/>
+    <bean id="commentDetails" class="bean.CommentDetails"/>
     <bean id="information" class="bean.Information"/>
     <bean id="note" class="bean.Note"/>
+    <bean id="social" class="bean.Social"/>
 
-    <bean id="operateComment" class="bean.operate.OperateComment"
-        p:operateDB-ref="operateDB"
-        p:tableName="Comment"
-        p:listAndString-ref="listAndString"/>
     <bean id="operateCommentDetails" class="bean.operate.OperateCommentDetails"
         p:operateDB-ref="operateDB"
         p:tableName="CommentDetails"
-        p:operateComment-ref="operateComment"
         p:operateInformation-ref="operateInformation"
         p:fileOperation-ref="fileOperation"
         p:imageConstant-ref="imageConstant"/>
@@ -39,8 +33,10 @@
           p:ls-ref="listAndString"
           p:fileOperation-ref="fileOperation"
           p:imageConstant-ref="imageConstant"
+          p:currentTime-ref="currentTime"/>
+    <bean id="operateSocial" class="bean.operate.OperateSocial"
           p:currentTime-ref="currentTime"
-          p:operateComment-ref="operateComment"/>
+          p:db-ref="operateDB"/>
 
     <bean id="getContext" class="spring.GetContext"/>
 

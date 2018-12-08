@@ -201,6 +201,7 @@ public class OperateDB {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
+        out.println("受影响的行数："+result);
         if(result==-1||result==0) {
             return false;
         }else {

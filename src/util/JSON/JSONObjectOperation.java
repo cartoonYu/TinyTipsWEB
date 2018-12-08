@@ -1,10 +1,9 @@
 package util.JSON;
 
+import static java.lang.System.nanoTime;
 import static java.lang.System.out;
-import bean.Comment;
-import bean.CommentDetails;
-import bean.Information;
-import bean.Note;
+
+import bean.*;
 import org.json.JSONException;
 import org.json.JSONObject;
 import util.JudgeEmpty;
@@ -26,81 +25,54 @@ import java.util.*;
 public class JSONObjectOperation {
 
     /**
-     * 将传入的comment转换成json文件
-     * @param comment
+     * 将传入的social转换成json文件
+     * @param social
      * @return
      */
-    public JSONObject setCommentToJSON(Comment comment){
-        if(JudgeEmpty.isEmpty(comment)){
+    public JSONObject setSocialToJSON(Social social){
+        if(JudgeEmpty.isEmpty(social)){
             return null;
         }
-        else{
-            JSONObject result=new JSONObject();
-            try{
-                if(comment.getNoteId()!=0){
-                    result.put("noteId",comment.getNoteId());
-                }
-                if(JudgeEmpty.isNotEmpty(comment.getTag())){
-                    result.put("tag",comment.getTag().toString());
-                }
-                if(comment.getLike()!=0){
-                    result.put("like",comment.getLike());
-                }
-                if(comment.getComment()!=0){
-                    result.put("comment",comment.getComment());
-                }
-                if(comment.getCollect()!=0){
-                    result.put("collect",comment.getCollect());
-                }
-                if(comment.getForward()!=0){
-                    result.put("forward",comment.getForward());
-                }
-            }catch(JSONException e){
-                out.println("jsonObjectException:将comment转换json文件出现错误");
-                e.printStackTrace();
-            }
-            return result;
+        JSONObject result=new JSONObject();
+        if(JudgeEmpty.isNotEmpty(social.getType())){
+            result.put("type",social.getType());
         }
+        if(social.getUserId()!=0){
+            result.put("userId",social.getUserId());
+
+        }
+        if(social.getNoteId()!=0){
+            result.put("noteId",social.getNoteId());
+        }
+        if(JudgeEmpty.isNotEmpty(social.getDate())){
+            result.put("date",social.getDate());
+        }
+        return result;
     }
 
     /**
-     * 获取传入json文件中的comment值
+     * 将传入的json文件转化成Social
      * @param object
      * @return
      */
-    public Comment getCommentFromJSON(JSONObject object){
+    public Social getSocialFromJSON(JSONObject object){
         if(JudgeEmpty.isEmpty(object)){
             return null;
         }
-        else{
-            Comment comment=new Comment();
-            try{
-                if(object.has("noteId")){
-                    comment.setNoteId(object.getLong("noteId"));
-                }
-                if(object.has("tag")){
-                    String temp=object.getString("tag");
-                    comment.setTag(changeStringToList(temp));
-                }
-                if(object.has("like")){
-                    comment.setLike(object.getInt("like"));
-                }
-
-                if(object.has("comment")){
-                    comment.setComment(object.getInt("comment"));
-                }
-                if(object.has("collect")){
-                    comment.setCollect(object.getInt("collect"));
-                }
-                if(object.has("forward")){
-                    comment.setForward(object.getInt("forward"));
-                }
-            }catch(JSONException e){
-                out.println("jsonObjectException:将json文件转换commentDetails出现错误");
-                e.printStackTrace();
-            }
-            return comment;
+        Social social=new Social();
+        if(object.has("type")){
+            social.setType(object.getString("type"));
         }
+        if(object.has("userId")){
+            social.setUserId(object.getLong("userId"));
+        }
+        if(object.has("noteId")){
+            social.setNoteId(object.getLong("noteId"));
+        }
+        if(object.has("date")){
+            social.setDate(object.getString("date"));
+        }
+        return social;
     }
 
     /**
@@ -122,8 +94,6 @@ public class JSONObjectOperation {
                     result.put("userId",commentDetails.getUserId());
                 }
                 result.put("date",commentDetails.getDate());
-                result.put("headPro",commentDetails.getHeadPro());
-                result.put("nickName",commentDetails.getNickName());
                 result.put("details",commentDetails.getDetails());
             }catch(JSONException e){
                 out.println("jsonObjectException:将commentDetails转换json文件出现错误");
@@ -157,12 +127,6 @@ public class JSONObjectOperation {
                 }
                 if(object.has("details")){
                     commentDetails.setDetails(object.getString("details"));
-                }
-                if(object.has("headPro")){
-                    commentDetails.setHeadPro(object.getString("headPro"));
-                }
-                if(object.has("nickName")){
-                    commentDetails.setNickName(object.getString("nickName"));
                 }
             }catch(JSONException e){
                 out.println("jsonObjectException:将json文件转换comment出现错误");
@@ -370,10 +334,10 @@ public class JSONObjectOperation {
         return object;
     }
 
-    public String getMethodFromJSON(JSONObject object){
+    public String getStringFromJSON(JSONObject object,String key){
         String method=null;
-        if(object.has("method")){
-            method=object.getString("method");
+        if(object.has(key)){
+            method=object.getString(key);
         }
         return method;
     }

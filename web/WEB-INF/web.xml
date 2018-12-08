@@ -31,12 +31,20 @@
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>Comment</servlet-name>
-        <servlet-class>servlet.ServletComment</servlet-class>
+        <servlet-name>CommentDetails</servlet-name>
+        <servlet-class>servlet.ServletCommentDetails</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>Comment</servlet-name>
-        <url-pattern>/Comment</url-pattern>
+        <servlet-name>CommentDetails</servlet-name>
+        <url-pattern>/CommentDetails</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>Social</servlet-name>
+        <servlet-class>servlet.ServletSocial</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Social</servlet-name>
+        <url-pattern>/Social</url-pattern>
+    </servlet-mapping>
 </web-app>

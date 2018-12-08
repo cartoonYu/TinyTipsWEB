@@ -11,8 +11,8 @@ import util.CurrentTime;
  *
  * notice
  * 1.属性noteId关联笔记bean类的id
- * 2.属性headPro关联个人信息bena类的headPortrait
- * 3.属性nickName关联个人信息bena类的nickName
+ * 2.属性headPro关联个人信息bean类的headPortrait
+ * 3.属性nickName关联个人信息bean类的nickName
  * 3.属性date已通过spring注入，不需另进行赋值操作
  */
 
@@ -24,13 +24,10 @@ public class CommentDetails {
 
     private String date;        //时间
 
-    private String headPro;     //头像
-
-    private String nickName;    //昵称
-
     private String details;     //评论详情
 
     public CommentDetails(){
+
     }
 
     public void setUserId(long userId) {
@@ -39,10 +36,6 @@ public class CommentDetails {
 
     public long getUserId() {
         return userId;
-    }
-
-    public String getNickName() {
-        return nickName;
     }
 
     public long getNoteId() {
@@ -57,10 +50,6 @@ public class CommentDetails {
         return details;
     }
 
-    public String getHeadPro() {
-        return headPro;
-    }
-
     public void setNoteId(long noteId) {
         this.noteId = noteId;
     }
@@ -69,19 +58,8 @@ public class CommentDetails {
         this.date = date;
     }
 
-    public void setDate(CurrentTime date) {
-        this.date = date.getDate("time");
-}
-
-    public void setNickName(String nickName) {
-        this.nickName = nickName;
-    }
-
     public void setDetails(String details) {
         this.details = details;
     }
 
-    public void setHeadPro(String headPro) {
-        this.headPro = headPro;
-    }
 }

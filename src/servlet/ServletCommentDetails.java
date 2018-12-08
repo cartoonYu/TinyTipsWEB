@@ -1,9 +1,7 @@
 package servlet;
 
 import BaseClass.ValueCallBack;
-import bean.Comment;
 import bean.CommentDetails;
-import bean.operate.OperateComment;
 import bean.operate.OperateCommentDetails;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -47,7 +45,7 @@ public class ServletCommentDetails extends HttpServlet {
         for(JSONObject object:data){
             result.add(objectOperation.getCommentDetailsFromJSON(object));
         }
-        String method=objectOperation.getMethodFromJSON(data.get(0));
+        String method=objectOperation.getStringFromJSON(data.get(0),"method");
         switch (method){
             case "add":{
                 handleAddDetails(result.get(0),response);

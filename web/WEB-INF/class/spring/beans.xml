@@ -9,18 +9,17 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
-    <bean id="comment" class="bean.Comment"/>
-    <bean id="commentDetails" class="bean.CommentDetails"
-        p:date-ref="currentTime"/>
+    <bean id="commentDetails" class="bean.CommentDetails"/>
     <bean id="information" class="bean.Information"/>
     <bean id="note" class="bean.Note"/>
+    <bean id="social" class="bean.Social"/>
 
-    <bean id="operateComment" class="bean.operate.OperateComment"
-        p:operateDB-ref="operateDB"
-        p:tableName="comment"/>
     <bean id="operateCommentDetails" class="bean.operate.OperateCommentDetails"
         p:operateDB-ref="operateDB"
-        p:tableName="CommentDetails"/>
+        p:tableName="CommentDetails"
+        p:operateInformation-ref="operateInformation"
+        p:fileOperation-ref="fileOperation"
+        p:imageConstant-ref="imageConstant"/>
     <bean id="operateInformation" class="bean.operate.OperateInformation"
         p:operateDB-ref="operateDB"
         p:tableName="Information"
@@ -35,6 +34,9 @@
           p:fileOperation-ref="fileOperation"
           p:imageConstant-ref="imageConstant"
           p:currentTime-ref="currentTime"/>
+    <bean id="operateSocial" class="bean.operate.OperateSocial"
+          p:currentTime-ref="currentTime"
+          p:db-ref="operateDB"/>
 
     <bean id="getContext" class="spring.GetContext"/>
 
@@ -60,7 +62,7 @@
     <bean id="listAndString" class="util.ListAndString"/>
     <bean id="mapAndString" class="util.MapAndString"/>
 
-    <context:property-override location="sql/dbconn.properties"/>
-    <context:property-override location="util/file/imagePath.properties"/>
+    <context:property-override location="sql/dbconn_server.properties"/>
+    <context:property-override location="util/file/imagePath_server.properties"/>
 
 </beans>
