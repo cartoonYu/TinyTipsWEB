@@ -60,6 +60,7 @@ public class ServletSocial extends HttpServlet {
                 break;
             }
         }
+        out.println();
     }
 
     private void handleAddSocial(Social social, HttpServletResponse response){

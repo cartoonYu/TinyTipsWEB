@@ -4,6 +4,7 @@ import BaseClass.ValueCallBack;
 import bean.CommentDetails;
 import bean.Information;
 import sql.OperateDB;
+import util.CurrentTime;
 import util.JudgeEmpty;
 import util.ListAndString;
 import util.file.FileOperation;
@@ -28,11 +29,8 @@ public class OperateCommentDetails {
 
     private OperateDB db;
 
-    private OperateInformation operateInformation;
+    private CurrentTime currentTime;
 
-    private FileOperation fileOperation;
-
-    private ImageConstant imageConstant;
 
     /**
      * 功能
@@ -51,6 +49,7 @@ public class OperateCommentDetails {
             return;
         }
         Map<String,String> data=changeDetailsToMap(details);
+        data.put("date",currentTime.getDate("time"));
         if(db.add(tableName,data)){
             callBack.onSuccess("200");
         }
@@ -191,15 +190,7 @@ public class OperateCommentDetails {
         this.tableName = tableName;
     }
 
-    public void setOperateInformation(OperateInformation operateInformation) {
-        this.operateInformation = operateInformation;
-    }
-
-    public void setFileOperation(FileOperation fileOperation) {
-        this.fileOperation = fileOperation;
-    }
-
-    public void setImageConstant(ImageConstant imageConstant) {
-        this.imageConstant = imageConstant;
+    public void setCurrentTime(CurrentTime currentTime) {
+        this.currentTime = currentTime;
     }
 }

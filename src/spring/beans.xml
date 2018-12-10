@@ -17,9 +17,7 @@
     <bean id="operateCommentDetails" class="bean.operate.OperateCommentDetails"
         p:operateDB-ref="operateDB"
         p:tableName="CommentDetails"
-        p:operateInformation-ref="operateInformation"
-        p:fileOperation-ref="fileOperation"
-        p:imageConstant-ref="imageConstant"/>
+        p:currentTime-ref="currentTime"/>
     <bean id="operateInformation" class="bean.operate.OperateInformation"
         p:operateDB-ref="operateDB"
         p:tableName="Information"

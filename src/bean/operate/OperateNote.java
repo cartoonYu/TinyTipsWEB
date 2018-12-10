@@ -220,6 +220,9 @@ public class OperateNote {
 
     private Map<String,String> changeNoteToMap(Note note){
         Map<String,String> data=new HashMap<>();
+        if(note.getId()!=0){
+            data.put("id",Long.toString(note.getId()));
+        }
         if(note.getUserId()!=0){
             data.put("userId",Long.toString(note.getUserId()));
         }
