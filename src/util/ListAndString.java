@@ -32,11 +32,16 @@ public class ListAndString {
         }
         int index=source.indexOf(separator);
         int length;
-        while(index!=-1){
-            result.add(source.substring(0,index));
-            length=source.length();
-            source=source.substring(index+1,length);
-            index=source.indexOf(separator);
+        if(index==-1){
+            result.add(source);
+        }
+        else {
+            while(index!=-1){
+                result.add(source.substring(0,index));
+                length=source.length();
+                source=source.substring(index+1,length);
+                index=source.indexOf(separator);
+            }
         }
         return result;
     }

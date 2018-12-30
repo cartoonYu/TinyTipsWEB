@@ -31,12 +31,12 @@
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>CommentDetails</servlet-name>
-        <servlet-class>servlet.ServletCommentDetails</servlet-class>
+        <servlet-name>Comment</servlet-name>
+        <servlet-class>servlet.ServletComment</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>CommentDetails</servlet-name>
-        <url-pattern>/CommentDetails</url-pattern>
+        <servlet-name>Comment</servlet-name>
+        <url-pattern>/Comment</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -46,5 +46,23 @@
     <servlet-mapping>
         <servlet-name>Social</servlet-name>
         <url-pattern>/Social</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>StatSocial</servlet-name>
+        <servlet-class>servlet.ServletStatSocial</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>StatSocial</servlet-name>
+        <url-pattern>/StatSocial</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>CommentDetails</servlet-name>
+        <servlet-class>servlet.ServletCommentDetails</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CommentDetails</servlet-name>
+        <url-pattern>/CommentDetails</url-pattern>
     </servlet-mapping>
 </web-app>

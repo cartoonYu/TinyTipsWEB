@@ -2,19 +2,62 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="TinyTipsWEB:war" />
       <artifact name="TinyTipsWEB:war exploded" />
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="82489bbd-d9e5-4b81-afad-240e1db084e6" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/bean/view/CommentDetails.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/bean/view/StatSocial.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/bean/view/check/CheckCommentDetails.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/bean/view/check/CheckStatSocial.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/servlet/ServletComment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/servlet/ServletStatSocial.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bean/operate/OperateCommentDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bean/operate/OperateCommentDetails.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bean/operate/OperateNote.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bean/operate/OperateNote.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/TinyTipsWEB_war/TinyTipsWEB.war" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/TinyTipsWEB_war/TinyTipsWEB.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bean/CommentDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bean/table/Comment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bean/Information.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bean/table/Information.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bean/Note.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bean/table/Note.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bean/Social.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bean/table/Social.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bean/operate/OperateCommentDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bean/table/operate/OperateComment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bean/operate/OperateInformation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bean/table/operate/OperateInformation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bean/operate/OperateNote.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bean/table/operate/OperateNote.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bean/operate/OperateSocial.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bean/table/operate/OperateSocial.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bean/operate/package-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bean/table/operate/package-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servlet/ServletCommentDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/servlet/ServletCommentDetails.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servlet/ServletInformation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/servlet/ServletInformation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servlet/ServletNote.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/servlet/ServletNote.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/servlet/ServletSocial.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/servlet/ServletSocial.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servlet/Text.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/servlet/Text.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/spring/beans.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/spring/beans.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/class/bean/operate/OperateNote.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/class/bean/operate/OperateNote.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/util/JSON/JSONObjectOperation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/JSON/JSONObjectOperation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/util/ListAndString.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/ListAndString.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/util/network/RequestAndResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/network/RequestAndResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/class/bean/CommentDetails.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/class/bean/Information.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/class/bean/Note.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/class/bean/operate/OperateCommentDetails.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/class/bean/operate/OperateInformation.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/class/bean/operate/OperateNote.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/class/servlet/ServletInformation$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/class/servlet/ServletInformation$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/class/servlet/ServletInformation$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/class/servlet/ServletInformation$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/class/servlet/ServletInformation$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/class/servlet/ServletInformation$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/class/servlet/ServletInformation$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/class/servlet/ServletInformation$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/class/servlet/ServletInformation.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/class/servlet/ServletInformation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/class/servlet/ServletNote$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/class/servlet/ServletNote$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/class/servlet/ServletNote$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/class/servlet/ServletNote$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/class/servlet/ServletNote$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/class/servlet/ServletNote$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/class/servlet/ServletNote$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/class/servlet/ServletNote$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/class/servlet/ServletNote.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/class/servlet/ServletNote.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/class/servlet/Text$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/class/servlet/Text$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/class/servlet/Text.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/class/servlet/Text.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/WEB-INF/class/spring/beans.xml" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/class/spring/beans.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/class/util/JSON/JSONObjectOperation.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/class/util/JSON/JSONObjectOperation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/class/util/ListAndString.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/class/util/ListAndString.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/class/util/file/imagePath.properties" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/class/util/file/imagePath.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/class/util/file/imagePath_server.properties" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/class/util/file/imagePath_server.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/class/util/network/RequestAndResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/class/util/network/RequestAndResponse.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/web.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -24,98 +67,126 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/bean/Social.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="475">
-              <caret line="21" column="5" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/bean/operate/OperateSocial.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="250">
-              <caret line="57" column="35" lean-forward="true" selection-start-line="57" selection-start-column="35" selection-end-line="57" selection-end-column="35" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/servlet/ServletSocial.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="415">
-              <caret line="62" column="20" selection-start-line="62" selection-start-column="20" selection-end-line="62" selection-end-column="20" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#handleDeleteSocial#0;class#ServletSocial#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/spring/beans.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="169">
-              <caret line="53" column="52" lean-forward="true" selection-start-line="53" selection-start-column="52" selection-end-line="53" selection-end-column="52" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/bean/Information.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1650">
-              <caret line="91" selection-start-line="91" selection-end-line="91" />
-              <folding>
-                <element signature="e#1196#1197#0" expanded="true" />
-                <element signature="e#1231#1232#0" expanded="true" />
-                <element signature="e#2141#2142#0" expanded="true" />
-                <element signature="e#2175#2176#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/bean/operate/OperateCommentDetails.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="259">
-              <caret line="58" column="5" lean-forward="true" selection-start-line="58" selection-start-column="5" selection-end-line="58" selection-end-column="5" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#5103#5104#0" expanded="true" />
-                <element signature="e#5149#5150#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/servlet/ServletCommentDetails.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2250">
-              <caret line="108" column="17" selection-start-line="108" selection-start-column="17" selection-end-line="108" selection-end-column="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/WEB-INF/web.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="250">
-              <caret line="10" column="41" selection-start-line="10" selection-start-column="41" selection-end-line="10" selection-end-column="41" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.8061224">
+      <split-first>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/util/JSON/JSONObjectOperation.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="108">
+                  <caret line="503" column="5" lean-forward="true" selection-start-line="503" selection-start-column="5" selection-end-line="503" selection-end-column="5" />
+                  <folding>
+                    <element signature="method#setSocialToJSON#0;class#JSONObjectOperation#0" />
+                    <element signature="method#getSocialFromJSON#0;class#JSONObjectOperation#0" />
+                    <element signature="method#setCommentToJSON#0;class#JSONObjectOperation#0" />
+                    <element signature="method#getCommentFromJSON#0;class#JSONObjectOperation#0" />
+                    <element signature="method#setNoteToJSON#0;class#JSONObjectOperation#0" />
+                    <element signature="method#getNoteFromJSON#0;class#JSONObjectOperation#0" />
+                    <element signature="method#setInformationToJSON#0;class#JSONObjectOperation#0" />
+                    <element signature="method#getInformationFromJSON#0;class#JSONObjectOperation#0" />
+                    <element signature="method#setResultToJSON#0;class#JSONObjectOperation#0" />
+                    <element signature="method#getStatSocialFromJSON#0;class#JSONObjectOperation#0" />
+                    <element signature="method#setStatSocialToJSON#0;class#JSONObjectOperation#0" />
+                    <element signature="method#displayJSON#0;class#JSONObjectOperation#0" />
+                    <element signature="method#changeStringToList#0;class#JSONObjectOperation#0" />
+                    <element signature="method#changeStringToMap#0;class#JSONObjectOperation#0" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/web/WEB-INF/web.xml">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="152">
+                  <caret line="37" column="25" selection-start-line="37" selection-start-column="25" selection-end-line="37" selection-end-column="25" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/servlet/ServletComment.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="250">
+                  <caret line="148" column="53" lean-forward="true" selection-start-line="148" selection-start-column="53" selection-end-line="148" selection-end-column="53" />
+                  <folding>
+                    <element signature="e#6254#6255#0" expanded="true" />
+                    <element signature="e#6306#6307#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/spring/beans.xml">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="340">
+                  <caret line="30" column="34" lean-forward="true" selection-start-line="30" selection-start-column="34" selection-end-line="30" selection-end-column="34" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/bean/view/CommentDetails.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="175">
+                  <caret line="10" column="29" lean-forward="true" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/bean/view/check/CheckCommentDetails.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state>
+                  <caret line="31" column="19" lean-forward="true" selection-start-line="31" selection-start-column="19" selection-end-line="31" selection-end-column="19" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/servlet/ServletCommentDetails.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="278">
+                  <caret line="61" column="13" lean-forward="true" selection-start-line="61" selection-start-column="13" selection-end-line="61" selection-end-column="13" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/util/network/RequestAndResponse.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="542">
+                  <caret line="131" column="5" selection-start-line="131" selection-start-column="5" selection-end-line="131" selection-end-column="5" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/servlet/ServletStatSocial.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="125">
+                  <caret line="48" column="52" selection-start-line="48" selection-start-column="52" selection-end-line="48" selection-end-column="52" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -138,7 +209,6 @@
       <list>
         <option value="$PROJECT_DIR$/src/util/GetUUID.java" />
         <option value="$PROJECT_DIR$/src/sql/DBConnection.java" />
-        <option value="$PROJECT_DIR$/src/servlet/Text.java" />
         <option value="$PROJECT_DIR$/src/util/file/imagePath_local.properties" />
         <option value="$PROJECT_DIR$/src/util/file/imagePath_server.properties" />
         <option value="$PROJECT_DIR$/src/util/Coder.java" />
@@ -154,29 +224,39 @@
         <option value="$PROJECT_DIR$/src/util/CurrentTime.java" />
         <option value="$PROJECT_DIR$/src/sql/dbconn.properties" />
         <option value="$PROJECT_DIR$/src/bean/operate/OperateInformation.java" />
-        <option value="$PROJECT_DIR$/src/util/network/RequestAndResponse.java" />
         <option value="$PROJECT_DIR$/web/index.jsp" />
         <option value="$PROJECT_DIR$/src/bean/Information.java" />
         <option value="$PROJECT_DIR$/src/sql/OperateDB.java" />
-        <option value="$PROJECT_DIR$/src/util/ListAndString.java" />
-        <option value="$PROJECT_DIR$/src/bean/operate/OperateComment.java" />
         <option value="$PROJECT_DIR$/src/bean/CommentDetails.java" />
         <option value="$PROJECT_DIR$/src/bean/ISocial.java" />
         <option value="$PROJECT_DIR$/src/bean/Forward.java" />
         <option value="$PROJECT_DIR$/src/bean/Collect.java" />
         <option value="$PROJECT_DIR$/src/bean/Like.java" />
-        <option value="$PROJECT_DIR$/src/servlet/ServletComment.java" />
-        <option value="$PROJECT_DIR$/src/servlet/ServletCommentDetails.java" />
-        <option value="$PROJECT_DIR$/src/servlet/ServletInformation.java" />
-        <option value="$PROJECT_DIR$/src/servlet/ServletNote.java" />
         <option value="$PROJECT_DIR$/src/bean/Social.java" />
-        <option value="$PROJECT_DIR$/web/WEB-INF/web.xml" />
         <option value="$PROJECT_DIR$/src/bean/operate/OperateSocial.java" />
-        <option value="$PROJECT_DIR$/src/util/JSON/JSONObjectOperation.java" />
         <option value="$PROJECT_DIR$/src/bean/operate/OperateNote.java" />
-        <option value="$PROJECT_DIR$/src/servlet/ServletSocial.java" />
         <option value="$PROJECT_DIR$/src/bean/operate/OperateCommentDetails.java" />
+        <option value="$PROJECT_DIR$/src/servlet/Text.java" />
+        <option value="$PROJECT_DIR$/src/bean/operate/IOperateBean.java" />
+        <option value="$PROJECT_DIR$/src/bean/table/operate/OperateComment.java" />
+        <option value="$PROJECT_DIR$/src/bean/operate/OperateComment.java" />
+        <option value="$PROJECT_DIR$/src/bean/view/statSocial.java" />
+        <option value="$PROJECT_DIR$/src/bean/view/CommentDetails.java" />
+        <option value="$PROJECT_DIR$/src/bean/view/StatSocial.java" />
+        <option value="$PROJECT_DIR$/src/bean/table/operate/OperateInformation.java" />
         <option value="$PROJECT_DIR$/src/spring/beans.xml" />
+        <option value="$PROJECT_DIR$/src/util/ListAndString.java" />
+        <option value="$PROJECT_DIR$/src/bean/view/check/CheckStatSocial.java" />
+        <option value="$PROJECT_DIR$/src/servlet/ServletStatSocial.java" />
+        <option value="$PROJECT_DIR$/src/util/network/RequestAndResponse.java" />
+        <option value="$PROJECT_DIR$/web/WEB-INF/web.xml" />
+        <option value="$PROJECT_DIR$/src/servlet/ServletNote.java" />
+        <option value="$PROJECT_DIR$/src/servlet/ServletSocial.java" />
+        <option value="$PROJECT_DIR$/src/servlet/ServletInformation.java" />
+        <option value="$PROJECT_DIR$/src/servlet/ServletCommentDetails.java" />
+        <option value="$PROJECT_DIR$/src/bean/view/check/CheckCommentDetails.java" />
+        <option value="$PROJECT_DIR$/src/util/JSON/JSONObjectOperation.java" />
+        <option value="$PROJECT_DIR$/src/servlet/ServletComment.java" />
       </list>
     </option>
   </component>
@@ -188,10 +268,10 @@
     <option name="CUSTOM_FILTER" />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="90" />
-    <option name="y" value="91" />
-    <option name="width" value="1938" />
-    <option name="height" value="880" />
+    <option name="x" value="2215" />
+    <option name="y" value="77" />
+    <option name="width" value="2420" />
+    <option name="height" value="1100" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -201,8 +281,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -226,7 +304,30 @@
               <item name="TinyTipsWEB" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="bean" type="462c0819:PsiDirectoryNode" />
+              <item name="table" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TinyTipsWEB" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TinyTipsWEB" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="bean" type="462c0819:PsiDirectoryNode" />
+              <item name="table" type="462c0819:PsiDirectoryNode" />
               <item name="operate" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TinyTipsWEB" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TinyTipsWEB" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="bean" type="462c0819:PsiDirectoryNode" />
+              <item name="view" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TinyTipsWEB" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TinyTipsWEB" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="bean" type="462c0819:PsiDirectoryNode" />
+              <item name="view" type="462c0819:PsiDirectoryNode" />
+              <item name="check" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="TinyTipsWEB" type="b2602c69:ProjectViewProjectNode" />
@@ -255,6 +356,20 @@
             <path>
               <item name="TinyTipsWEB" type="b2602c69:ProjectViewProjectNode" />
               <item name="TinyTipsWEB" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="util" type="462c0819:PsiDirectoryNode" />
+              <item name="JSON" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TinyTipsWEB" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TinyTipsWEB" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="util" type="462c0819:PsiDirectoryNode" />
+              <item name="network" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TinyTipsWEB" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TinyTipsWEB" type="462c0819:PsiDirectoryNode" />
               <item name="web" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -267,12 +382,14 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544451928877" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1546151716308" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -466,7 +583,37 @@
       <workItem from="1544370192543" duration="79000" />
       <workItem from="1544419253501" duration="2653000" />
       <workItem from="1544432722743" duration="663000" />
-      <workItem from="1544442221913" duration="4302000" />
+      <workItem from="1544442221913" duration="5669000" />
+      <workItem from="1544456095171" duration="42000" />
+      <workItem from="1544620096806" duration="1805000" />
+      <workItem from="1544666927434" duration="176000" />
+      <workItem from="1545457120318" duration="6363000" />
+      <workItem from="1545539230142" duration="545000" />
+      <workItem from="1545551617062" duration="711000" />
+      <workItem from="1545565948785" duration="2726000" />
+      <workItem from="1545627280839" duration="27000" />
+      <workItem from="1545644204494" duration="755000" />
+      <workItem from="1545723991830" duration="1169000" />
+      <workItem from="1545743035314" duration="112000" />
+      <workItem from="1545804305204" duration="17000" />
+      <workItem from="1545814191907" duration="597000" />
+      <workItem from="1545835054519" duration="556000" />
+      <workItem from="1545879763994" duration="1007000" />
+      <workItem from="1545894237335" duration="595000" />
+      <workItem from="1545913052588" duration="6938000" />
+      <workItem from="1545976576444" duration="6032000" />
+      <workItem from="1545983258684" duration="3439000" />
+      <workItem from="1545995375913" duration="295000" />
+      <workItem from="1546001393833" duration="1555000" />
+      <workItem from="1546007171584" duration="2880000" />
+      <workItem from="1546048874796" duration="43000" />
+      <workItem from="1546049214999" duration="594000" />
+      <workItem from="1546057888468" duration="2161000" />
+      <workItem from="1546073145427" duration="5980000" />
+      <workItem from="1546093781261" duration="5427000" />
+      <workItem from="1546143494539" duration="404000" />
+      <workItem from="1546150984880" duration="1008000" />
+      <workItem from="1546153730957" duration="3374000" />
     </task>
     <task id="LOCAL-00001" summary="add upload file support">
       <created>1540353319876</created>
@@ -524,11 +671,18 @@
       <option name="project" value="LOCAL" />
       <updated>1544264693009</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="add Comment support">
+      <created>1544451950404</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1544451950404</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="174885000" />
+    <option name="totallyTimeSpent" value="233585000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -540,10 +694,9 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
-    <editor active="true" />
+    <frame x="1913" y="-7" width="1550" height="878" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21108742" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26845637" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -552,8 +705,8 @@
       <window_info id="Capture Tool" order="6" />
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.22553192" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.29042554" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.2932227" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.53665286" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -564,9 +717,9 @@
       <window_info anchor="bottom" id="Messages" order="10" weight="0.3287234" />
       <window_info anchor="bottom" id="Java Enterprise" order="11" />
       <window_info anchor="bottom" id="Database Changes" order="12" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="13" weight="0.32975295" />
+      <window_info anchor="bottom" id="Version Control" order="13" weight="0.1468085" />
       <window_info anchor="bottom" id="Spring" order="14" weight="0.32978722" />
-      <window_info anchor="bottom" id="Statistic" order="15" weight="0.12553191" />
+      <window_info anchor="bottom" id="Statistic" order="15" weight="0.5287234" />
       <window_info anchor="bottom" id="Docker" order="16" show_stripe_button="false" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -580,7 +733,7 @@
       <window_info anchor="right" id="Maven" order="9" />
     </layout>
     <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22761194" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1641791" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -588,22 +741,23 @@
       <window_info id="Favorites" order="5" side_tool="true" />
       <window_info id="Capture Tool" order="6" />
       <window_info id="Web" order="7" side_tool="true" />
-      <window_info anchor="bottom" id="Statistic" order="0" weight="0.3290735" />
-      <window_info anchor="bottom" id="Message" order="1" />
-      <window_info anchor="bottom" id="Find" order="2" weight="0.54206604" />
-      <window_info anchor="bottom" id="Run" order="3" visible="true" weight="0.2747604" />
-      <window_info anchor="bottom" id="Debug" order="4" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="7" weight="0.32963988" />
-      <window_info anchor="bottom" id="Application Servers" order="8" />
-      <window_info anchor="bottom" id="Terminal" order="9" weight="0.32963988" />
-      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="11" weight="0.3290735" />
-      <window_info anchor="bottom" id="Java Enterprise" order="12" />
-      <window_info anchor="bottom" id="Database Changes" order="13" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="14" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Spring" order="15" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.2932227" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.41595745" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32918397" />
+      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Application Servers" order="8" weight="0.32918397" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.32780084" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.3287234" />
+      <window_info anchor="bottom" id="Java Enterprise" order="11" />
+      <window_info anchor="bottom" id="Database Changes" order="12" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="13" weight="0.1468085" />
+      <window_info anchor="bottom" id="Spring" order="14" weight="0.32978722" />
+      <window_info anchor="bottom" id="Statistic" order="15" weight="0.52973723" />
+      <window_info anchor="bottom" id="Docker" order="16" show_stripe_button="false" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -613,6 +767,7 @@
       <window_info anchor="right" id="Database" order="6" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="right" id="Theme Preview" order="8" />
+      <window_info anchor="right" id="Maven" order="9" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -626,31 +781,14 @@
     <MESSAGE value="add comment support and have a simple test" />
     <MESSAGE value="add commentDetails support but have no test" />
     <MESSAGE value="add Social support" />
-    <option name="LAST_COMMIT_MESSAGE" value="add Social support" />
+    <MESSAGE value="add Comment support" />
+    <option name="LAST_COMMIT_MESSAGE" value="add Comment support" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/web/META-INF/MANIFEST.MF">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/out/upload/informationa033c776d0dd440d91c5ebc302950153.jpg" />
     <entry file="file://$PROJECT_DIR$/src/util/GetUUID.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="201">
           <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/servlet/Text.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="36" column="13" selection-start-line="36" selection-start-column="13" selection-end-line="36" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sql/DBConnection.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="22" selection-start-line="22" selection-end-line="22" />
         </state>
       </provider>
     </entry>
@@ -713,13 +851,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/util/JSON/JSONArrayOperation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/util/file/imagePath.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -728,64 +859,9 @@
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/AppData/Local/Temp/WeChat Files/857232167158946326.jpg" />
-    <entry file="file://$PROJECT_DIR$/web/index.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="11" column="9" lean-forward="true" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/util/network/RequestAndResponse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1250">
-          <caret line="132" column="32" lean-forward="true" selection-start-line="132" selection-start-column="32" selection-end-line="132" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/bean/operate/OperateInformation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="126" column="30" lean-forward="true" selection-start-line="126" selection-start-column="30" selection-end-line="126" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/bean/operate/package-info.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/util/ListAndString.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="842">
-          <caret line="51" column="25" selection-start-line="51" selection-start-column="25" selection-end-line="51" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/bean/Comment.java" />
-    <entry file="file://$PROJECT_DIR$/src/bean/Note.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25">
-          <caret line="36" selection-start-line="36" selection-end-line="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/bean/Forward.java" />
     <entry file="file://$PROJECT_DIR$/src/bean/Collect.java" />
     <entry file="file://$PROJECT_DIR$/src/bean/ISocial.java" />
-    <entry file="file://$PROJECT_DIR$/src/servlet/ServletInformation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="58" column="78" selection-start-line="58" selection-start-column="78" selection-end-line="58" selection-end-column="78" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/servlet/ServletNote.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="44" column="36" lean-forward="true" selection-start-line="44" selection-start-column="36" selection-end-line="44" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/servlet/ServletComment.java" />
-    <entry file="file://$PROJECT_DIR$/src/bean/operate/OperateComment.java" />
     <entry file="file://$PROJECT_DIR$/src/sql/dbconn.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -807,51 +883,288 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/web/index.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="11" column="9" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/bean/operate/IOperateBean.java" />
+    <entry file="file://$PROJECT_DIR$/src/servlet/package-info.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="8" column="15" lean-forward="true" selection-start-line="8" selection-start-column="15" selection-end-line="8" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/bean/package-info.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/bean/table/operate/package-info.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/servlet/Text.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1275">
+          <caret line="71" column="32" selection-start-line="71" selection-start-column="32" selection-end-line="71" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/bean/table/Comment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="217">
+          <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
+          <folding>
+            <element signature="e#519#520#0" expanded="true" />
+            <element signature="e#555#556#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/util/JSON/JSONArrayOperation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/bean/table/Note.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-358">
+          <caret line="31" column="35" lean-forward="true" selection-start-line="31" selection-start-column="35" selection-end-line="31" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/bean/table/Information.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/bean/table/operate/OperateComment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2175">
+          <caret line="98" column="45" selection-start-line="98" selection-start-column="45" selection-end-line="98" selection-end-column="45" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/BaseClass/ValueCallBack.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="8" column="30" selection-start-line="8" selection-start-column="30" selection-end-line="8" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/sql/OperateDB.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3550">
-          <caret line="149" column="37" selection-start-line="149" selection-start-column="37" selection-end-line="149" selection-end-column="37" />
+        <state relative-caret-position="3400">
+          <caret line="143" column="31" selection-start-line="143" selection-start-column="31" selection-end-line="143" selection-end-column="31" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/bean/Social.java">
+    <entry file="file://$PROJECT_DIR$/src/sql/DBConnection.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="21" column="5" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
+        <state relative-caret-position="400">
+          <caret line="22" selection-start-line="22" selection-end-line="22" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/bean/Information.java">
+    <entry file="file://$PROJECT_DIR$/src/bean/table/operate/OperateInformation.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1650">
-          <caret line="91" selection-start-line="91" selection-end-line="91" />
+        <state relative-caret-position="630">
+          <caret line="130" column="34" selection-start-line="130" selection-start-column="34" selection-end-line="130" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/bean/table/operate/OperateNote.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="23">
+          <caret line="172" column="24" lean-forward="true" selection-start-line="172" selection-start-column="24" selection-end-line="172" selection-end-column="24" />
           <folding>
-            <element signature="e#1196#1197#0" expanded="true" />
-            <element signature="e#1231#1232#0" expanded="true" />
-            <element signature="e#2141#2142#0" expanded="true" />
-            <element signature="e#2175#2176#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/util/ListAndString.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="800">
+          <caret line="33" column="19" selection-start-line="33" selection-start-column="19" selection-end-line="33" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/bean/view/StatSocial.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="28" column="32" selection-start-line="28" selection-start-column="32" selection-end-line="28" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#929#930#0" expanded="true" />
+            <element signature="e#969#970#0" expanded="true" />
+            <element signature="e#1033#1034#0" expanded="true" />
+            <element signature="e#1089#1090#0" expanded="true" />
+            <element signature="e#1124#1125#0" expanded="true" />
+            <element signature="e#1155#1156#0" expanded="true" />
+            <element signature="e#1198#1199#0" expanded="true" />
+            <element signature="e#1237#1238#0" expanded="true" />
+            <element signature="e#1293#1294#0" expanded="true" />
+            <element signature="e#1341#1342#0" expanded="true" />
+            <element signature="e#1380#1381#0" expanded="true" />
+            <element signature="e#1415#1416#0" expanded="true" />
+            <element signature="e#1457#1458#0" expanded="true" />
+            <element signature="e#1493#1494#0" expanded="true" />
+            <element signature="e#1535#1536#0" expanded="true" />
+            <element signature="e#1571#1572#0" expanded="true" />
+            <element signature="e#1611#1612#0" expanded="true" />
+            <element signature="e#1643#1644#0" expanded="true" />
+            <element signature="e#1674#1675#0" expanded="true" />
+            <element signature="e#1701#1702#0" expanded="true" />
+            <element signature="e#1732#1733#0" expanded="true" />
+            <element signature="e#1761#1762#0" expanded="true" />
+            <element signature="e#1792#1793#0" expanded="true" />
+            <element signature="e#1821#1822#0" expanded="true" />
+            <element signature="e#1853#1854#0" expanded="true" />
+            <element signature="e#1881#1882#0" expanded="true" />
+            <element signature="e#1917#1918#0" expanded="true" />
+            <element signature="e#1952#1953#0" expanded="true" />
+            <element signature="e#1996#1997#0" expanded="true" />
+            <element signature="e#2030#2031#0" expanded="true" />
+            <element signature="e#2075#2076#0" expanded="true" />
+            <element signature="e#2103#2104#0" expanded="true" />
+            <element signature="e#2158#2159#0" expanded="true" />
+            <element signature="e#2192#2193#0" expanded="true" />
+            <element signature="e#2234#2235#0" expanded="true" />
+            <element signature="e#2268#2269#0" expanded="true" />
+            <element signature="e#2328#2329#0" expanded="true" />
+            <element signature="e#2374#2375#0" expanded="true" />
+            <element signature="e#2410#2411#0" expanded="true" />
+            <element signature="e#2445#2446#0" expanded="true" />
+            <element signature="e#2481#2482#0" expanded="true" />
+            <element signature="e#2516#2517#0" expanded="true" />
+            <element signature="e#2563#2564#0" expanded="true" />
+            <element signature="e#2605#2606#0" expanded="true" />
+            <element signature="e#2638#2639#0" expanded="true" />
+            <element signature="e#2670#2671#0" expanded="true" />
+            <element signature="e#2715#2716#0" expanded="true" />
+            <element signature="e#2749#2750#0" expanded="true" />
+            <element signature="e#2794#2795#0" expanded="true" />
+            <element signature="e#2828#2829#0" expanded="true" />
+            <element signature="e#2873#2874#0" expanded="true" />
+            <element signature="e#2907#2908#0" expanded="true" />
+            <element signature="e#2949#2950#0" expanded="true" />
+            <element signature="e#2980#2981#0" expanded="true" />
+            <element signature="e#3041#3042#0" expanded="true" />
+            <element signature="e#3087#3088#0" expanded="true" />
+            <element signature="e#3148#3149#0" expanded="true" />
+            <element signature="e#3194#3195#0" expanded="true" />
+            <element signature="e#3255#3256#0" expanded="true" />
+            <element signature="e#3301#3302#0" expanded="true" />
+            <element signature="e#3356#3357#0" expanded="true" />
+            <element signature="e#3396#3397#0" expanded="true" />
+            <element signature="e#3449#3450#0" expanded="true" />
+            <element signature="e#3497#3498#0" expanded="true" />
+            <element signature="e#3550#3551#0" expanded="true" />
+            <element signature="e#3598#3599#0" expanded="true" />
+            <element signature="e#3651#3652#0" expanded="true" />
+            <element signature="e#3699#3700#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/bean/table/Social.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/bean/table/operate/OperateSocial.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="50" column="9" lean-forward="true" selection-start-line="50" selection-start-column="9" selection-end-line="50" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/servlet/ServletSocial.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="217">
+          <caret line="58" column="58" lean-forward="true" selection-start-line="58" selection-start-column="58" selection-end-line="58" selection-end-column="58" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/servlet/ServletNote.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1642">
+          <caret line="139" column="50" selection-start-line="139" selection-start-column="50" selection-end-line="139" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/bean/view/check/CheckStatSocial.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="590">
+          <caret line="27" column="26" selection-start-line="27" selection-start-column="26" selection-end-line="27" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/servlet/ServletInformation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="700">
+          <caret line="45" column="48" selection-start-line="45" selection-start-column="48" selection-end-line="45" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/servlet/ServletStatSocial.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="48" column="52" selection-start-line="48" selection-start-column="52" selection-end-line="48" selection-end-column="52" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/util/network/RequestAndResponse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="542">
+          <caret line="131" column="5" selection-start-line="131" selection-start-column="5" selection-end-line="131" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/bean/view/check/CheckCommentDetails.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="31" column="19" lean-forward="true" selection-start-line="31" selection-start-column="19" selection-end-line="31" selection-end-column="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/bean/view/CommentDetails.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="10" column="29" lean-forward="true" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/servlet/ServletCommentDetails.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2250">
-          <caret line="108" column="17" selection-start-line="108" selection-start-column="17" selection-end-line="108" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/web.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="10" column="41" selection-start-line="10" selection-start-column="41" selection-end-line="10" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/bean/operate/OperateNote.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="218" column="5" lean-forward="true" selection-start-line="218" selection-start-column="5" selection-end-line="218" selection-end-column="5" />
+        <state relative-caret-position="278">
+          <caret line="61" column="13" lean-forward="true" selection-start-line="61" selection-start-column="13" selection-end-line="61" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -860,64 +1173,49 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/util/JSON/JSONObjectOperation.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2125">
-          <caret line="95" column="60" selection-start-line="95" selection-start-column="60" selection-end-line="95" selection-end-column="60" />
+        <state relative-caret-position="108">
+          <caret line="503" column="5" lean-forward="true" selection-start-line="503" selection-start-column="5" selection-end-line="503" selection-end-column="5" />
           <folding>
+            <element signature="method#setSocialToJSON#0;class#JSONObjectOperation#0" />
+            <element signature="method#getSocialFromJSON#0;class#JSONObjectOperation#0" />
+            <element signature="method#setCommentToJSON#0;class#JSONObjectOperation#0" />
+            <element signature="method#getCommentFromJSON#0;class#JSONObjectOperation#0" />
             <element signature="method#setNoteToJSON#0;class#JSONObjectOperation#0" />
             <element signature="method#getNoteFromJSON#0;class#JSONObjectOperation#0" />
             <element signature="method#setInformationToJSON#0;class#JSONObjectOperation#0" />
             <element signature="method#getInformationFromJSON#0;class#JSONObjectOperation#0" />
             <element signature="method#setResultToJSON#0;class#JSONObjectOperation#0" />
+            <element signature="method#getStatSocialFromJSON#0;class#JSONObjectOperation#0" />
+            <element signature="method#setStatSocialToJSON#0;class#JSONObjectOperation#0" />
+            <element signature="method#displayJSON#0;class#JSONObjectOperation#0" />
             <element signature="method#changeStringToList#0;class#JSONObjectOperation#0" />
             <element signature="method#changeStringToMap#0;class#JSONObjectOperation#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/bean/CommentDetails.java">
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/web.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
-          <caret line="22" column="38" lean-forward="true" selection-start-line="22" selection-start-column="38" selection-end-line="22" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/servlet/ServletSocial.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="415">
-          <caret line="62" column="20" selection-start-line="62" selection-start-column="20" selection-end-line="62" selection-end-column="20" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#handleDeleteSocial#0;class#ServletSocial#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/bean/operate/OperateSocial.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="57" column="35" lean-forward="true" selection-start-line="57" selection-start-column="35" selection-end-line="57" selection-end-column="35" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/bean/operate/OperateCommentDetails.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="259">
-          <caret line="58" column="5" lean-forward="true" selection-start-line="58" selection-start-column="5" selection-end-line="58" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#5103#5104#0" expanded="true" />
-            <element signature="e#5149#5150#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="152">
+          <caret line="37" column="25" selection-start-line="37" selection-start-column="25" selection-end-line="37" selection-end-column="25" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/spring/beans.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="53" column="52" lean-forward="true" selection-start-line="53" selection-start-column="52" selection-end-line="53" selection-end-column="52" />
+        <state relative-caret-position="340">
+          <caret line="30" column="34" lean-forward="true" selection-start-line="30" selection-start-column="34" selection-end-line="30" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/servlet/ServletComment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="148" column="53" lean-forward="true" selection-start-line="148" selection-start-column="53" selection-end-line="148" selection-end-column="53" />
+          <folding>
+            <element signature="e#6254#6255#0" expanded="true" />
+            <element signature="e#6306#6307#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

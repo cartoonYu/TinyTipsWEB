@@ -3,8 +3,8 @@ package servlet;
 import static java.lang.System.out;
 
 import BaseClass.ValueCallBack;
-import bean.Note;
-import bean.operate.OperateNote;
+import bean.table.Note;
+import bean.table.operate.OperateNote;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.context.ApplicationContext;
@@ -72,12 +72,14 @@ public class ServletNote extends HttpServlet {
             @Override
             public void onSuccess(String s) {
                 JSONObject object=objectOperation.setResultToJSON(s);
+                objectOperation.displayJSON(object);
                 requestAndResponse.transObjectToResponse(response,object);
             }
 
             @Override
             public void onFail(String code) {
                 JSONObject object=objectOperation.setResultToJSON(code);
+                objectOperation.displayJSON(object);
                 requestAndResponse.transObjectToResponse(response,object);
             }
         });
@@ -88,12 +90,14 @@ public class ServletNote extends HttpServlet {
             @Override
             public void onSuccess(String s) {
                 JSONObject object=objectOperation.setResultToJSON(s);
+                objectOperation.displayJSON(object);
                 requestAndResponse.transObjectToResponse(response,object);
             }
 
             @Override
             public void onFail(String code) {
                 JSONObject object=objectOperation.setResultToJSON(code);
+                objectOperation.displayJSON(object);
                 requestAndResponse.transObjectToResponse(response,object);
             }
         });
@@ -105,15 +109,17 @@ public class ServletNote extends HttpServlet {
             public void onSuccess(List<Note> notes) {
                 List<JSONObject> result=new ArrayList<>();
                 for(Note note:notes){
-                    result.add(objectOperation.setNoteToJSON(note));
+                    JSONObject object=objectOperation.setNoteToJSON(note);
+                    result.add(object);
+                    objectOperation.displayJSON(object);
                 }
-                out.println("result:"+result.toString());
                 requestAndResponse.transArrayToResponse(response,result);
             }
 
             @Override
             public void onFail(String code) {
                 JSONObject result=objectOperation.setResultToJSON(code);
+                objectOperation.displayJSON(result);
                 requestAndResponse.transObjectToResponse(response,result);
             }
         });
@@ -124,12 +130,14 @@ public class ServletNote extends HttpServlet {
             @Override
             public void onSuccess(String s) {
                 JSONObject result=objectOperation.setResultToJSON(s);
+                objectOperation.displayJSON(result);
                 requestAndResponse.transObjectToResponse(response,result);
             }
 
             @Override
             public void onFail(String code) {
                 JSONObject result=objectOperation.setResultToJSON(code);
+                objectOperation.displayJSON(result);
                 requestAndResponse.transObjectToResponse(response,result);
             }
         });

@@ -1,8 +1,8 @@
 package servlet;
 
 import BaseClass.ValueCallBack;
-import bean.Social;
-import bean.operate.OperateSocial;
+import bean.table.Social;
+import bean.table.operate.OperateSocial;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.context.ApplicationContext;
@@ -97,7 +97,9 @@ public class ServletSocial extends HttpServlet {
             public void onSuccess(List<Social> socials) {
                 List<JSONObject> result=new ArrayList<>();
                 for(Social temp:socials){
-                    result.add(objectOperation.setSocialToJSON(temp));
+                    JSONObject object=objectOperation.setSocialToJSON(temp);
+                    result.add(object);
+                    objectOperation.displayJSON(object);
                 }
                 requestAndResponse.transArrayToResponse(response,result);
             }
@@ -113,6 +115,7 @@ public class ServletSocial extends HttpServlet {
 
     private void sendResultToClient(String result,HttpServletResponse response){
         JSONObject object=objectOperation.setResultToJSON(result);
+        objectOperation.displayJSON(object);
         requestAndResponse.transObjectToResponse(response,object);
     }
 

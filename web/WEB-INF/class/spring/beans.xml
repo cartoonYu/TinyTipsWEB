@@ -9,32 +9,47 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
-    <bean id="commentDetails" class="bean.CommentDetails"/>
-    <bean id="information" class="bean.Information"/>
-    <bean id="note" class="bean.Note"/>
-    <bean id="social" class="bean.Social"/>
+    <bean id="comment" class="bean.table.Comment"/>
+    <bean id="information" class="bean.table.Information"/>
+    <bean id="note" class="bean.table.Note"/>
+    <bean id="social" class="bean.table.Social"/>
 
-    <bean id="operateCommentDetails" class="bean.operate.OperateCommentDetails"
+    <bean id="operateComment" class="bean.table.operate.OperateComment"
         p:operateDB-ref="operateDB"
-        p:tableName="CommentDetails"
+        p:tableName="Comment"
         p:currentTime-ref="currentTime"/>
-    <bean id="operateInformation" class="bean.operate.OperateInformation"
+    <bean id="operateInformation" class="bean.table.operate.OperateInformation"
         p:operateDB-ref="operateDB"
         p:tableName="Information"
         p:ls-ref="listAndString"
         p:fileOperation-ref="fileOperation"
         p:imageConstant-ref="imageConstant"
         p:currentTime-ref="currentTime"/>
-    <bean id="operateNote" class="bean.operate.OperateNote"
+    <bean id="operateNote" class="bean.table.operate.OperateNote"
           p:operateDB-ref="operateDB"
           p:tableName="Note"
           p:ls-ref="listAndString"
           p:fileOperation-ref="fileOperation"
           p:imageConstant-ref="imageConstant"
           p:currentTime-ref="currentTime"/>
-    <bean id="operateSocial" class="bean.operate.OperateSocial"
+    <bean id="operateSocial" class="bean.table.operate.OperateSocial"
           p:currentTime-ref="currentTime"
           p:db-ref="operateDB"/>
+
+    <bean id="commentDetails" class="bean.view.CommentDetails"/>
+    <bean id="statSocial" class="bean.view.StatSocial"/>
+
+    <bean id="checkSocial" class="bean.view.check.CheckStatSocial"
+        p:db-ref="operateDB"
+        p:fileOperation-ref="fileOperation"
+        p:imageConstant-ref="imageConstant"
+        p:ls-ref="listAndString"
+        p:viewName="Social"/>
+    <bean id="checkCommentDetails" class="bean.view.check.CheckCommentDetails"
+        p:imageConstant-ref="imageConstant"
+        p:fileOperation-ref="fileOperation"
+        p:db-ref="operateDB"
+        p:viewName="CommentDetails"/>
 
     <bean id="getContext" class="spring.GetContext"/>
 
@@ -60,7 +75,7 @@
     <bean id="listAndString" class="util.ListAndString"/>
     <bean id="mapAndString" class="util.MapAndString"/>
 
-    <context:property-override location="sql/dbconn_server.properties"/>
-    <context:property-override location="util/file/imagePath_server.properties"/>
+    <context:property-override location="sql/dbconn.properties"/>
+    <context:property-override location="util/file/imagePath.properties"/>
 
 </beans>

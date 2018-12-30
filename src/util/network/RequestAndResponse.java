@@ -2,7 +2,6 @@ package util.network;
 
 import static java.lang.System.out;
 
-import bean.Information;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import util.JSON.JSONArrayOperation;
@@ -115,7 +114,6 @@ public class RequestAndResponse {
      */
     public void transArrayToResponse(HttpServletResponse response, List<JSONObject> result){
         JSONArray array=arrayOperation.setObjectToArray(result);
-        out.println(array.toString());
         response.setCharacterEncoding("UTF-8");
         try {
             response.getWriter().append(array.toString());
@@ -126,7 +124,6 @@ public class RequestAndResponse {
 
     public void transObjectToResponse(HttpServletResponse response,JSONObject object){
         response.setCharacterEncoding("UTF-8");
-        out.println(object.toString());
         try {
             response.getWriter().append(object.toString());
         }catch (IOException e){

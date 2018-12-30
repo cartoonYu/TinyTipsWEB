@@ -1,10 +1,8 @@
 package servlet;
 
 import BaseClass.ValueCallBack;
-import bean.Information;
-import bean.Note;
-import bean.operate.OperateNote;
-import org.json.JSONArray;
+import bean.table.Note;
+import bean.table.operate.OperateNote;
 import org.json.JSONObject;
 import org.springframework.context.ApplicationContext;
 import spring.GetContext;
@@ -18,9 +16,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.List;
-
-import static java.lang.System.out;
 
 public class Text extends HttpServlet {
 
@@ -65,11 +60,14 @@ public class Text extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // TODO Auto-generated method stub
-        JSONArray array=requestAndResponse.transRequestToArray(request);
+        /*JSONArray array=requestAndResponse.transRequestToArray(request);
         out.println(array);
         List<JSONObject> objects=arrayOperation.getObjectsFromArray(array);
         Information information=objectOperation.getInformationFromJSON(objects.get(0));
         JSONObject result=objectOperation.setResultToJSON(information.getHeadPortraitName());
+        requestAndResponse.transObjectToResponse(response,result);*/
+        JSONObject result=new JSONObject();
+        result.put("asd","服务器数据");
         requestAndResponse.transObjectToResponse(response,result);
     }
 

@@ -2,8 +2,8 @@ package servlet;
 
 import static java.lang.System.out;
 import BaseClass.ValueCallBack;
-import bean.Information;
-import bean.operate.OperateInformation;
+import bean.table.Information;
+import bean.table.operate.OperateInformation;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.context.ApplicationContext;
@@ -43,7 +43,7 @@ public class ServletInformation extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        response.getWriter().append("sasasa");
+        response.getWriter().append("Information");
     }
 
     @Override
@@ -91,12 +91,14 @@ public class ServletInformation extends HttpServlet {
             @Override
             public void onSuccess(String s) {
                 JSONObject object= objectOperation.setResultToJSON(s);
+                objectOperation.displayJSON(object);
                 requestAndResponse.transObjectToResponse(response,object);
             }
 
             @Override
             public void onFail(String code) {
                 JSONObject object= objectOperation.setResultToJSON(code);
+                objectOperation.displayJSON(object);
                 requestAndResponse.transObjectToResponse(response,object);
             }
         });
@@ -108,12 +110,14 @@ public class ServletInformation extends HttpServlet {
             @Override
             public void onSuccess(String s) {
                 JSONObject object= objectOperation.setResultToJSON(s);
+                objectOperation.displayJSON(object);
                 requestAndResponse.transObjectToResponse(response,object);
             }
 
             @Override
             public void onFail(String code) {
                 JSONObject object= objectOperation.setResultToJSON(code);
+                objectOperation.displayJSON(object);
                 requestAndResponse.transObjectToResponse(response,object);
             }
         });
@@ -125,7 +129,9 @@ public class ServletInformation extends HttpServlet {
             public void onSuccess(List<Information> information) {
                 List<JSONObject> result=new ArrayList<>();
                 for(Information temp:information){
-                    result.add(objectOperation.setInformationToJSON(temp));
+                    JSONObject object=objectOperation.setInformationToJSON(temp);
+                    result.add(object);
+                    objectOperation.displayJSON(object);
                 }
                 requestAndResponse.transArrayToResponse(response,result);
             }
@@ -133,6 +139,7 @@ public class ServletInformation extends HttpServlet {
             @Override
             public void onFail(String code) {
                 JSONObject object= objectOperation.setResultToJSON(code);
+                objectOperation.displayJSON(object);
                 requestAndResponse.transObjectToResponse(response,object);
             }
         });
@@ -144,12 +151,14 @@ public class ServletInformation extends HttpServlet {
 
             public void onSuccess(String s) {
                 JSONObject object= objectOperation.setResultToJSON(s);
+                objectOperation.displayJSON(object);
                 requestAndResponse.transObjectToResponse(response,object);
             }
 
             @Override
             public void onFail(String code) {
                 JSONObject object= objectOperation.setResultToJSON(code);
+                objectOperation.displayJSON(object);
                 requestAndResponse.transObjectToResponse(response,object);
             }
         });

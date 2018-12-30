@@ -1,8 +1,9 @@
 package servlet;
 
 import BaseClass.ValueCallBack;
-import bean.CommentDetails;
-import bean.operate.OperateCommentDetails;
+import bean.table.Comment;
+import bean.view.CommentDetails;
+import bean.view.check.CheckCommentDetails;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.context.ApplicationContext;
@@ -18,8 +19,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import static java.lang.System.out;
-
 public class ServletCommentDetails extends HttpServlet {
 
     private RequestAndResponse requestAndResponse;
@@ -28,108 +27,38 @@ public class ServletCommentDetails extends HttpServlet {
 
     private JSONObjectOperation objectOperation;
 
-    private OperateCommentDetails operateCommentDetails;
+    private CheckCommentDetails checkCommentDetails;
 
     @Override
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        response.getWriter().append("commentDetails");
+    public void doGet(HttpServletRequest request, HttpServletResponse response){
+        try {
+            response.getWriter().append("CommentDetails");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
     public void doPost(HttpServletRequest request,HttpServletResponse response){
         JSONArray array=requestAndResponse.transRequestToArray(request);
-        out.println("CommentDetails");
-        out.println(array.toString());
-        List<JSONObject> data=arrayOperation.getObjectsFromArray(array);
-        List<CommentDetails> result=new ArrayList<>();
-        for(JSONObject object:data){
-            result.add(objectOperation.getCommentDetailsFromJSON(object));
-        }
-        String method=objectOperation.getStringFromJSON(data.get(0),"method");
-        switch (method){
-            case "add":{
-                handleAddDetails(result.get(0),response);
-                break;
-            }
-            case "delete":{
-                handleDeleteDetails(result.get(0),response);
-                break;
-            }
-            case "query":{
-                handleQueryDetails(result.get(0),response);
-                break;
-            }
-            case "update":{
-                handleUpdateDetails(result.get(0),result.get(1),response);
-                break;
-            }
-        }
-        out.println();
-    }
-
-    public void handleAddDetails(CommentDetails details,HttpServletResponse response){
-        operateCommentDetails.add(details, new ValueCallBack<String>() {
-            @Override
-            public void onSuccess(String s) {
-                JSONObject result=objectOperation.setResultToJSON(s);
-                requestAndResponse.transObjectToResponse(response,result);
-            }
-
-            @Override
-            public void onFail(String code) {
-                JSONObject result=objectOperation.setResultToJSON(code);
-                requestAndResponse.transObjectToResponse(response,result);
-            }
-        });
-    }
-
-    public void handleDeleteDetails(CommentDetails details,HttpServletResponse response){
-        operateCommentDetails.delete(details, new ValueCallBack<String>() {
-            @Override
-            public void onSuccess(String s) {
-                JSONObject result=objectOperation.setResultToJSON(s);
-                requestAndResponse.transObjectToResponse(response,result);
-            }
-
-            @Override
-            public void onFail(String code) {
-                JSONObject result=objectOperation.setResultToJSON(code);
-                requestAndResponse.transObjectToResponse(response,result);
-            }
-        });
-    }
-
-    public void handleQueryDetails(CommentDetails details,HttpServletResponse response){
-        operateCommentDetails.query(details, new ValueCallBack<List<CommentDetails>>() {
+        List<JSONObject> resource=arrayOperation.getObjectsFromArray(array);
+        checkCommentDetails.getCommentDetails(objectOperation.getCommentDetailsFromJSON(resource.get(0)), new ValueCallBack<List<CommentDetails>>() {
             @Override
             public void onSuccess(List<CommentDetails> commentDetails) {
-                List<JSONObject> list=new ArrayList<>();
+                List<JSONObject> result=new ArrayList<>();
                 for(CommentDetails temp:commentDetails){
-                    list.add(objectOperation.setCommentDetailsToJSON(temp));
+                    JSONObject object=objectOperation.setCommentDetailsToJSON(temp);
+                    objectOperation.displayJSON(object);
+                    result.add(object);
                 }
-                requestAndResponse.transArrayToResponse(response,list);
+                requestAndResponse.transArrayToResponse(response,result);
             }
 
             @Override
             public void onFail(String code) {
-                JSONObject result=objectOperation.setResultToJSON(code);
-                requestAndResponse.transObjectToResponse(response,result);
-            }
-        });
-    }
-
-    public void handleUpdateDetails(CommentDetails source,CommentDetails result,HttpServletResponse response){
-        operateCommentDetails.update(source, result, new ValueCallBack<String>() {
-            @Override
-            public void onSuccess(String s) {
-                JSONObject result=objectOperation.setResultToJSON(s);
-                requestAndResponse.transObjectToResponse(response,result);
-            }
-
-            @Override
-            public void onFail(String code) {
-                JSONObject result=objectOperation.setResultToJSON(code);
-                requestAndResponse.transObjectToResponse(response,result);
+                JSONObject object=objectOperation.setResultToJSON(code);
+                objectOperation.displayJSON(object);
+                requestAndResponse.transObjectToResponse(response,object);
             }
         });
     }
@@ -139,11 +68,7 @@ public class ServletCommentDetails extends HttpServlet {
         setRequestAndResponse(context.getBean("requestAndResponse",RequestAndResponse.class));
         setArrayOperation(context.getBean("jsonArrayOperation",JSONArrayOperation.class));
         setObjectOperation(context.getBean("jsonObjectOperation",JSONObjectOperation.class));
-        setOperateCommentDetails(context.getBean("operateCommentDetails",OperateCommentDetails.class));
-    }
-
-    public void setRequestAndResponse(RequestAndResponse requestAndResponse) {
-        this.requestAndResponse = requestAndResponse;
+        setCheckCommentDetails(context.getBean("checkCommentDetails",CheckCommentDetails.class));
     }
 
     public void setArrayOperation(JSONArrayOperation arrayOperation) {
@@ -154,7 +79,11 @@ public class ServletCommentDetails extends HttpServlet {
         this.objectOperation = objectOperation;
     }
 
-    public void setOperateCommentDetails(OperateCommentDetails operateCommentDetails) {
-        this.operateCommentDetails = operateCommentDetails;
+    public void setRequestAndResponse(RequestAndResponse requestAndResponse) {
+        this.requestAndResponse = requestAndResponse;
+    }
+
+    public void setCheckCommentDetails(CheckCommentDetails checkCommentDetails) {
+        this.checkCommentDetails = checkCommentDetails;
     }
 }
