@@ -1,6 +1,6 @@
-/src/sql/dbconn.properties
-/src/sql/dbconn_server.properties
-/src/util/file/imagePath.properties
-/src/util/file/imagePath_server.properties
-/out/upload
-/out/artifacts/TinyTipsWEB_war_exploded
+/src/main/webapp/WEB-INF/config/dbconn.properties
+/src/main/webapp/WEB-INF/config/dbconn_server.properties
+/src/main/webapp/WEB-INF/config/imagePath.properties
+/src/main/webapp/WEB-INF/config/imagePath_server.properties
+/.idea
+/target
