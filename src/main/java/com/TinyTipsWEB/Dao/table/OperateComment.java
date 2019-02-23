@@ -1,13 +1,11 @@
-package com.TinyTipsWEB.Dao.table;
+package com.TinyTipsWEB.DAO.table;
 
-import com.TinyTipsWEB.Dao.table.imp.IOperateComment;
+import com.TinyTipsWEB.DAO.sql.IOperateDB;
+import com.TinyTipsWEB.DAO.table.imp.IOperateComment;
 import com.TinyTipsWEB.Model.table.Comment;
 import com.TinyTipsWEB.ValueCallBack;
-import com.TinyTipsWEB.Dao.sql.IOperateDB;
 import com.TinyTipsWEB.util.CurrentTime;
 import com.TinyTipsWEB.util.JudgeEmpty;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Repository;
 
@@ -44,7 +42,7 @@ public class OperateComment implements IOperateComment {
      */
     @Override
     public void add(Comment details, ValueCallBack<String> callBack) {
-        if(JudgeEmpty.isEmpty(details)||JudgeEmpty.isEmpty(details.getDetails())){
+        if(JudgeEmpty.isEmpty(details)|| JudgeEmpty.isEmpty(details.getDetails())){
             callBack.onFail("300");
             return;
         }
@@ -74,7 +72,7 @@ public class OperateComment implements IOperateComment {
      */
     @Override
     public void delete(Comment comment, ValueCallBack<String> callBack) {
-        if(JudgeEmpty.isEmpty(comment)||JudgeEmpty.isEmpty(comment.getDetails())){
+        if(JudgeEmpty.isEmpty(comment)|| JudgeEmpty.isEmpty(comment.getDetails())){
             callBack.onFail("300");
             return;
         }
@@ -104,7 +102,7 @@ public class OperateComment implements IOperateComment {
      */
     @Override
     public void update(Comment oldComment, Comment newComment, ValueCallBack<String> callBack) {
-        if(JudgeEmpty.isEmpty(newComment)||JudgeEmpty.isEmpty(oldComment)){
+        if(JudgeEmpty.isEmpty(newComment)|| JudgeEmpty.isEmpty(oldComment)){
             callBack.onFail("300");
             return;
         }

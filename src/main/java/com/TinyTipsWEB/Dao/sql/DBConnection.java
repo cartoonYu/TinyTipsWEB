@@ -1,9 +1,11 @@
-package com.TinyTipsWEB.Dao.sql;
+package com.TinyTipsWEB.DAO.sql;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PreDestroy;
+import javax.annotation.Resource;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -11,31 +13,10 @@ import java.sql.SQLException;
 @Component("dbConnection")
 public class DBConnection {
 
-    private String driverClass;
-
-    private String url;
-
-    private String user;
-
-    private String password;
+    @Resource(name = "dbConfig")
+    private DBConfig dbConfig;
 
     private Connection connection;
-
-    public void setDriverClass(String driverClass) {
-        this.driverClass=driverClass;
-    }
-
-    public void setUrl(String url) {
-        this.url=url;
-    }
-
-    public void setUser(String user) {
-        this.user=user;
-    }
-
-    public void setPassword(String password) {
-        this.password=password;
-    }
 
     /**
      * 获取数据库连接
@@ -44,8 +25,8 @@ public class DBConnection {
     @Bean(name = "connection")
     public Connection getConnection() {
         try {
-            Class.forName(driverClass);
-            connection=DriverManager.getConnection(url, user, password);
+            Class.forName(dbConfig.getDriverClass());
+            connection=DriverManager.getConnection(dbConfig.getUrl(), dbConfig.getUser(), dbConfig.getPassword());
         }catch(ClassNotFoundException e) {
             e.printStackTrace();
         }catch(SQLException e) {

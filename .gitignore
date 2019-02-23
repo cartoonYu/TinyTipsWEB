@@ -1,6 +1,6 @@
-/src/main/webapp/WEB-INF/config/dbconn.properties
-/src/main/webapp/WEB-INF/config/dbconn_server.properties
-/src/main/webapp/WEB-INF/config/imagePath.properties
-/src/main/webapp/WEB-INF/config/imagePath_server.properties
 /.idea
 /target
+/.mvn
+/src/main/resources/application-dev.properties
+/src/main/resources/application-prod.properties
+/src/main/resources/application-test.properties

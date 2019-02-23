@@ -1,15 +1,13 @@
-package com.TinyTipsWEB.Dao.view;
+package com.TinyTipsWEB.DAO.view;
 
-import com.TinyTipsWEB.Dao.view.imp.ICheckStatSocial;
+import com.TinyTipsWEB.DAO.sql.OperateDB;
+import com.TinyTipsWEB.DAO.view.imp.ICheckStatSocial;
 import com.TinyTipsWEB.Model.view.StatSocial;
 import com.TinyTipsWEB.ValueCallBack;
-import com.TinyTipsWEB.Dao.sql.OperateDB;
 import com.TinyTipsWEB.util.CollectionAndString;
 import com.TinyTipsWEB.util.JudgeEmpty;
 import com.TinyTipsWEB.util.file.FileOperation;
 import com.TinyTipsWEB.util.file.ImageConstant;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Repository;
 

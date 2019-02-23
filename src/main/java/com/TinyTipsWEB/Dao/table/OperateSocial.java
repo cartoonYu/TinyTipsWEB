@@ -1,14 +1,11 @@
-package com.TinyTipsWEB.Dao.table;
+package com.TinyTipsWEB.DAO.table;
 
-import com.TinyTipsWEB.Dao.table.imp.IOperateSocial;
+import com.TinyTipsWEB.DAO.sql.IOperateDB;
+import com.TinyTipsWEB.DAO.table.imp.IOperateSocial;
 import com.TinyTipsWEB.Model.table.Social;
 import com.TinyTipsWEB.ValueCallBack;
-import com.TinyTipsWEB.Dao.sql.IOperateDB;
 import com.TinyTipsWEB.util.CurrentTime;
 import com.TinyTipsWEB.util.JudgeEmpty;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Repository;
 
 import javax.annotation.Resource;

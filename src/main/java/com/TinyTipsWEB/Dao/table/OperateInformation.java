@@ -1,9 +1,9 @@
-package com.TinyTipsWEB.Dao.table;
+package com.TinyTipsWEB.DAO.table;
 
-import com.TinyTipsWEB.Dao.table.imp.IOperateInformation;
+import com.TinyTipsWEB.DAO.sql.IOperateDB;
+import com.TinyTipsWEB.DAO.table.imp.IOperateInformation;
 import com.TinyTipsWEB.Model.table.Information;
 import com.TinyTipsWEB.ValueCallBack;
-import com.TinyTipsWEB.Dao.sql.IOperateDB;
 import com.TinyTipsWEB.util.CollectionAndString;
 import com.TinyTipsWEB.util.CurrentTime;
 import com.TinyTipsWEB.util.JudgeEmpty;
@@ -122,7 +122,7 @@ public class OperateInformation implements IOperateInformation {
      */
     @Override
     public void update(Information oldInformation, Information newInformation, ValueCallBack<String> callBack) {
-        if(JudgeEmpty.isEmpty(oldInformation)||JudgeEmpty.isEmpty(newInformation)){
+        if(JudgeEmpty.isEmpty(oldInformation)|| JudgeEmpty.isEmpty(newInformation)){
             callBack.onFail("300");
             return;
         }

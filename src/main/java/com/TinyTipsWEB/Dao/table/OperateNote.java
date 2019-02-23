@@ -1,16 +1,14 @@
-package com.TinyTipsWEB.Dao.table;
+package com.TinyTipsWEB.DAO.table;
 
-import com.TinyTipsWEB.Dao.table.imp.IOperateNote;
+import com.TinyTipsWEB.DAO.sql.IOperateDB;
+import com.TinyTipsWEB.DAO.table.imp.IOperateNote;
 import com.TinyTipsWEB.Model.table.Note;
 import com.TinyTipsWEB.ValueCallBack;
-import com.TinyTipsWEB.Dao.sql.IOperateDB;
 import com.TinyTipsWEB.util.CollectionAndString;
 import com.TinyTipsWEB.util.CurrentTime;
 import com.TinyTipsWEB.util.JudgeEmpty;
 import com.TinyTipsWEB.util.file.FileOperation;
 import com.TinyTipsWEB.util.file.ImageConstant;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Repository;
 
@@ -105,7 +103,7 @@ public class OperateNote implements IOperateNote {
      */
     @Override
     public void update(Note oldNote, Note newNote, ValueCallBack<String> callBack) {
-        if(JudgeEmpty.isEmpty(oldNote)||JudgeEmpty.isEmpty(newNote)){
+        if(JudgeEmpty.isEmpty(oldNote)|| JudgeEmpty.isEmpty(newNote)){
             callBack.onFail("300");
             return;
         }

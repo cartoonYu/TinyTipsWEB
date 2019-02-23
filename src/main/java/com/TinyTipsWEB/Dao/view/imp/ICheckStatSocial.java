@@ -1,4 +1,4 @@
-package com.TinyTipsWEB.Dao.view.imp;
+package com.TinyTipsWEB.DAO.view.imp;
 
 import com.TinyTipsWEB.Model.view.StatSocial;
 import com.TinyTipsWEB.ValueCallBack;
