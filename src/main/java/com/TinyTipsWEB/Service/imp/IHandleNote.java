@@ -7,12 +7,12 @@ import java.util.List;
 
 public interface IHandleNote {
 
-    Result add(Note note);
+    Result addNote(Note note);
 
-    Result delete(Note note);
+    Result deleteNote(Note note);
 
-    Result update(Note oldNote,Note note);
+    Result updateNote(Note oldNote,Note note);
 
-    List<Note> query(Note note);
+    List<Note> queryNote(Note note);
 
 }

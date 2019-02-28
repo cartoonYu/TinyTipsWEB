@@ -3,7 +3,6 @@ package com.TinyTipsWEB.DAO.view;
 import com.TinyTipsWEB.DAO.sql.IOperateDB;
 import com.TinyTipsWEB.DAO.view.imp.ICheckCommentDetails;
 import com.TinyTipsWEB.Model.view.CommentDetails;
-import com.TinyTipsWEB.ValueCallBack;
 import com.TinyTipsWEB.util.JudgeEmpty;
 import com.TinyTipsWEB.util.file.FileOperation;
 import com.TinyTipsWEB.util.file.ImageConstant;

@@ -17,7 +17,7 @@ import javax.annotation.Resource;
 
 @Controller
 @RequestMapping("/TinyTipsWEB/Information")
-public class InformationController implements IInformationController {
+public class InformationController implements IInformationController{
 
     @Resource(name = "jsonObjectOperation")
     private JSONObjectOperation objectOperation;
@@ -43,7 +43,6 @@ public class InformationController implements IInformationController {
     public Result addInformation(@RequestBody String data){
         Information user=objectOperation.getInformationFromJSON(getData.getJSONObject(data));
         Result result=handleInformation.add(user);
-        System.out.println(result.getResult());
         return result;
     }
 

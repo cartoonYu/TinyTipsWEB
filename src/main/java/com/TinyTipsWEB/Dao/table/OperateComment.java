@@ -4,7 +4,6 @@ import com.TinyTipsWEB.DAO.sql.IOperateDB;
 import com.TinyTipsWEB.DAO.table.imp.IOperateComment;
 import com.TinyTipsWEB.Model.Result;
 import com.TinyTipsWEB.Model.table.Comment;
-import com.TinyTipsWEB.ValueCallBack;
 import com.TinyTipsWEB.util.CurrentTime;
 import com.TinyTipsWEB.util.JudgeEmpty;
 import org.springframework.beans.factory.annotation.Value;

@@ -1,11 +1,11 @@
-package com.TinyTipsWEB.DAO.table.imp;
+package com.TinyTipsWEB.Service.imp;
 
 import com.TinyTipsWEB.Model.Result;
 import com.TinyTipsWEB.Model.table.Comment;
 
 import java.util.List;
 
-public interface IOperateComment {
+public interface IHandleComment {
 
     Result add(Comment comment);  //增加评论
 
@@ -14,5 +14,4 @@ public interface IOperateComment {
     Result update(Comment oldComment, Comment newComment);   //更新评论
 
     List<Comment> query(Comment comment);   //查询评论
-
 }

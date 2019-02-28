@@ -4,7 +4,6 @@ import com.TinyTipsWEB.DAO.table.imp.IOperateInformation;
 import com.TinyTipsWEB.Model.Result;
 import com.TinyTipsWEB.Service.imp.IHandleInformation;
 import com.TinyTipsWEB.Model.table.Information;
-import com.TinyTipsWEB.ValueCallBack;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

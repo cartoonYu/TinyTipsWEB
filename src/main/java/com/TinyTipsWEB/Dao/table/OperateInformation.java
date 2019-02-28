@@ -4,7 +4,6 @@ import com.TinyTipsWEB.DAO.sql.IOperateDB;
 import com.TinyTipsWEB.DAO.table.imp.IOperateInformation;
 import com.TinyTipsWEB.Model.Result;
 import com.TinyTipsWEB.Model.table.Information;
-import com.TinyTipsWEB.ValueCallBack;
 import com.TinyTipsWEB.util.CollectionAndString;
 import com.TinyTipsWEB.util.CurrentTime;
 import com.TinyTipsWEB.util.JudgeEmpty;

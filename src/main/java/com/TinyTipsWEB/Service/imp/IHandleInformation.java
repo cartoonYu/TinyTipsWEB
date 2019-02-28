@@ -2,7 +2,6 @@ package com.TinyTipsWEB.Service.imp;
 
 import com.TinyTipsWEB.Model.Result;
 import com.TinyTipsWEB.Model.table.Information;
-import com.TinyTipsWEB.ValueCallBack;
 
 import java.util.List;
 

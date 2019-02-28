@@ -3,7 +3,6 @@ package com.TinyTipsWEB.DAO.view;
 import com.TinyTipsWEB.DAO.sql.OperateDB;
 import com.TinyTipsWEB.DAO.view.imp.ICheckStatSocial;
 import com.TinyTipsWEB.Model.view.StatSocial;
-import com.TinyTipsWEB.ValueCallBack;
 import com.TinyTipsWEB.util.CollectionAndString;
 import com.TinyTipsWEB.util.JudgeEmpty;
 import com.TinyTipsWEB.util.file.FileOperation;

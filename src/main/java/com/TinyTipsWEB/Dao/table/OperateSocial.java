@@ -4,7 +4,6 @@ import com.TinyTipsWEB.DAO.sql.IOperateDB;
 import com.TinyTipsWEB.DAO.table.imp.IOperateSocial;
 import com.TinyTipsWEB.Model.Result;
 import com.TinyTipsWEB.Model.table.Social;
-import com.TinyTipsWEB.ValueCallBack;
 import com.TinyTipsWEB.util.CurrentTime;
 import com.TinyTipsWEB.util.JudgeEmpty;
 import org.springframework.stereotype.Repository;
