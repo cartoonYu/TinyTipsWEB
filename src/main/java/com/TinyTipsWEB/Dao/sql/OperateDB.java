@@ -79,7 +79,7 @@ public class OperateDB implements IOperateDB {
             return sql.append(";").toString();
         }
         for(String temp:columns){
-            sql.append(temp).append("= ? and");
+            sql.append(temp).append("= ? and ");
         }
         return sql.substring(0,sql.length()-3).concat(";");
     }
@@ -95,12 +95,15 @@ public class OperateDB implements IOperateDB {
         List<String> columns=getColumns(condition);
         String sql=getQuerySQL(tableName,columns);
         PreparedStatement pst=getPreparedStatement(sql,columns,condition);
+        ResultSet result=null;
         try {
-            return pst.executeQuery();
+            result=pst.executeQuery();
         } catch (SQLException e) {
             e.printStackTrace();
+        } finally {
+            out.println("Result Set empty:"+result==null);
+            return result;
         }
-        return null;
     }
 
     /**
@@ -116,9 +119,9 @@ public class OperateDB implements IOperateDB {
         }
         sql.append(" where ");
         for(String temp:columns){
-            sql.append(temp).append("= ? and");
+            sql.append(temp).append("= ? and ");
         }
-        return sql.substring(0,sql.length()-3).concat(";");
+        return sql.substring(0,sql.length()-4).concat(";");
     }
 
     /**
@@ -145,17 +148,17 @@ public class OperateDB implements IOperateDB {
      * @return
      */
     private String getUpdateSQL(String tableName,List<String> oldColumns,List<String> newColumns){
-        StringBuilder sql=new StringBuilder("update from ").append(tableName).append(" set ");
+        StringBuilder sql=new StringBuilder("update ").append(tableName).append(" set ");
         StringBuilder oldBuilder=new StringBuilder();
         for(String temp:oldColumns){
-            oldBuilder.append(temp).append("= ? and");
+            oldBuilder.append(temp).append("= ? and ");
         }
         StringBuilder newBuilder=new StringBuilder();
         for(String temp:newColumns){
-            newBuilder.append(temp).append("= ? and");
+            newBuilder.append(temp).append("= ?,");
         }
-        sql.append(newBuilder.substring(0,newBuilder.length()-3));
-        sql.append(" where ").append(oldBuilder.substring(0,oldBuilder.length()-3)).append(";");
+        sql.append(newBuilder.substring(0,newBuilder.length()-1));
+        sql.append(" where ").append(oldBuilder.substring(0,oldBuilder.length()-4)).append(";");
         return sql.toString();
     }
 
@@ -180,7 +183,7 @@ public class OperateDB implements IOperateDB {
      * @return
      */
     private PreparedStatement getPreparedStatement(String sql, List<String> columns,Map<String,String> data){
-        out.println(sql);
+        out.println("sql:"+sql);
         PreparedStatement pst=null;
         try {
             pst=connection.prepareStatement(sql);
@@ -204,7 +207,7 @@ public class OperateDB implements IOperateDB {
      * @return
      */
     private PreparedStatement getPreparedStatement(String sql,List<String> oldColumns,Map<String,String> condition, List<String> newColumns,Map<String,String> data){
-        out.println(sql);
+        out.println("sql:"+sql);
         PreparedStatement pst=null;
         int newColumnsSize=newColumns.size();
         try {
@@ -213,7 +216,7 @@ public class OperateDB implements IOperateDB {
                 pst.setString(i+1,data.get(newColumns.get(i)));
             }
             for(int i=0,size=oldColumns.size();i<size;i++){
-                pst.setString(i+newColumnsSize+1,data.get(oldColumns.get(i)));
+                pst.setString(i+newColumnsSize+1,condition.get(oldColumns.get(i)));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -238,6 +241,7 @@ public class OperateDB implements IOperateDB {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        out.println("effect row:"+result);
         if(result==0){
             return false;
         }

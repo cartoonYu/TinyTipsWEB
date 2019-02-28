@@ -2,6 +2,7 @@ package com.TinyTipsWEB.DAO.table;
 
 import com.TinyTipsWEB.DAO.sql.IOperateDB;
 import com.TinyTipsWEB.DAO.table.imp.IOperateComment;
+import com.TinyTipsWEB.Model.Result;
 import com.TinyTipsWEB.Model.table.Comment;
 import com.TinyTipsWEB.ValueCallBack;
 import com.TinyTipsWEB.util.CurrentTime;
@@ -38,22 +39,23 @@ public class OperateComment implements IOperateComment {
      * 2.通过回调接口得到插入结果
      *
      * @param details
-     * @param callBack
      */
     @Override
-    public void add(Comment details, ValueCallBack<String> callBack) {
+    public Result add(Comment details) {
+        Result result=new Result();
         if(JudgeEmpty.isEmpty(details)|| JudgeEmpty.isEmpty(details.getDetails())){
-            callBack.onFail("300");
-            return;
+            result.setOperateError();
+            return result;
         }
         Map<String,String> data=changeDetailsToMap(details);
         data.put("date",currentTime.getDate("time"));
         if(db.add(tableName,data)){
-            callBack.onSuccess("200");
+            result.setSuccess();
         }
         else {
-            callBack.onFail("400");
+            result.setFail();
         }
+        return result;
     }
 
     /**
@@ -68,21 +70,22 @@ public class OperateComment implements IOperateComment {
      * 1.对象内需至少含有一个值
      *
      * @param comment
-     * @param callBack
      */
     @Override
-    public void delete(Comment comment, ValueCallBack<String> callBack) {
+    public Result delete(Comment comment) {
+        Result result=new Result();
         if(JudgeEmpty.isEmpty(comment)|| JudgeEmpty.isEmpty(comment.getDetails())){
-            callBack.onFail("300");
-            return;
+            result.setOperateError();
+            return result;
         }
         Map<String,String> data=changeDetailsToMap(comment);
         if(db.delete(tableName,data)){
-            callBack.onSuccess("200");
+            result.setSuccess();
         }
         else {
-            callBack.onFail("400");
+            result.setFail();
         }
+        return result;
     }
 
     /**
@@ -98,22 +101,23 @@ public class OperateComment implements IOperateComment {
      *
      * @param oldComment
      * @param newComment
-     * @param callBack
      */
     @Override
-    public void update(Comment oldComment, Comment newComment, ValueCallBack<String> callBack) {
+    public Result update(Comment oldComment, Comment newComment) {
+        Result result=new Result();
         if(JudgeEmpty.isEmpty(newComment)|| JudgeEmpty.isEmpty(oldComment)){
-            callBack.onFail("300");
-            return;
+            result.setOperateError();
+            return result;
         }
         Map<String,String> source=changeDetailsToMap(oldComment);
-        Map<String,String> result=changeDetailsToMap(newComment);
-        if(db.update(tableName,source,result)){
-            callBack.onSuccess("200");
+        Map<String,String> data=changeDetailsToMap(newComment);
+        if(db.update(tableName,source,data)){
+            result.setSuccess();
         }
         else {
-            callBack.onFail("400");
+            result.setFail();
         }
+        return result;
     }
 
     /**
@@ -128,18 +132,16 @@ public class OperateComment implements IOperateComment {
      * 2.查询结果数据类型为List
      *
      * @param comment
-     * @param callBack
      */
     @Override
-    public void query(Comment comment, ValueCallBack<List<Comment>> callBack) {
+    public List<Comment> query(Comment comment) {
         if(JudgeEmpty.isEmpty(comment)){
-            callBack.onFail("300");
-            return;
+            return null;
         }
         Map<String,String> data=changeDetailsToMap(comment);
         ResultSet set=db.query(tableName,data);
+        List<Comment> list=new ArrayList<>();
         try {
-            List<Comment> list=new ArrayList<>();
             while(set.next()){
                 Comment temp =new Comment();
                 temp.setNoteId(set.getLong("noteId"));
@@ -148,11 +150,11 @@ public class OperateComment implements IOperateComment {
                 temp.setDate(set.getString("date"));
                 list.add(temp);
             }
-            callBack.onSuccess(list);
+            return list;
         }catch (SQLException e){
             e.printStackTrace();
-            callBack.onFail("400");
         }
+        return list;
     }
 
     private Map<String,String> changeDetailsToMap(Comment details){

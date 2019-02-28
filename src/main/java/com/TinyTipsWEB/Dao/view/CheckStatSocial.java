@@ -35,11 +35,10 @@ public class CheckStatSocial implements ICheckStatSocial {
     private CollectionAndString cs;
 
     @Override
-    public void getSocial(StatSocial statSocial, ValueCallBack<List<StatSocial>> callBack) {
+    public List<StatSocial> getSocial(StatSocial statSocial) {
         List<StatSocial> result=new ArrayList<>();
         if(JudgeEmpty.isEmpty(statSocial)){
-            callBack.onFail("300");
-            return;
+            return null;
         }
         try {
             ResultSet set=db.query(viewName,changeSocialToMap(statSocial));
@@ -77,10 +76,10 @@ public class CheckStatSocial implements ICheckStatSocial {
                 temp.setForwardList(getSocialList(set.getString("forwardList")));
                 result.add(temp);
             }
-            callBack.onSuccess(result);
         }catch (SQLException e){
-            callBack.onFail("400");
+            e.printStackTrace();
         }
+        return result;
     }
 
     /**

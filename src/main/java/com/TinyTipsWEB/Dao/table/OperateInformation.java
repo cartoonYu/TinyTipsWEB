@@ -2,6 +2,7 @@ package com.TinyTipsWEB.DAO.table;
 
 import com.TinyTipsWEB.DAO.sql.IOperateDB;
 import com.TinyTipsWEB.DAO.table.imp.IOperateInformation;
+import com.TinyTipsWEB.Model.Result;
 import com.TinyTipsWEB.Model.table.Information;
 import com.TinyTipsWEB.ValueCallBack;
 import com.TinyTipsWEB.util.CollectionAndString;
@@ -50,13 +51,12 @@ public class OperateInformation implements IOperateInformation {
      * 2.通过回调接口得到插入结果
      *
      * @param information
-     * @param callBack
      */
     @Override
-    public void add(Information information, ValueCallBack<String> callBack) {
+    public Result add(Information information) {
+        Result result=new Result();
         if(JudgeEmpty.isEmpty(information)){
-            callBack.onFail("300");
-            return;
+            result.setOperateError();
         }
         if(JudgeEmpty.isNotEmpty(information.getHeadPortrait())){
             String headPortrait=information.getHeadPortrait();
@@ -66,11 +66,12 @@ public class OperateInformation implements IOperateInformation {
         information.setDate(currentTime.getDate("day"));
         Map<String,String> data=changeInformationToMap(information);
         if(db.add(tableName,data)){
-            callBack.onSuccess("200");
+            result.setSuccess();
         }
         else{
-            callBack.onFail("400");
+            result.setFail();
         }
+        return result;
     }
 
     /**
@@ -85,24 +86,24 @@ public class OperateInformation implements IOperateInformation {
      * 1.对象内需至少含有一个值
      *
      * @param information
-     * @param callBack
      */
     @Override
-    public void delete(Information information, ValueCallBack<String> callBack) {
+    public Result delete(Information information) {
+        Result result=new Result();
         if(JudgeEmpty.isEmpty(information)){
-            callBack.onFail("300");
-            return;
+            result.setOperateError();
         }
         if(JudgeEmpty.isNotEmpty(information.getHeadPortraitName())){
             fileOperation.deleteFile(imageConstant.getInformation(),information.getHeadPortraitName(),".jpg");
         }
         Map<String,String> condition=changeInformationToMap(information);
         if(db.delete(tableName,condition)){
-            callBack.onSuccess("200");
+            result.setSuccess();
         }
         else{
-            callBack.onFail("400");
+            result.setFail();
         }
+        return result;
     }
 
     /**
@@ -118,13 +119,12 @@ public class OperateInformation implements IOperateInformation {
      *
      * @param oldInformation
      * @param newInformation
-     * @param callBack
      */
     @Override
-    public void update(Information oldInformation, Information newInformation, ValueCallBack<String> callBack) {
+    public Result update(Information oldInformation, Information newInformation) {
+        Result result=new Result();
         if(JudgeEmpty.isEmpty(oldInformation)|| JudgeEmpty.isEmpty(newInformation)){
-            callBack.onFail("300");
-            return;
+            result.setOperateError();
         }
         if(JudgeEmpty.isNotEmpty(oldInformation.getHeadPortraitName())){
             String headPortraitName=oldInformation.getHeadPortraitName();
@@ -135,14 +135,16 @@ public class OperateInformation implements IOperateInformation {
             String headPortraitName=fileOperation.addFile(headPortrait,imageConstant.getInformation(),".jpg");
             newInformation.setHeadPortraitName(headPortraitName);
         }
-        Map<String,String> condition=changeInformationToMap(oldInformation);
+        Map<String,String> condition=new HashMap<>();
+        condition.put("id",Long.toString(oldInformation.getId()));
         Map<String,String> data=changeInformationToMap(newInformation);
         if(db.update(tableName,data,condition)){
-            callBack.onSuccess("200");
+            result.setSuccess();
         }
         else{
-            callBack.onFail("400");
+            result.setFail();
         }
+        return result;
     }
 
     /**
@@ -158,18 +160,16 @@ public class OperateInformation implements IOperateInformation {
      * 2.查询结果数据类型为List
      *
      * @param information
-     * @param callBack
      */
     @Override
-    public void query(Information information, ValueCallBack<List<Information>> callBack) {
+    public List<Information> query(Information information) {
         if(JudgeEmpty.isEmpty(information)){
-            callBack.onFail("300");
-            return;
+            return null;
         }
         Map<String,String> data=changeInformationToMap(information);
+        List<Information> list=new ArrayList<>();
         try{
             ResultSet set=db.query(tableName,data);
-            List<Information> list=new ArrayList<>();
             while(set.next()){
                 Information result=new Information();
                 result.setId(set.getLong("id"));
@@ -189,12 +189,12 @@ public class OperateInformation implements IOperateInformation {
                     String file=fileOperation.queryFile(imageConstant.getInformation(),headPortraitName,".jpg");
                     result.setHeadPortrait(file);
                 }
-
                 list.add(result);
             }
-            callBack.onSuccess(list);
         }catch (SQLException e){
-            callBack.onFail("400");
+            e.printStackTrace();
+        }finally {
+            return list;
         }
     }
 

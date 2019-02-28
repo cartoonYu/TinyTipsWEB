@@ -1,5 +1,6 @@
 package com.TinyTipsWEB.Service.imp;
 
+import com.TinyTipsWEB.Model.Result;
 import com.TinyTipsWEB.Model.table.Information;
 import com.TinyTipsWEB.ValueCallBack;
 
@@ -7,11 +8,11 @@ import java.util.List;
 
 public interface IHandleInformation {
 
-    void add(Information information, ValueCallBack<String> callBack);
+    Result add(Information information);    //插入个人信息
 
-    void delete(Information information, ValueCallBack<String> callBack);
+    Result delete(Information information);  //删除个人信息
 
-    void query(Information information, ValueCallBack<List<Information>> callBack);
+    Result update(Information oldInformation, Information newInformation);  //更新个人信息
 
-    void update(Information data, Information condition, ValueCallBack<String> callBack);
+    List<Information> query(Information information);   //查询个人信息
 }

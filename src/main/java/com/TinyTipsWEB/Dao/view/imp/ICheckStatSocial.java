@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface ICheckStatSocial {
 
-    void getSocial(StatSocial statSocial, ValueCallBack<List<StatSocial>> callBack);  //获取详细社交信息
+    List<StatSocial> getSocial(StatSocial statSocial);  //获取详细社交信息
 }

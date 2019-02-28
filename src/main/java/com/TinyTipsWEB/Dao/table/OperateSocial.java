@@ -2,6 +2,7 @@ package com.TinyTipsWEB.DAO.table;
 
 import com.TinyTipsWEB.DAO.sql.IOperateDB;
 import com.TinyTipsWEB.DAO.table.imp.IOperateSocial;
+import com.TinyTipsWEB.Model.Result;
 import com.TinyTipsWEB.Model.table.Social;
 import com.TinyTipsWEB.ValueCallBack;
 import com.TinyTipsWEB.util.CurrentTime;
@@ -33,13 +34,13 @@ public class OperateSocial implements IOperateSocial {
      * 2.通过回调接口得到插入结果
      *
      * @param social
-     * @param callBack
      */
     @Override
-    public void add(Social social, ValueCallBack<String> callBack) {
+    public Result add(Social social) {
+        Result result=new Result();
         if(JudgeEmpty.isEmpty(social)){
-            callBack.onFail("300");
-            return;
+            result.setOperateError();
+            return result;
         }
         if(social.getType().equals("Like")){
             setTableName("Love");
@@ -50,15 +51,16 @@ public class OperateSocial implements IOperateSocial {
         Map<String,String> data=changeConditionToMap(social);
         data.put("date",currentTime.getDate("time"));
         if(JudgeEmpty.isEmpty(data)){
-            callBack.onFail("300");
-            return;
+            result.setOperateError();
+            return result;
         }
         if(db.add(tableName,data)){
-            callBack.onSuccess("200");
+            result.setSuccess();
         }
         else {
-            callBack.onFail("400");
+            result.setFail();
         }
+        return result;
     }
 
     /**
@@ -70,13 +72,13 @@ public class OperateSocial implements IOperateSocial {
      * 2.通过回调接口得到删除结果
      *
      * @param social
-     * @param callBack
      */
     @Override
-    public void delete(Social social, ValueCallBack<String> callBack) {
+    public Result delete(Social social) {
+        Result result=new Result();
         if(JudgeEmpty.isEmpty(social)){
-            callBack.onFail("300");
-            return;
+            result.setOperateError();
+            return result;
         }
         if(social.getType().equals("Like")){
             setTableName("Love");
@@ -87,15 +89,16 @@ public class OperateSocial implements IOperateSocial {
         Map<String,String> data=changeConditionToMap(social);
 
         if(JudgeEmpty.isEmpty(data)){
-            callBack.onFail("300");
-            return;
+            result.setOperateError();
+            return result;
         }
         if(db.delete(tableName,data)){
-            callBack.onSuccess("200");
+            result.setSuccess();
         }
         else {
-            callBack.onFail("400");
+            result.setFail();
         }
+        return result;
     }
 
     private Map<String,String> changeConditionToMap(Social social){

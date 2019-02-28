@@ -36,14 +36,12 @@ public class CheckCommentDetails implements ICheckCommentDetails {
     /**
      * 获取评论列表
      * @param details
-     * @param callBack
      */
     @Override
-    public void getCommentDetails(CommentDetails details, ValueCallBack<List<CommentDetails>> callBack) {
+    public List<CommentDetails> getCommentDetails(CommentDetails details) {
         List<CommentDetails> data=new ArrayList<>();
         if(JudgeEmpty.isEmpty(details)){
-            callBack.onFail("300");
-            return;
+            return null;
         }
         try {
             ResultSet set=db.query(viewName,changeDetailsToMap(details));
@@ -60,10 +58,11 @@ public class CheckCommentDetails implements ICheckCommentDetails {
                 }
                 data.add(temp);
             }
-            callBack.onSuccess(data);
+
         }catch (SQLException e){
-            callBack.onFail("400");
+            e.printStackTrace();
         }
+        return data;
     }
 
     private Map<String,String> changeDetailsToMap(CommentDetails details){

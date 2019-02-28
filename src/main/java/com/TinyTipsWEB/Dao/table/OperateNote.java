@@ -2,8 +2,8 @@ package com.TinyTipsWEB.DAO.table;
 
 import com.TinyTipsWEB.DAO.sql.IOperateDB;
 import com.TinyTipsWEB.DAO.table.imp.IOperateNote;
+import com.TinyTipsWEB.Model.Result;
 import com.TinyTipsWEB.Model.table.Note;
-import com.TinyTipsWEB.ValueCallBack;
 import com.TinyTipsWEB.util.CollectionAndString;
 import com.TinyTipsWEB.util.CurrentTime;
 import com.TinyTipsWEB.util.JudgeEmpty;
@@ -47,43 +47,45 @@ public class OperateNote implements IOperateNote {
      * 2.通过回调接口得到插入结果
      *
      * @param note
-     * @param callBack
      */
     @Override
-    public void add(Note note, ValueCallBack<String> callBack) {
+    public Result add(Note note) {
+        Result result=new Result();
         if(JudgeEmpty.isEmpty(note)){
-            callBack.onFail("300");
-            return;
+            result.setOperateError();
+            return result;
         }
         addPhoto(note);
         note.setDate(currentTime.getDate("time"));
         Map<String,String> data=changeNoteToMap(note);
         if(db.add(tableName,data)){
-            callBack.onSuccess("200");
+            result.setSuccess();
         }
         else{
-            callBack.onFail("400");
+            result.setFail();
         }
+        return result;
     }
 
     /**
      * 删除数据库中的数据
      * @param note
-     * @param callBack
      */
     @Override
-    public void delete(Note note, ValueCallBack<String> callBack) {
+    public Result delete(Note note) {
+        Result result=new Result();
         if(JudgeEmpty.isEmpty(note)){
-            callBack.onFail("300");
-            return;
+            result.setOperateError();
+            return result;
         }
-        deletePhoto(note);
-        if(db.delete(tableName,changeNoteToMap(note))){
-            callBack.onSuccess("200");
+        if(deletePhoto(note)){
+            if(db.delete(tableName,changeNoteToMap(note))){
+                result.setSuccess();
+                return result;
+            }
         }
-        else {
-            callBack.onFail("400");
-        }
+        result.setFail();
+        return result;
     }
 
     /**
@@ -99,20 +101,21 @@ public class OperateNote implements IOperateNote {
      *
      * @param oldNote
      * @param newNote
-     * @param callBack
      */
     @Override
-    public void update(Note oldNote, Note newNote, ValueCallBack<String> callBack) {
+    public Result update(Note oldNote, Note newNote) {
+        Result result=new Result();
         if(JudgeEmpty.isEmpty(oldNote)|| JudgeEmpty.isEmpty(newNote)){
-            callBack.onFail("300");
-            return;
+            result.setOperateError();
+            return result;
         }
         if(db.update(tableName,changeNoteToMap(newNote),changeNoteToMap(oldNote))){
-            callBack.onSuccess("200");
+            result.setSuccess();
         }
         else {
-            callBack.onFail("400");
+            result.setFail();
         }
+        return result;
     }
 
     /**
@@ -128,13 +131,11 @@ public class OperateNote implements IOperateNote {
      * 2.查询结果数据类型为List
      *
      * @param condition
-     * @param callBack
      */
     @Override
-    public void query(Note condition, ValueCallBack<List<Note>> callBack) {
+    public List<Note> query(Note condition) {
         if(JudgeEmpty.isEmpty(condition)){
-            callBack.onFail("300");
-            return;
+            return null;
         }
         try{
             ResultSet set=db.query(tableName,changeNoteToMap(condition));
@@ -159,10 +160,10 @@ public class OperateNote implements IOperateNote {
                 }
                 result.add(note);
             }
-            callBack.onSuccess(result);
+            return result;
         }catch (SQLException e){
             e.printStackTrace();
-            callBack.onFail("400");
+            return new ArrayList<>();
         }
     }
 
@@ -218,18 +219,19 @@ public class OperateNote implements IOperateNote {
         note.setPhoto(map);
     }
 
-    private void deletePhoto(Note note){
+    private boolean deletePhoto(Note note){
         if(JudgeEmpty.isEmpty(note.getPhoto())){
-            return;
+            return false;
         }
         if(note.getPhoto().isEmpty()){
-            return;
+            return true;
         }
         List<String> photo=new ArrayList<>();
         for(String name:photo){
             fileOperation.deleteFile(imageConstant.getNote(),name,".jpg");
         }
         note.setPhoto(null);
+        return true;
     }
 
     private void queryPhoto(Note note){

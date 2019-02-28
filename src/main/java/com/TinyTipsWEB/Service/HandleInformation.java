@@ -1,6 +1,7 @@
 package com.TinyTipsWEB.Service;
 
 import com.TinyTipsWEB.DAO.table.imp.IOperateInformation;
+import com.TinyTipsWEB.Model.Result;
 import com.TinyTipsWEB.Service.imp.IHandleInformation;
 import com.TinyTipsWEB.Model.table.Information;
 import com.TinyTipsWEB.ValueCallBack;
@@ -16,63 +17,22 @@ public class HandleInformation implements IHandleInformation {
     private IOperateInformation op;
 
     @Override
-    public void add(Information information, final ValueCallBack<String> callBack) {
-        op.add(information, new ValueCallBack<String>() {
-            @Override
-            public void onSuccess(String s) {
-                callBack.onSuccess(s);
-            }
-
-            @Override
-            public void onFail(String msg) {
-                callBack.onFail(msg);
-            }
-        });
+    public Result add(Information information) {
+        return op.add(information);
     }
 
     @Override
-    public void delete(Information information, final ValueCallBack<String> callBack) {
-        op.delete(information, new ValueCallBack<String>() {
-            @Override
-            public void onSuccess(String s) {
-                callBack.onSuccess(s);
-            }
-
-            @Override
-            public void onFail(String msg) {
-                callBack.onFail(msg);
-            }
-        });
+    public Result delete(Information information) {
+        return op.delete(information);
     }
 
     @Override
-    public void query(Information information, final ValueCallBack<List<Information>> callBack) {
-        op.query(information, new ValueCallBack<List<Information>>() {
-            @Override
-            public void onSuccess(List<Information> information) {
-                callBack.onSuccess(information);
-            }
-
-            @Override
-            public void onFail(String msg) {
-                callBack.onFail(msg);
-            }
-        });
+    public Result update(Information oldInformation, Information newInformation) {
+        return op.update(oldInformation, newInformation);
     }
 
     @Override
-    public void update(Information data, Information condition, final ValueCallBack<String> callBack) {
-        op.update(condition, data, new ValueCallBack<String>() {
-            @Override
-            public void onSuccess(String s) {
-                callBack.onSuccess(s);
-            }
-
-            @Override
-            public void onFail(String msg) {
-                callBack.onFail(msg);
-            }
-        });
+    public List<Information> query(Information information) {
+        return op.query(information);
     }
-
 }
