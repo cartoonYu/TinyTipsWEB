@@ -29,7 +29,7 @@ public class OperateNote implements IOperateNote {
     @Resource(name = "currentTime")
     private CurrentTime currentTime;
 
-    @Value("Note")
+    @Value("note")
     private String tableName;
 
     @Resource(name = "collectAndString")
@@ -109,7 +109,10 @@ public class OperateNote implements IOperateNote {
             result.setOperateError();
             return result;
         }
-        if(db.update(tableName,changeNoteToMap(newNote),changeNoteToMap(oldNote))){
+        Map<String,String> data=changeNoteToMap(newNote);
+        Map<String,String> condition=new HashMap<>();
+        condition.put("id",Long.toString(oldNote.getId()));
+        if(db.update(tableName,data,condition)){
             result.setSuccess();
         }
         else {

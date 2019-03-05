@@ -26,7 +26,7 @@ public class CheckCommentDetails implements ICheckCommentDetails {
     @Resource(name = "imageConstant")
     private ImageConstant imageConstant;
 
-    @Value("CommentDetails")
+    @Value("commentdetails")
     private String viewName;
 
     @Resource(name = "operateDB")

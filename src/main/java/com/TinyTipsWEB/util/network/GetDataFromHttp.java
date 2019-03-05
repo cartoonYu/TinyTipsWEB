@@ -1,9 +1,11 @@
 package com.TinyTipsWEB.util.network;
 
+import org.apache.log4j.Logger;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 
@@ -18,17 +20,19 @@ import java.net.URLDecoder;
 @Component("getDataFromHttp")
 public class GetDataFromHttp implements IGetDataFromHttp{
 
+    private Logger log;
+
     @Override
     public JSONObject getJSONObject(String data){
-        String temp=decode("data:"+data);
-        System.out.println(temp);
+        String temp=decode(data);
+        log.info(temp);
         JSONObject object=new JSONObject(temp);
         return object;
     }
 
     @Override
     public JSONArray getJSONArray(String data) {
-        String temp=decode("data:"+data);
+        String temp=decode(data);
         System.out.println(temp);
         JSONArray array=new JSONArray(temp);
         return array;
@@ -43,5 +47,10 @@ public class GetDataFromHttp implements IGetDataFromHttp{
             return null;
         }
         return temp.substring(0,temp.length()-1);
+    }
+
+    @PostConstruct
+    private void init(){
+        log=Logger.getLogger(this.getClass());
     }
 }

@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 @Controller
 @RequestMapping("/TinyTipsWEB/Information")
@@ -59,7 +60,8 @@ public class InformationController implements IInformationController{
     @Override
     public Object queryInformation(@RequestBody String data){
         Information condition=objectOperation.getInformationFromJSON(getData.getJSONObject(data));
-        return handleInformation.query(condition);
+        List<Information> list=handleInformation.query(condition);
+        return list;
     }
 
     @RequestMapping(value = "/update")

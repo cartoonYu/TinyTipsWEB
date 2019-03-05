@@ -9,9 +9,11 @@ import com.TinyTipsWEB.util.CurrentTime;
 import com.TinyTipsWEB.util.JudgeEmpty;
 import com.TinyTipsWEB.util.file.FileOperation;
 import com.TinyTipsWEB.util.file.ImageConstant;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Repository;
 
+import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -32,7 +34,7 @@ public class OperateInformation implements IOperateInformation {
     @Resource(name = "currentTime")
     private CurrentTime currentTime;
 
-    @Value("Information")
+    @Value("information")
     private String tableName;
 
     @Resource(name = "operateDB")
@@ -40,6 +42,8 @@ public class OperateInformation implements IOperateInformation {
 
     @Resource(name = "collectAndString")
     private CollectionAndString cs;
+
+    private Logger log;
 
     /**
      * 功能
@@ -192,9 +196,8 @@ public class OperateInformation implements IOperateInformation {
             }
         }catch (SQLException e){
             e.printStackTrace();
-        }finally {
-            return list;
         }
+        return list;
     }
 
     /**
@@ -275,6 +278,11 @@ public class OperateInformation implements IOperateInformation {
         else{
             return false;
         }
+    }
+
+    @PostConstruct
+    private void init(){
+        log=Logger.getLogger(getClass());
     }
 
 }

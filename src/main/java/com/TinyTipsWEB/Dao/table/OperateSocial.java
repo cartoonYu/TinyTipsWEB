@@ -42,10 +42,10 @@ public class OperateSocial implements IOperateSocial {
             return result;
         }
         if(social.getType().equals("Like")){
-            setTableName("Love");
+            setTableName("love");
         }
         else {
-            setTableName(social.getType());
+            setTableName(social.getType().toLowerCase());
         }
         Map<String,String> data=changeConditionToMap(social);
         data.put("date",currentTime.getDate("time"));
@@ -80,10 +80,10 @@ public class OperateSocial implements IOperateSocial {
             return result;
         }
         if(social.getType().equals("Like")){
-            setTableName("Love");
+            setTableName("love");
         }
         else {
-            setTableName(social.getType());
+            setTableName(social.getType().toLowerCase());
         }
         Map<String,String> data=changeConditionToMap(social);
 

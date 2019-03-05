@@ -1,7 +1,10 @@
 package com.TinyTipsWEB.DAO.sql;
 
+import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -19,6 +22,8 @@ public class OperateDB implements IOperateDB {
 
     @Resource(name = "connection")
     private Connection connection;
+
+    private Logger log;
 
     /**
      * 插入数据
@@ -81,7 +86,7 @@ public class OperateDB implements IOperateDB {
         for(String temp:columns){
             sql.append(temp).append("= ? and ");
         }
-        return sql.substring(0,sql.length()-3).concat(";");
+        return sql.substring(0,sql.length()-4).concat(";");
     }
 
     /**
@@ -95,15 +100,15 @@ public class OperateDB implements IOperateDB {
         List<String> columns=getColumns(condition);
         String sql=getQuerySQL(tableName,columns);
         PreparedStatement pst=getPreparedStatement(sql,columns,condition);
+        log.info(pst);
         ResultSet result=null;
         try {
             result=pst.executeQuery();
         } catch (SQLException e) {
             e.printStackTrace();
-        } finally {
-            out.println("Result Set empty:"+result==null);
-            return result;
         }
+        log.info("query result is"+result!=null);
+        return result;
     }
 
     /**
@@ -183,7 +188,6 @@ public class OperateDB implements IOperateDB {
      * @return
      */
     private PreparedStatement getPreparedStatement(String sql, List<String> columns,Map<String,String> data){
-        out.println("sql:"+sql);
         PreparedStatement pst=null;
         try {
             pst=connection.prepareStatement(sql);
@@ -235,19 +239,28 @@ public class OperateDB implements IOperateDB {
      * @return
      */
     private boolean updateData(PreparedStatement pst){
+        log.info(pst);
         int result=0;
         try {
             result=pst.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        out.println("effect row:"+result);
+        log.info("effect row:"+result);
         if(result==0){
             return false;
         }
         else {
             return true;
         }
+    }
+
+    /**
+     * 初始化成员变量
+     */
+    @PostConstruct
+    public void init(){
+        log=Logger.getLogger(this.getClass());
     }
 
 }

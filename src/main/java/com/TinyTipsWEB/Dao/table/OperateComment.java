@@ -20,7 +20,7 @@ import java.util.Map;
 @Repository("operateComment")
 public class OperateComment implements IOperateComment {
 
-    @Value("Comment")
+    @Value("comment")
     private String tableName;
 
     @Resource(name = "operateDB")

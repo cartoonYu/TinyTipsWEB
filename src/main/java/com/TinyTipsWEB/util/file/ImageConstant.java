@@ -1,17 +1,19 @@
 package com.TinyTipsWEB.util.file;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component("imageConstant")
 public class ImageConstant {
 
+    @Value("${imageConstant.information}")
     private String information;
 
+    @Value("${imageConstant.note}")
     private String note;
 
+    @Value("${imageConstant.comment}")
     private String comment;
-
-    private String commentDetails;
 
     public String getNote() {
         return note;
@@ -19,10 +21,6 @@ public class ImageConstant {
 
     public String getInformation() {
         return information;
-    }
-
-    public String getCommentDetails() {
-        return commentDetails;
     }
 
     public String getComment() {
@@ -39,10 +37,6 @@ public class ImageConstant {
 
     public void setComment(String comment) {
         this.comment = comment;
-    }
-
-    public void setCommentDetails(String commentDetails) {
-        this.commentDetails = commentDetails;
     }
 
     public ImageConstant(){
